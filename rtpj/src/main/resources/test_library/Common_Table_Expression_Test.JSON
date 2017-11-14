@@ -1,0 +1,23 @@
+{
+  "test": {
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "WITH PROCS (name, parms) AS (SELECT NAME, PARM_COUNT FROM SYSIBM.SYSROUTINES) SELECT * FROM PROCS WHERE NAME = ?",
+        "type": "PREPARE",
+        "subtype": "SELECT",
+        "repeat": 10,
+        "args": [
+          {
+            "value": "DB2_INSTALL_JAR",
+            "type": "static",
+            "datatype": "varchar"
+          }
+        ]
+      }
+    ]
+  }
+}

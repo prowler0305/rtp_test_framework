@@ -1,0 +1,67 @@
+{
+  "test": {
+    "description": "Execute a unique 32K SQL statement 50 times over 50 different connections in parallel with cpu parallelism and without.",
+    "connection": {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 10,
+      "parallel": "true"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT DEGREE = 'ANY'",
+        "type": "IMMEDIATE"
+      },
+      {
+        "text": "SELECT A.ID FROM RTP.RTPJST1 AS A, RTP.RTPJST1 AS B WHERE :H2 = :H2 OR A.RESUME = ':H1' ORDER BY A.ID FETCH FIRST 1000 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 300,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "key": ":H2",
+            "value": 1
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "subtype": "literal",
+            "key": ":H1",
+            "length": 31871
+          }
+        ]
+      },
+      {
+        "text": "SET CURRENT DEGREE = '1'",
+        "type": "IMMEDIATE"
+      },
+      {
+        "text": "SELECT A.ID FROM RTP.RTPJST1 AS A, RTP.RTPJST1 AS B WHERE :H2 = :H2 OR A.RESUME = ':H1' ORDER BY A.ID FETCH FIRST 1000 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 300,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "key": ":H2",
+            "value": 1
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "subtype": "literal",
+            "key": ":H1",
+            "length": 31871
+          }
+        ]
+      }
+    ]
+  }
+}

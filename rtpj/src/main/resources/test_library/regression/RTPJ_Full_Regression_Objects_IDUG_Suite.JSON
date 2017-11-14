@@ -1,0 +1,15 @@
+{
+  "suite": {
+    "description": "Create the RTPJ Full Regression Test Objects",
+    "connection": {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "tests": [
+      "RTPJ_Trigger_Drop_Objects.JSON",
+      "SP_Main_Objects.JSON",
+      "Unique_SQL_Objects.JSON",
+      "Parallel_Objects.JSON"
+    ]
+  }
+}

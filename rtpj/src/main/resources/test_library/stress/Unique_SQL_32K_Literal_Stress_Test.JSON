@@ -1,0 +1,41 @@
+{
+  "test": {
+    "description": "Execute a unique 32K SQL statement 50 times over 50 different connections in parallel with cpu parallelism and without.",
+    "connection": {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 1,
+      "parallel": "true"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT DEGREE = 'ANY'",
+        "type": "IMMEDIATE"
+      },
+      {
+        "text": "SELECT B.ID, CAST(':H1' AS VARCHAR(31871) CCSID UNICODE) FROM RTP.RTPJST1 AS A, RTP.RTPJST1 AS B WHERE :H2 = :H2 ORDER BY A.ID FETCH FIRST 1000 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "key": ":H2",
+            "value": 1
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "subtype": "literal",
+            "key": ":H1",
+            "length": 31871
+          }
+        ]
+      }
+    ]
+  }
+}

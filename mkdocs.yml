@@ -1,0 +1,37 @@
+site_name: Real Time Performance Test Suite
+
+pages:
+  - Introduction: index.md
+  - Getting Started: getting-started.md
+  - RTPJ:
+      - Build Instructions: rtpj/build-instructions.md
+      - Running Tests: rtpj/running-tests.md
+      - Tracking Results: rtpj/test-tracker.md
+      - Creating Tests:
+        - Writing Tests: rtpj/writing-tests.md
+        - JSON - Single File Tests: rtpj/json/single-file-tests.md
+        - JSON - Test Suites: rtpj/json/test-suites.md
+  - RTPPY:
+      - Introduction: rtppy/introduction.md
+      - Running Tests:
+        - Executing: rtppy/executing-tests.md
+        - Execute via Jenkins: rtppy/execute-jenkins.md
+        - Execute via Intellij: rtppy/execute-intellij.md
+        - Command Line Options: rtppy/command-line-options.md
+        - JSON Parameters: rtppy/json-parameters.md
+        - Creating Tests: rtppy/creating-tests.md
+        - Viewing Output on Jenkins: rtppy/jenkins-output.md
+        - Test Types:
+          - Interval Compare: rtppy/interval-compare.md
+          - Aggregate Compare: rtppy/aggregate-compare.md
+          - Start/Stop Collection: rtppy/start-collection.md
+          - RTP Test Suite App: rtppy/rtptest.md
+          - Abend Restart: rtppy/abend-restart.md
+          - Distributed SQL: rtppy/rtpj-exec.md
+          - Lock Release: rtppy/lock-release.md
+          - SQL Text: rtppy/sql-text.md
+      - Architecture and Design: rtppy/automation_architecture.md
+  - Help:
+      - Environment Variables: help/environment-variables.md
+      - Using Git/GitHub: help/using-git.md
+      - Creating a GitHug Issue: help/create-issue.md

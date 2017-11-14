@@ -1,0 +1,63 @@
+{
+  "test": {
+    "description": "Executes a select that causes 100 getpages running once using CPU parallelism and once without.",
+    "relationships": {
+      "checks": "RTPJ_SELECTS_CHECKS.JSON",
+      "objects": "Standalone_Select_Objects.JSON"
+    },
+    "connection": {
+      "ssid": "D11D",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 1,
+      "parallel": false
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT DEGREE = '1'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+
+        "text": "SELECT SINGLE.ID FROM RTP.RTPJSS1 AS SINGLE ORDER BY SINGLE.ID FETCH FIRST :H1 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "static",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table rows value.",
+            "value": 99,
+            "key": ":H1"
+          }
+        ]
+      },
+      {
+        "text": "SET CURRENT DEGREE = 'ANY'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+
+        "text": "SELECT PTASK.ID FROM RTP.RTPJSS1 AS PTASK ORDER BY PTASK.ID FETCH FIRST :H1 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "static",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table rows value.",
+            "value": 99,
+            "key": ":H1"
+          }
+        ]
+      }
+    ]
+  }
+}

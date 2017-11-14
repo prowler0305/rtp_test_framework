@@ -1,0 +1,44 @@
+{
+  "test": {
+    "seed": 20,
+    "description": "This json file inserts data into a set of RTPJTB* objects to be used in other tests. ",
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "INSERT INTO RTPJTB:H1 (id, salary) VALUES (?, ?)",
+        "type": "BATCH",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "batches": 2,
+        "args": [
+          {
+            "type": "static",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 2,
+            "key": ":H1",
+            "max": 2
+          },
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "value": 3
+          },
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "value": 101
+          }]
+      }
+    ]
+  }
+}

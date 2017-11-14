@@ -1,0 +1,253 @@
+{
+  "test": {
+    "description": "Drops then Creates four stored procedures. RTPJSPPC(Parallelism with a CLOSE), RTPJSPPN(Parallelism without a CLOSE), RTPJSPC(No Parallelism with a CLOSE), RTPJSPN(No Parallelism without a CLOSE), RTPJSPPM(Parallelism with a close and calls RTPJSPPC) RTPJSPPS(Parallelism with multiple statements and a close).  This test also drops and creates a database, tablespace and table used for SP tests.",
+    "connection": {
+      "ssid": "DD0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "DROP PROCEDURE RTP.RTPJSPF2",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "text": "DROP PROCEDURE RTP.RTPJSPPF",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "text": "DROP PROCEDURE RTP.RTPJSPPM",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "text": "DROP PROCEDURE RTP.RTPJSPPS",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "text": "COMMIT",
+        "type": "IMMEDIATE"
+      },
+      {
+        "text": "DROP PROCEDURE RTP.RTPJSPPC",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "text": "DROP PROCEDURE RTP.RTPJSPPN",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "text": "DROP PROCEDURE RTP.RTPJSPC",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "text": "DROP PROCEDURE RTP.RTPJSPN",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "text": "DROP PROCEDURE RTP.RTPJSPST",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "text": "DROP DATABASE RTPJSP:H1",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "value": 1,
+            "key": ":H1"
+          }],
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "description": "Procedure RTPJSPPC parallel threads with a CLOSE statement.",
+        "text": "CREATE PROCEDURE RTP.RTPJSPPC (IN TEXT CHAR(255), IN PTASK CHAR(5)) LANGUAGE SQL WLM ENVIRONMENT FOR DEBUG MODE DSNWLMG DYNAMIC RESULT SETS 1 BEGIN DECLARE MYPARM1 CHAR(128); DECLARE RCOUNT INTEGER DEFAULT 1000; DECLARE ICOUNT INTEGER DEFAULT 0; DECLARE C1 CURSOR FOR STMT1; SET CURRENT DEGREE = PTASK; PREPARE STMT1 FROM TEXT; OPEN C1; WHILE ICOUNT < RCOUNT DO FETCH C1 INTO MYPARM1; SET ICOUNT = ICOUNT + 1; END WHILE; CLOSE C1; END",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "description": "Procedure RTPJSPPN parallel threads without a CLOSE statement.",
+        "text": "CREATE PROCEDURE RTP.RTPJSPPN (IN TEXT VARCHAR(512), IN PTASK VARCHAR(5)) LANGUAGE SQL WLM ENVIRONMENT FOR DEBUG MODE DSNWLSG DYNAMIC RESULT SETS 1 BEGIN DECLARE MYPARM1 CHAR(128); DECLARE RCOUNT INTEGER DEFAULT 1000; DECLARE ICOUNT INTEGER DEFAULT 0; DECLARE C1 CURSOR FOR STMT1; SET CURRENT DEGREE = PTASK; PREPARE STMT1 FROM TEXT; OPEN C1; WHILE ICOUNT < RCOUNT DO FETCH C1 INTO MYPARM1; SET ICOUNT = ICOUNT + 1; END WHILE; END",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "description": "Procedure RTPJSPC no parallelism with a CLOSE statement.",
+        "text": "CREATE PROCEDURE RTP.RTPJSPC (IN TEXT VARCHAR(512)) LANGUAGE SQL DYNAMIC RESULT SETS 1 BEGIN DECLARE MYPARM1 CHAR(128); DECLARE RCOUNT INTEGER DEFAULT 1000; DECLARE ICOUNT INTEGER DEFAULT 0; DECLARE C1 CURSOR FOR STMT1; PREPARE STMT1 FROM TEXT; OPEN C1; WHILE ICOUNT < RCOUNT DO FETCH C1 INTO MYPARM1; SET ICOUNT = ICOUNT + 1; END WHILE; CLOSE C1; END",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "description": "Procedure RTPJSPN no parallelism without a CLOSE statement.",
+        "text": "CREATE PROCEDURE RTP.RTPJSPN (IN TEXT VARCHAR(512)) LANGUAGE SQL DYNAMIC RESULT SETS 1 BEGIN DECLARE MYPARM1 CHAR(128); DECLARE RCOUNT INTEGER DEFAULT 1000; DECLARE ICOUNT INTEGER DEFAULT 0; DECLARE C1 CURSOR FOR STMT1; PREPARE STMT1 FROM TEXT; OPEN C1; WHILE ICOUNT < RCOUNT DO FETCH C1 INTO MYPARM1; SET ICOUNT = ICOUNT + 1; END WHILE; END",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "description": "Procedure RTPJSPPM with parallelism with a CLOSE statement and a call to another stored procedure.",
+        "text": "CREATE PROCEDURE RTP.RTPJSPPM (IN TEXT VARCHAR(512), IN PTASK VARCHAR(5)) LANGUAGE SQL DYNAMIC RESULT SETS 1 BEGIN DECLARE MYPARM1 CHAR(128); DECLARE RCOUNT INTEGER DEFAULT 1000; DECLARE ICOUNT INTEGER DEFAULT 0; DECLARE C1 CURSOR FOR STMT1;  SET CURRENT DEGREE = PTASK; PREPARE STMT1 FROM TEXT; OPEN C1; WHILE ICOUNT < RCOUNT DO FETCH C1 INTO MYPARM1; SET ICOUNT = ICOUNT + 1; END WHILE; CALL RTPJSPPC(TEXT, PTASK); CLOSE C1; END",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "description": "Procedure RTPJSPPS multiple statements with parallelism with a CLOSE statement.",
+        "text": "CREATE PROCEDURE RTP.RTPJSPPS (IN TEXT VARCHAR(512), IN TEXT2 VARCHAR(512), IN PTASK VARCHAR(5)) LANGUAGE SQL DYNAMIC RESULT SETS 2 BEGIN DECLARE MYPARM1 CHAR(128); DECLARE MYPARM2 CHAR(128); DECLARE RCOUNT INTEGER DEFAULT 1000; DECLARE ICOUNT INTEGER DEFAULT 0; DECLARE C1 CURSOR FOR STMT1; DECLARE C2 CURSOR FOR STMT2; SET CURRENT DEGREE = PTASK; PREPARE STMT1 FROM TEXT; OPEN C1; WHILE ICOUNT < RCOUNT DO FETCH C1 INTO MYPARM1; SET ICOUNT = ICOUNT + 1; END WHILE; CLOSE C1; SET ICOUNT = 0; PREPARE STMT2 FROM TEXT2; OPEN C2; WHILE ICOUNT < RCOUNT DO FETCH C2 INTO MYPARM2; SET ICOUNT = ICOUNT+1; END WHILE; CLOSE C2; CALL RTPJSPPC(TEXT, PTASK); END",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "description": "Procedure RTPJSPPF specifies how many rows to fetch.",
+        "text": "CREATE PROCEDURE RTP.RTPJSPPF (IN TEXT VARCHAR(512), IN TEXT2 VARCHAR(512), IN PTASK VARCHAR(5), IN NUMROWS INTEGER) LANGUAGE SQL DYNAMIC RESULT SETS 2 BEGIN DECLARE MYPARM1 CHAR(128); DECLARE MYPARM2 CHAR(128); DECLARE RCOUNT INTEGER DEFAULT 1000; DECLARE ICOUNT INTEGER DEFAULT 0; DECLARE C1 CURSOR FOR STMT1; DECLARE C2 CURSOR FOR STMT2; SET CURRENT DEGREE = PTASK; SET RCOUNT = NUMROWS; PREPARE STMT1 FROM TEXT; OPEN C1; WHILE ICOUNT < RCOUNT DO FETCH C1 INTO MYPARM1; SET ICOUNT = ICOUNT + 1; END WHILE; CLOSE C1; SET ICOUNT = 0; PREPARE STMT2 FROM TEXT2; OPEN C2; WHILE ICOUNT < RCOUNT DO FETCH C2 INTO MYPARM2; SET ICOUNT = ICOUNT+1; END WHILE; CLOSE C2; CALL RTPJSPPC(TEXT, PTASK); END",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "description": "Procedure RTPJSPF2 specifies how many rows to fetch. Execute stmt, call procedure, execute another stmt.",
+        "text": "CREATE PROCEDURE RTP.RTPJSPF2 (IN TEXT VARCHAR(512), IN TEXT2 VARCHAR(512), IN PTASK VARCHAR(5), IN NUMROWS INTEGER) LANGUAGE SQL DYNAMIC RESULT SETS 2 BEGIN DECLARE MYPARM1 CHAR(128); DECLARE MYPARM2 CHAR(128); DECLARE RCOUNT INTEGER DEFAULT 1000; DECLARE ICOUNT INTEGER DEFAULT 0; DECLARE C1 CURSOR FOR STMT1; DECLARE C2 CURSOR FOR STMT2; SET CURRENT DEGREE = PTASK; SET RCOUNT = NUMROWS; PREPARE STMT1 FROM TEXT; OPEN C1; WHILE ICOUNT < RCOUNT DO FETCH C1 INTO MYPARM1; SET ICOUNT = ICOUNT + 1; END WHILE; CLOSE C1; CALL RTP.RTPJSPPC(TEXT, PTASK); SET ICOUNT = 0; PREPARE STMT2 FROM TEXT2; OPEN C2; WHILE ICOUNT < RCOUNT DO FETCH C2 INTO MYPARM2; SET ICOUNT = ICOUNT+1; END WHILE; CLOSE C2;  END",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "description": "Procedure RTPJSPST is a static procedure.  It uses parallelism and takes no arguments.",
+        "text": "CREATE PROCEDURE RTP.RTPJSPST LANGUAGE SQL DYNAMIC RESULT SETS 1 BEGIN DECLARE MYPARM1 CHAR(128); DECLARE RCOUNT INTEGER DEFAULT 1000; DECLARE TEXT CHAR(128); DECLARE ICOUNT INTEGER DEFAULT 0; DECLARE C1 CURSOR FOR STMT1; SET TEXT = 'SELECT A.ID FROM RTP.RTPJSP1 AS A, RTP.RTPJSP1 AS B ORDER BY B.ID FETCH FIRST 1000 ROWS ONLY;'; SET CURRENT DEGREE = 'ANY'; PREPARE STMT1 FROM TEXT; OPEN C1; WHILE ICOUNT < RCOUNT DO FETCH C1 INTO MYPARM1; SET ICOUNT = ICOUNT + 1; END WHILE; CLOSE C1; SET ICOUNT = 0; END",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE DATABASE RTPJSP:H1 BUFFERPOOL BP1 INDEXBP BP2 STOGROUP SYSDEFLT",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "value": 1,
+            "description": "Database literal counter.",
+            "key": ":H1"
+          }]
+      },
+      {
+        "text": "CREATE TABLESPACE RTPJSP:H1 IN RTPJSP:DB1 USING STOGROUP SYSDEFLT PRIQTY -1 SECQTY -1 ERASE NO BUFFERPOOL BP2 DSSIZE 4G CLOSE YES LOCKMAX SYSTEM SEGSIZE 32 FREEPAGE 0 PCTFREE 0 GBPCACHE CHANGED DEFINE YES LOGGED TRACKMOD YES MAXPARTITIONS 4096 COMPRESS YES LOCKSIZE ANY MAXROWS 1 CCSID EBCDIC;",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Tablespace literal counter.",
+            "value": 1,
+            "key": ":H1"
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Database literal counter.",
+            "value": 1,
+            "key": ":DB1"
+          }]
+      },
+      {
+        "text": "CREATE TABLE RTPJSP:H1 (id INTEGER NOT NULL WITH DEFAULT, resume VARCHAR(4042) NOT NULL WITH DEFAULT) in RTPJSP:DB1.RTPJSP:H1 APPEND NO CCSID EBCDIC PARTITION BY SIZE EVERY 4G",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Tablespace literal counter.",
+            "value": 1,
+            "key": ":H1"
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Database literal counter.",
+            "value": 1,
+            "key": ":DB1"
+          }
+        ]
+      },
+      {
+        "text": "INSERT INTO RTPJSP:H1 (id, resume) VALUES (?,?)",
+        "type": "BATCH",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "batches": 100,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 20
+          },
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "value": 1
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "length": 4042
+          }
+        ]
+      }
+    ]
+  }
+}

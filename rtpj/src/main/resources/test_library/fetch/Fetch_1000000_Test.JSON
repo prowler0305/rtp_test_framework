@@ -1,0 +1,31 @@
+{
+  "test": {
+    "description": "Executes a select that causes 1,000,000 fetches across 4 threads for use with testing Maceys P1520.",
+    "connection": {
+      "ssid": "D11C",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 50,
+      "parallel": true
+    },
+    "statements": [
+      {
+        "text": "SELECT * FROM HARJO20.JEMP FETCH FIRST :H1 ROWS ONLY",
+        "type": "PREPARE",
+        "subtype": "SELECT",
+        "repeat": 4,
+        "args": [
+          {
+            "type": "static",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Number of rows to fetch value.",
+            "value": 1000000,
+            "key": ":H1"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "test": {
+    "description": "This test returns PACK_STATEMENT.",
+    "connection": {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 5,
+      "parallel": "true"
+    },
+    "statements": [
+      {
+        "text": "SELECT LOCATION, COLLID, NAME, STMT_ID, CLOB(STATEMENT, 32767) AS STATEMENT FROM SYSIBM.SYSPACKSTMT FETCH FIRST 100 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1
+      }
+    ]
+  }
+}

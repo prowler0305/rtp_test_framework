@@ -1,0 +1,138 @@
+{
+  "test": {
+    "seed": 20,
+    "description": "This json file creates a set of RTPJ objects to be used in other tests.  This includes a Storage Group, Databases, Tablespaces, Tables and Indexes.",
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "CREATE DATABASE PXMLDB:H1 STOGROUP SYSDEFLT BUFFERPOOL BP1 INDEXBP BP2 CCSID EBCDIC ",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 2,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "value": 1,
+            "key": ":H1"
+          }]
+      },
+      {
+        "text": "CREATE TABLESPACE PXMLTS:H1 IN PXMLDB:DB1 USING STOGROUP SYSDEFLT PRIQTY -1 SECQTY -1 ERASE NO BUFFERPOOL BP1 DSSIZE 4G CLOSE YES LOCKMAX SYSTEM SEGSIZE 4 MAXPARTITIONS 256 FREEPAGE 0 PCTFREE 0 GBPCACHE CHANGED DEFINE YES LOCKSIZE ANY CCSID EBCDIC",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 10,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "value": 1,
+            "key": ":H1"
+          },
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Database literal counter.",
+            "value": 1,
+            "key": ":DB1",
+            "max": 2
+          }]
+      },
+      {
+        "text": "CREATE TABLE PXMLTB:H1 ( CID BIGINT , INFO XML) in PXMLDB:H2.PXMLTS:H1 CCSID EBCDIC",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 10,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "value": 1,
+            "key": ":H1"
+          },
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "value": 1,
+            "key": ":H2",
+            "max": 2
+          }
+        ]
+      },
+      {
+        "text": "CREATE INDEX PXMLX1TB:H1 ON PXMLTB:H1 ( CID ASC ) DEFINE YES COMPRESS NO BUFFERPOOL BP2 USING STOGROUP SYSDEFLT PRIQTY -1 SECQTY -1 PIECESIZE 4194304K",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 10,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "value": 1,
+            "key": ":H1"
+          }]
+      },
+      {
+        "text": "INSERT INTO PXMLTB:H1 (CID, INFO) VALUES (:H2, ':H3')",
+        "type": "immediate",
+        "subtype": "INSERT",
+        "repeat": 100,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "value": 1,
+            "key": ":H1",
+            "max": 10
+          },
+          {
+            "value": 1,
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "key": ":H2"
+          },
+          {
+            "type": "static",
+            "datatype": "varchar",
+            "subtype": "literal",
+            "value": "<CUSTOMERINFO> <NAME>Mimi Rogers</NAME> <ADDR> <STREET>21 Timberland</STREET> <CITY>TORONTO</CITY> <PROV-STATE>ONTARIO</PROV-STATE> <PCODE-ZIP>M6W 1E6</PCODE-ZIP> </ADDR> <PHONE>416-555-6276</PHONE> </CUSTOMERINFO>",
+            "key": ":H3"
+          }]
+      },
+      {
+        "text": "SELECT COUNT(*) FROM PXMLTB:H1",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 10,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "value": 1,
+            "key": ":H1"
+          }],
+        "expect": {
+          "columns": 1,
+          "rows": 1
+        }
+      }
+    ]
+  }
+}

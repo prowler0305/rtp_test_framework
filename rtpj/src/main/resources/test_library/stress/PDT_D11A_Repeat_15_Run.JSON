@@ -1,0 +1,26 @@
+{
+  "suite": {
+    "description": "A stored procedure, UDF and two Procs test suite.",
+    "connection": {
+      "ssid": "D11A",
+      "userid": "QADBA01"
+    },
+    "tests":
+    [
+      "SP_Basic_Test.JSON",
+      "SP_Native_Loop_Test.JSON",
+      "SP_Native_Dynamic_Select_Test.JSON",
+      "Basic_Select_Test.JSON",
+      "Basic_Multi_Threaded_Select_Test.JSON",
+      "Basic_Create_Insert_Test.JSON",
+      "SP_Basic_Test.JSON",
+      "1Byte_Statement_Test.JSON",
+      "Common_Table_Expression_Test.JSON",
+      "Insert_All_Types_Regression_Test.JSON",
+      "Insert_Literal_Regression_Test.JSON",
+      "Insert_Null_Regression_Test.JSON",
+      "Insert_Parameter_Regression_Test.JSON",
+      "John_Two_Procs.JSON"
+    ]
+  }
+}

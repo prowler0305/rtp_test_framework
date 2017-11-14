@@ -1,0 +1,480 @@
+{
+  "connection":
+  {
+    "lpar": "ca31",
+    "ssid": "dd2g",
+    "userid": "bergra1"
+  },
+  "tests":
+  [
+    {
+      "test_type": "psa sampling boundary",
+      "environment": "BERGR05.R190.PARMLIB(19)",
+      "current_vcat": "PTIDEVL.BERGR05",
+      "current_datastore": "R190DS",
+      "view_by": "T",
+      "repeat": 10,
+      "range_pct": 0,
+      "xman": "PTXGB19",
+      "xmanargs": "HLQ=ENDB2.MOTM.DBT190.PSA00467.W2",
+      "samp": 100,
+      "options": {
+        "itime": "99:00"
+      },
+      "keyset": [
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS1",
+          "TABLENAME": "RTPJTB1"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS2",
+          "TABLENAME": "RTPJTB2"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS3",
+          "TABLENAME": "RTPJTB3"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS4",
+          "TABLENAME": "RTPJTB4"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS5",
+          "TABLENAME": "RTPJTB5"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS6",
+          "TABLENAME": "RTPJTB6"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS7",
+          "TABLENAME": "RTPJTB7"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS8",
+          "TABLENAME": "RTPJTB8"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS9",
+          "TABLENAME": "RTPJTB9"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS10",
+          "TABLENAME": "RTPJTB10"
+        }
+      ]
+    },
+    {
+      "test_type": "psa sampling boundary",
+      "environment": "BERGR05.R190.PARMLIB(19)",
+      "current_vcat": "PTIDEVL.BERGR05",
+      "current_datastore": "R190DS",
+      "view_by": "T",
+      "repeat": 10,
+      "range_pct": 1.5,
+      "xman": "PTXGB19",
+      "xmanargs": "HLQ=ENDB2.MOTM.DBT190.PSA00467.W2",
+      "samp": 50,
+      "options": {
+        "itime": "99:00"
+      },
+      "keyset": [
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS1",
+          "TABLENAME": "RTPJTB1"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS2",
+          "TABLENAME": "RTPJTB2"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS3",
+          "TABLENAME": "RTPJTB3"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS4",
+          "TABLENAME": "RTPJTB4"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS5",
+          "TABLENAME": "RTPJTB5"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS6",
+          "TABLENAME": "RTPJTB6"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS7",
+          "TABLENAME": "RTPJTB7"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS8",
+          "TABLENAME": "RTPJTB8"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS9",
+          "TABLENAME": "RTPJTB9"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS10",
+          "TABLENAME": "RTPJTB10"
+        }
+      ]
+    },
+    {
+      "test_type": "psa sampling boundary",
+      "environment": "BERGR05.R190.PARMLIB(19)",
+      "current_vcat": "PTIDEVL.BERGR05",
+      "current_datastore": "R190DS",
+      "view_by": "T",
+      "repeat": 10,
+      "range_pct": 1.5,
+      "xman": "PTXGB19",
+      "xmanargs": "HLQ=ENDB2.MOTM.DBT190.PSA00467.W2",
+      "samp": 25,
+      "options": {
+        "itime": "99:00"
+      },
+      "keyset": [
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS1",
+          "TABLENAME": "RTPJTB1"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS2",
+          "TABLENAME": "RTPJTB2"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS3",
+          "TABLENAME": "RTPJTB3"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS4",
+          "TABLENAME": "RTPJTB4"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS5",
+          "TABLENAME": "RTPJTB5"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS6",
+          "TABLENAME": "RTPJTB6"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS7",
+          "TABLENAME": "RTPJTB7"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS8",
+          "TABLENAME": "RTPJTB8"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS9",
+          "TABLENAME": "RTPJTB9"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS10",
+          "TABLENAME": "RTPJTB10"
+        }
+      ]
+    },
+    {
+      "test_type": "psa sampling boundary",
+      "environment": "BERGR05.R190.PARMLIB(19)",
+      "current_vcat": "PTIDEVL.BERGR05",
+      "current_datastore": "R190DS",
+      "view_by": "T",
+      "repeat": 10,
+      "range_pct": 1.5,
+      "xman": "PTXGB19",
+      "xmanargs": "HLQ=ENDB2.MOTM.DBT190.PSA00467.W2",
+      "samp": 12,
+      "options": {
+        "itime": "99:00"
+      },
+      "keyset": [
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS1",
+          "TABLENAME": "RTPJTB1"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS2",
+          "TABLENAME": "RTPJTB2"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS3",
+          "TABLENAME": "RTPJTB3"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS4",
+          "TABLENAME": "RTPJTB4"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS5",
+          "TABLENAME": "RTPJTB5"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS6",
+          "TABLENAME": "RTPJTB6"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS7",
+          "TABLENAME": "RTPJTB7"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS8",
+          "TABLENAME": "RTPJTB8"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS9",
+          "TABLENAME": "RTPJTB9"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS10",
+          "TABLENAME": "RTPJTB10"
+        }
+      ]
+    },
+    {
+      "test_type": "psa sampling boundary",
+      "environment": "BERGR05.R190.PARMLIB(19)",
+      "current_vcat": "PTIDEVL.BERGR05",
+      "current_datastore": "R190DS",
+      "view_by": "T",
+      "repeat": 10,
+      "range_pct": 1.5,
+      "xman": "PTXGB19",
+      "xmanargs": "HLQ=ENDB2.MOTM.DBT190.PSA00467.W2",
+      "samp": 6,
+      "options": {
+        "itime": "99:00"
+      },
+      "keyset": [
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS1",
+          "TABLENAME": "RTPJTB1"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS2",
+          "TABLENAME": "RTPJTB2"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS3",
+          "TABLENAME": "RTPJTB3"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS4",
+          "TABLENAME": "RTPJTB4"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS5",
+          "TABLENAME": "RTPJTB5"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS6",
+          "TABLENAME": "RTPJTB6"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS7",
+          "TABLENAME": "RTPJTB7"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS8",
+          "TABLENAME": "RTPJTB8"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS9",
+          "TABLENAME": "RTPJTB9"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS10",
+          "TABLENAME": "RTPJTB10"
+        }
+      ]
+    },
+    {
+      "test_type": "psa sampling boundary",
+      "environment": "BERGR05.R190.PARMLIB(19)",
+      "current_vcat": "PTIDEVL.BERGR05",
+      "current_datastore": "R190DS",
+      "view_by": "T",
+      "repeat": 10,
+      "range_pct": 1.5,
+      "xman": "PTXGB19",
+      "xmanargs": "HLQ=ENDB2.MOTM.DBT190.PSA00467.W2",
+      "samp": 3,
+      "options": {
+        "itime": "99:00"
+      },
+      "keyset": [
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS1",
+          "TABLENAME": "RTPJTB1"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS2",
+          "TABLENAME": "RTPJTB2"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS3",
+          "TABLENAME": "RTPJTB3"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS4",
+          "TABLENAME": "RTPJTB4"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS5",
+          "TABLENAME": "RTPJTB5"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS6",
+          "TABLENAME": "RTPJTB6"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS7",
+          "TABLENAME": "RTPJTB7"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS8",
+          "TABLENAME": "RTPJTB8"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS9",
+          "TABLENAME": "RTPJTB9"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS10",
+          "TABLENAME": "RTPJTB10"
+        }
+      ]
+    },
+    {
+      "test_type": "psa sampling boundary",
+      "environment": "BERGR05.R190.PARMLIB(19)",
+      "current_vcat": "PTIDEVL.BERGR05",
+      "current_datastore": "R190DS",
+      "view_by": "T",
+      "repeat": 10,
+      "range_pct": 0,
+      "xman": "PTXGB19",
+      "xmanargs": "HLQ=ENDB2.MOTM.DBT190.PSA00467.W2",
+      "samp": 100,
+      "options": {
+        "itime": "99:00"
+      },
+      "keyset": [
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS1",
+          "TABLENAME": "RTPJTB1"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS2",
+          "TABLENAME": "RTPJTB2"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS3",
+          "TABLENAME": "RTPJTB3"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS4",
+          "TABLENAME": "RTPJTB4"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS5",
+          "TABLENAME": "RTPJTB5"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS6",
+          "TABLENAME": "RTPJTB6"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS7",
+          "TABLENAME": "RTPJTB7"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS8",
+          "TABLENAME": "RTPJTB8"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS9",
+          "TABLENAME": "RTPJTB9"
+        },
+        {
+          "DBNAME": "RTPJDB1",
+          "TSNAME": "RTPJTS10",
+          "TABLENAME": "RTPJTB10"
+        }
+      ]
+    }
+  ]
+}

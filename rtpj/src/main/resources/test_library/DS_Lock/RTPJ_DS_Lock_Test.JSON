@@ -1,0 +1,56 @@
+{
+  "test": {
+    "description": "This json file inserts data into a set of RTPJTB* objects to be used in other tests. ",
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "threading": {
+<<<<<<< HEAD
+      "threads": 3,
+=======
+      "threads": 2,
+>>>>>>> 3ba179d
+      "parallel": "true"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "UPDATE RTPJLTB SET resume=':H3' WHERE ID=:H2",
+        "type": "IMMEDIATE",
+        "subtype": "UPDATE",
+        "repeat": 1000,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "key": ":H2",
+            "value": 1
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "subtype": "literal",
+<<<<<<< HEAD
+            "key": ":H3",
+            "length": 512
+          }
+      ]},
+      {
+        "text": "COMMIT",
+        "type": "IMMEDIATE",
+        "subtype": "COMMIT"
+=======
+            "length": 512,
+            "key": ":H2"
+          }]
+>>>>>>> 3ba179d
+      }
+    ]
+  }
+}

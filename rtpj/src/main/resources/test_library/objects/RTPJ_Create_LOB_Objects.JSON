@@ -1,0 +1,218 @@
+{
+  "test": {
+    "seed": 20,
+    "description": "This json file creates a set of RTPJ objects to be used in other tests.  This includes a Storage Group, Databases, Tablespaces, Tables and Indexes.",
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "CREATE DATABASE RTPLOBDB STOGROUP SYSDEFLT BUFFERPOOL BP0 INDEXBP BP2 CCSID EBCDIC ",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE TABLESPACE RTPBASTS IN RTPLOBDB USING STOGROUP SYSDEFLT PRIQTY -1 SECQTY -1 ERASE NO BUFFERPOOL BP0 DSSIZE 4G CLOSE YES LOCKMAX SYSTEM SEGSIZE 0 NUMPARTS 4 CCSID EBCDIC",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE TABLE RTPBASTB ( COL1 int, COL2 VARCHAR( 1250 ), COL3 CLOB (8000) ) in RTPLOBDB.RTPBASTS PARTITION BY RANGE (COL1) ( PARTITION 1 ENDING AT ( 2500 ),  PARTITION 2 ENDING AT ( 5000 ), PARTITION 3 ENDING AT (7500),  PARTITION 4 ENDING AT ( MAXVALUE)) CCSID EBCDIC",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE INDEX RTPBASTB_IX1 ON RTPBASTB ( COL1 ASC ) DEFINE YES COMPRESS NO BUFFERPOOL BP2 USING STOGROUP SYSDEFLT PRIQTY -1 SECQTY -1",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE LOB TABLESPACE RTPLOBP1 IN RTPLOBDB USING STOGROUP SYSDEFLT PRIQTY 6000 SECQTY 6000 ERASE NO BUFFERPOOL BP8K0 CLOSE NO",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE AUXILIARY TABLE RTPLOBP1_AUXTB IN RTPLOBDB.RTPLOBP1 STORES RTPBASTB COLUMN COL3 PART 1",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE INDEX RTLOBP1_IX1 ON RTPLOBP1_AUXTB BUFFERPOOL BP2 USING STOGROUP SYSDEFLT PRIQTY -1 SECQTY -1",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE LOB TABLESPACE RTPLOBP2 IN RTPLOBDB USING STOGROUP SYSDEFLT PRIQTY 6000 SECQTY 6000 ERASE NO BUFFERPOOL BP8K0 CLOSE NO",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE AUXILIARY TABLE RTPLOBP2_AUXTB IN RTPLOBDB.RTPLOBP2 STORES RTPBASTB COLUMN COL3 PART 2",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE INDEX RTLOBP2_IX1 ON RTPLOBP2_AUXTB BUFFERPOOL BP2 USING STOGROUP SYSDEFLT PRIQTY -1 SECQTY -1",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE LOB TABLESPACE RTPLOBP3 IN RTPLOBDB USING STOGROUP SYSDEFLT PRIQTY 6000 SECQTY 6000 ERASE NO BUFFERPOOL BP8K0 CLOSE NO",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE AUXILIARY TABLE RTPLOBP3_AUXTB IN RTPLOBDB.RTPLOBP3 STORES RTPBASTB COLUMN COL3 PART 3",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE INDEX RTLOBP3_IX1 ON RTPLOBP3_AUXTB BUFFERPOOL BP2 USING STOGROUP SYSDEFLT PRIQTY -1 SECQTY -1",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE LOB TABLESPACE RTPLOBP4 IN RTPLOBDB USING STOGROUP SYSDEFLT PRIQTY 6000 SECQTY 6000 ERASE NO BUFFERPOOL BP8K0 CLOSE NO",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE AUXILIARY TABLE RTPLOBP4_AUXTB IN RTPLOBDB.RTPLOBP4 STORES RTPBASTB COLUMN COL3 PART 4",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE INDEX RTLOBP4_IX1 ON RTPLOBP4_AUXTB BUFFERPOOL BP2 USING STOGROUP SYSDEFLT PRIQTY -1 SECQTY -1",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "INSERT INTO RTPBASTB (COL1, COL2, COL3) VALUES (:H1, ':H2', ':H3')",
+        "type": "immediate",
+        "subtype": "INSERT",
+        "repeat": 100,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "value": 1,
+            "key": ":H1"
+          },
+          {
+            "type": "static",
+            "datatype": "varchar",
+            "subtype": "literal",
+            "value": "00000EECCDD34354223232322",
+            "key": ":H2"
+          },
+          {
+            "type": "static",
+            "datatype": "varchar",
+            "subtype": "literal",
+            "value": "1AAAAAAAAAAAAAEECCDD1AAAAAAAA1A",
+            "key": ":H3"
+          }]
+      },
+      {
+        "text": "INSERT INTO RTPBASTB (COL1, COL2, COL3) VALUES (:H1, ':H2', ':H3')",
+        "type": "immediate",
+        "subtype": "INSERT",
+        "repeat": 100,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "value": 2501,
+            "key": ":H1"
+          },
+          {
+            "type": "static",
+            "datatype": "varchar",
+            "subtype": "literal",
+            "value": "00000EECCDD34354223232322",
+            "key": ":H2"
+          },
+          {
+            "type": "static",
+            "datatype": "varchar",
+            "subtype": "literal",
+            "value": "1AAAAAAAAAAAAAEECCDD1AAAAAAAA1A",
+            "key": ":H3"
+          }]
+      },
+      {
+        "text": "INSERT INTO RTPBASTB (COL1, COL2, COL3) VALUES (:H1, ':H2', ':H3')",
+        "type": "immediate",
+        "subtype": "INSERT",
+        "repeat": 100,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "value": 5500,
+            "key": ":H1"
+          },
+          {
+            "type": "static",
+            "datatype": "varchar",
+            "subtype": "literal",
+            "value": "00000EECCDD34354223232322",
+            "key": ":H2"
+          },
+          {
+            "type": "static",
+            "datatype": "varchar",
+            "subtype": "literal",
+            "value": "1AAAAAAAAAAAAAEECCDD1AAAAAAAA1A",
+            "key": ":H3"
+          }]
+      },
+      {
+        "text": "INSERT INTO RTPBASTB (COL1, COL2, COL3) VALUES (:H1, ':H2', ':H3')",
+        "type": "immediate",
+        "subtype": "INSERT",
+        "repeat": 100,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "value": 8000,
+            "key": ":H1"
+          },
+          {
+            "type": "static",
+            "datatype": "varchar",
+            "subtype": "literal",
+            "value": "00000EECCDD34354223232322",
+            "key": ":H2"
+          },
+          {
+            "type": "static",
+            "datatype": "varchar",
+            "subtype": "literal",
+            "value": "1AAAAAAAAAAAAAEECCDD1AAAAAAAA1A",
+            "key": ":H3"
+          }]
+      },
+      {
+        "text": "SELECT COUNT(*) FROM RTPBASTB",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "expect": {
+          "columns": 1,
+          "rows": 1
+        }
+      }
+    ]
+  }
+}

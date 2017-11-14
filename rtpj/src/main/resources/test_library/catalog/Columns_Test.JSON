@@ -1,0 +1,17 @@
+{
+  "test": {
+    "description": "This test retrieves 100 Columns.",
+    "connection": {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SELECT TB.TYPE, CO.* FROM SYSIBM.SYSCOLUMNS CO, SYSIBM.SYSTABLES TB WHERE CO.TBCREATOR = TB.CREATOR AND CO.TBNAME = TB.NAME FETCH FIRST 100 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1
+      }
+    ]
+  }
+}

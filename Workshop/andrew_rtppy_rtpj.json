@@ -1,0 +1,28 @@
+{
+  "connection":
+  {
+    "lpar": "ca31",
+    "userid": "qartp03",
+    "ssid": "d11a"
+  },
+  "tests":
+  [
+    {
+      "test_type": "distributed sql",
+      "product_code": "PDT",
+      "rtpj_file": "Greg_Select_Test.JSON",
+      "rtpj_library": "C:\\Users\\spean03\\IdeaProjects\\RTP\\Workshop",
+      "rtpj_sync": "false"
+    },
+    {
+      "description": "Executes the Execute All Programs action option from the RTPTEST SQL suite on the mainframe.",
+      "test_type": "rtptest",
+      "product_code": "RTP",
+      "execute_method": "UI",
+      "action": "6",
+      "wait_to_complete": "",
+      "multithreading": "",
+      "multiple_plan_packages": ""
+    }
+  ]
+}

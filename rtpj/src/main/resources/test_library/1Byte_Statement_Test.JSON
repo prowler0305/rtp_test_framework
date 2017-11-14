@@ -1,0 +1,18 @@
+{
+  "test": {
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "Z",
+        "type": "immediate",
+        "subtype": "SELECT",
+        "expect": {
+          "sqlerror": -104
+        }
+      }
+    ]
+  }
+}

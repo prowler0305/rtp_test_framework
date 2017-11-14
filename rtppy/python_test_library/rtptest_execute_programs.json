@@ -1,0 +1,35 @@
+{
+  "connection":
+  {
+    "lpar": "",
+    "userid": "qartp02",
+    "ssid": ""
+  },
+  "tests":
+  [
+    {
+      "description": "Executes the Execute Program(s) action option from the RTPTEST SQL suite on the mainframe.",
+      "test_type": "rtptest",
+      "product_code": "RTP",
+      "execute_method": "UI",
+      "wait_to_complete": "",
+      "action": "7",
+      "multithreading": "",
+      "options":
+      {
+        "connection_type": "",
+        "program": "",
+        "collid": "",
+        "corrid": "",
+        "workstation": "",
+        "repeat": "",
+        "sqlid": "",
+        "plan": "",
+        "seed": ""
+      }
+    }
+  ]
+}
+
+
+

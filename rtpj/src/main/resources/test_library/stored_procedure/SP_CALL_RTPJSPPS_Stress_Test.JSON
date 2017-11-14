@@ -1,0 +1,41 @@
+{
+  "test": {
+    "description": "Invokes the RTPJSP* procedure.",
+    "connection": {
+      "ssid": "D11D",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 1,
+      "parallel": true
+    },
+    "statements": [
+      {
+        "text": "CALL RTP.RTPJSPPS(?,?,?)",
+        "type": "CALL",
+        "subtype": "Procedure",
+        "repeat": 1,
+        "args": [
+          {
+            "value": "SELECT * FROM SYSIBM.SYSTABLES AS A, SYSIBM.SYSTABLESPACE AS B FETCH FIRST 10000 ROWS ONLY",
+            "type": "static",
+            "datatype": "varchar",
+            "length": 140
+          },
+          {
+            "value": "SELECT * FROM SYSIBM.SYSTABLES AS A, SYSIBM.SYSTABLESPACE AS B FETCH FIRST 10000 ROWS ONLY",
+            "type": "static",
+            "datatype": "varchar",
+            "length": 140
+          },
+          {
+            "value": "ANY",
+            "type": "static",
+            "datatype": "varchar",
+            "length": 3
+          }
+        ]
+      }
+    ]
+  }
+}

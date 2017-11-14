@@ -1,0 +1,21 @@
+{
+  "test": {
+    "description": "This is a small SQL length test.",
+    "connection": {
+      "ssid": "D10A",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 100,
+      "parallel": true
+    },
+    "statements": [
+      {
+        "text": "SELECT TSNAME FROM SYSIBM.SYSTABLES WHERE TSNAME = DBNAME",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 200
+      }
+    ]
+  }
+}

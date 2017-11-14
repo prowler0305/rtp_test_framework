@@ -1,0 +1,15 @@
+{
+  "suite": {
+    "description": "A SQL Errors test suite.",
+    "connection": {
+      "ssid": "D11D",
+      "userid": "QADBA01"
+    },
+    "tests": [
+      "Sqlcode-104_Test.JSON",
+      "Sqlcode-204_Test.JSON",
+      "Sqlcode-206_Test.JSON",
+      "Sqlcode-724_Test.JSON"
+    ]
+  }
+}

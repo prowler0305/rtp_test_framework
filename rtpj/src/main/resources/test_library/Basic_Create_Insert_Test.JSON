@@ -1,0 +1,69 @@
+{
+  "test": {
+    "seed": 42,
+    "threading": {
+      "threads": 1,
+      "parallel": "false"
+    },
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "CREATE TABLE RTPJSONTEST ( id INTEGER, myint INTEGER, mystring VARCHAR(30), mydouble DOUBLE, myfloat FLOAT)",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "INSERT INTO RTPJSONTEST (id, myint, mystring, mydouble, myfloat) VALUES (?, ?, ?, ?, ?)",
+        "type": "prepare",
+        "subtype": "INSERT",
+        "repeat": 50,
+        "args": [
+          {
+            "value": 1,
+            "type": "incremented",
+            "datatype": "integer"
+          },
+          {
+            "type": "generated",
+            "datatype": "integer"
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "length": 30
+          },
+          {
+            "type": "generated",
+            "datatype": "double"
+          },
+          {
+            "type": "generated",
+            "datatype": "float"
+          }
+        ]
+      },
+      {
+        "text": "SELECT * FROM RTPJSONTEST",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "expect": {
+          "columns": 5,
+          "rows": 50
+        }
+      },
+      {
+        "text": "DROP TABLE RTPJSONTEST",
+        "type": "IMMEDIATE",
+        "subtype": "DROP"
+      }
+    ]
+  }
+}

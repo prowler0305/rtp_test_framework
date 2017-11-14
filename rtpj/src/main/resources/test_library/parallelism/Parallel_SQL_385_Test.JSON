@@ -1,0 +1,48 @@
+{
+  "test": {
+    "description": "This is a SQL length test.",
+    "connection": {
+      "ssid": "D10A",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 1,
+      "parallel": true
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT DEGREE='ANY'",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1
+      },
+      {
+        "text": "SELECT B.NAME FROM SYSIBM.SYSTABLES AS A, SYSIBM.SYSTABLES AS B WHERE A.NAME < 'B' AND B.NAME < 'C' AND A.NAME < 'B' AND B.NAME < 'C' AND A.NAME < 'B' AND B.NAME < 'C' AND A.NAME < 'B' AND B.NAME < 'C' AND A.NAME < 'B' AND B.NAME < 'C' AND A.NAME < 'B' AND B.NAME < 'C' AND A.NAME < 'B' AND B.NAME < 'C' ORDER BY A.NAME FETCH FIRST 1 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1
+      },
+      {
+        "text": "SELECT B.NAME FROM SYSIBM.SYSTABLES AS A, SYSIBM.SYSTABLES AS B WHERE A.NAME < 'B' AND B.NAME < 'C' ORDER BY A.NAME FETCH FIRST 1000 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1
+      },
+      {
+        "text": "SELECT B.NAME FROM SYSIBM.XXXXXXX AS A, SYSIBM.SYSTABLES AS B WHERE A.NAME < 'B' AND B.NAME < 'C' AND A.NAME < 'B' AND B.NAME < 'C' AND A.NAME < 'B' AND B.NAME < 'C' AND A.NAME < 'B' AND B.NAME < 'C' AND A.NAME < 'B' AND B.NAME < 'C' AND A.NAME < 'B' AND B.NAME < 'C' AND A.NAME < 'B' AND B.NAME < 'C' ORDER BY A.NAME FETCH FIRST 10000 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1,
+        "expect": {
+          "sqlerror": -204
+        }
+      },
+      {
+        "text": "SELECT TSNAME FROM SYSIBM.SYSTABLES WHERE TSNAME = DBNAME",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1
+      }
+    ]
+  }
+}

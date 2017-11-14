@@ -1,0 +1,23 @@
+{
+  "connection":
+  {
+    "lpar": "ca31",
+    "ssid": "d12a",
+    "userid": "qartp01"
+  },
+  "tests":
+  [
+    {
+      "description": "Aggregate the program data and compare against the plan display data.",
+      "test_type": "aggregate compare",
+      "product_code": "PDT",
+      "current_vcat": "PDTDBA.R19",
+      "current_datastore": "RTPCURNT",
+      "current_interval_date": "1",
+      "current_interval_time": "16:20:24",
+      "level": "plan",
+      "plan": "",
+      "column": ""
+    }
+  ]
+}

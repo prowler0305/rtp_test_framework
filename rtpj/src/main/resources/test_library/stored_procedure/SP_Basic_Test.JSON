@@ -1,0 +1,49 @@
+{
+  "test": {
+    "seed": 42,
+    "description": "Creates then Executes a simple stored procedure with two input parameters and one output parameter.",
+    "connection": {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+      "text": "DROP PROCEDURE RTPSTOREDPROC",
+      "type": "IMMEDIATE",
+      "subtype": "DROP",
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "text": "CREATE PROCEDURE RTPSTOREDPROC (IN MYPARM1 VARCHAR(128), OUT MYPARM2 VARCHAR(128), INOUT MYPARM3 INTEGER) LANGUAGE SQL BEGIN SELECT CREATEDBY, PARM_COUNT INTO MYPARM2, MYPARM3 FROM SYSIBM.SYSROUTINES WHERE NAME = MYPARM1 AND PARM_COUNT > MYPARM3 FETCH FIRST 1 ROWS ONLY;  END",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CALL RTPSTOREDPROC(?, ?, ?)",
+        "type": "CALL",
+        "subtype": "Procedure",
+        "args": [
+          {
+            "value": "RTPSTOREDPROC",
+            "type": "static",
+            "datatype": "varchar",
+            "length": 128
+          },
+          {
+            "type": "static",
+            "subtype": "out",
+            "datatype": "varchar"
+          },
+          {
+            "value": 2,
+            "type": "static",
+            "subtype": "inout",
+            "datatype": "integer"
+          }
+        ]
+      }
+    ]
+  }
+}

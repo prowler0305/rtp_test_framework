@@ -1,0 +1,30 @@
+{
+  "test": {
+    "description": "This is a SQL length test.",
+    "connection": {
+      "ssid": "D10A",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 100,
+      "parallel": true
+    },
+    "statements": [
+      {
+        "text": "SELECT TSNAME FROM SYSIBM.SYSTABLES WHERE TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 100
+      },
+      {
+        "text": "SELECT TSNAME FROM SYSIBM.SYSTABLES WHERE TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME AND TSNAME = DBNAME",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 100,
+        "expect": {
+          "sqlerror": -204
+        }
+      }
+    ]
+  }
+}

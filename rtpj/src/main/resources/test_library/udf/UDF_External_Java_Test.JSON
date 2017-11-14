@@ -1,0 +1,37 @@
+{
+  "test": {
+    "description": "External Java UDF.  Only valid for CA11:DB0G.",
+    "seed": 42,
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "CALL SQLJ.INSTALL_JAR('file:/u/users/db2mf20/rtpJars/rtpj_udf-1.0-SNAPSHOT.jar', 'RTPUDFJAR', 0)",
+        "type": "CALL",
+        "subtype": "PROCEDURE"
+      },
+      {
+        "text": "CREATE FUNCTION RTPUDF(VARCHAR(255)) RETURNS VARCHAR(255) FENCED EXTERNAL NAME 'RTPUDFJAR:RtpUdfTest.hello(java.lang.String)' WLM ENVIRONMENT DH0GWLMJ NOT VARIANT PARAMETER STYLE JAVA LANGUAGE JAVA NO EXTERNAL ACTION;",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "SELECT RTPUDF('World') AS OUTPUT from SYSIBM.SYSDUMMY1",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT"
+      },
+      {
+        "text": "DROP FUNCTION RTPUDF",
+        "type": "IMMEDIATE",
+        "subtype": "DROP"
+      },
+      {
+        "text": "CALL SQLJ.REMOVE_JAR('RTPUDFJAR', 0)",
+        "type": "CALL",
+        "subtype": "PROCEDURE"
+      }
+    ]
+  }
+}

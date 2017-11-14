@@ -1,0 +1,25 @@
+{
+  "test": {
+    "description": "Executes the RTPSPDYN Procedure",
+    "connection": {
+      "ssid": "D11D",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "CALL RTPSPDYN(?)",
+        "type": "CALL",
+        "subtype": "Procedure",
+        "repeat": 10,
+        "args": [
+          {
+            "value": "SELECT * FROM SYSIBM.SYSTABLES FETCH FIRST 1000 ROWS ONLY",
+            "type": "static",
+            "datatype": "varchar",
+            "length": 128
+          }
+        ]
+      }
+    ]
+  }
+}

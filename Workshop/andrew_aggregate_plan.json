@@ -1,0 +1,23 @@
+{
+  "connection":
+  {
+    "lpar": "ca31",
+    "userid": "spean03",
+    "ssid": "d11a"
+  },
+  "tests":
+  [
+    {
+      "test_type": "aggregate compare",
+      "product_code": "PDT",
+      "environment": "CURIR",
+      "current_vcat": "PDTDBA.CURIR",
+      "current_datastore": "REFRESH",
+      "current_interval_date": "17/07/10",
+      "current_interval_time": "07:05:58",
+      "level": "PLAN",
+      "plan": "RTPPLNMN",
+      "column": "INDB2_TIME"
+    }
+  ]
+}

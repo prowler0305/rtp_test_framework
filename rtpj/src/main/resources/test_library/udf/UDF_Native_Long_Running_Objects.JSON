@@ -1,0 +1,60 @@
+{
+  "test": {
+    "description": "Native UDF Loop Test",
+    "connection": {
+      "ssid": "D11D",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "DROP"
+      },
+      {
+        "text": "DROP FUNCTION RTPJUDFL",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "text": "DROP FUNCTION RTPJUDFR",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "text": "DROP FUNCTION RTPJUDFT",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "text": "COMMIT",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE FUNCTION RTPJUDFL(X INTEGER) RETURNS INTEGER LANGUAGE SQL NOT DETERMINISTIC CONTAINS SQL BEGIN DECLARE JCOUNT INTEGER; SET JCOUNT = 0; WHILE JCOUNT < X DO SET JCOUNT = JCOUNT+1; END WHILE; RETURN 0; END",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE FUNCTION RTPJUDFR(X INTEGER) RETURNS INTEGER LANGUAGE SQL DETERMINISTIC CONTAINS SQL RETURN X + 1 ",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE FUNCTION RTPJUDFT(X INTEGER) RETURNS TABLE (ID INTEGER) LANGUAGE SQL DETERMINISTIC READS SQL DATA RETURN SELECT id FROM RTP.RTPJTB1 ",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      }
+    ]
+  }
+}

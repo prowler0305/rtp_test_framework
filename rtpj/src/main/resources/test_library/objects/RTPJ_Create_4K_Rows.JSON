@@ -1,0 +1,107 @@
+{
+  "test": {
+    "seed": 20,
+    "description": "This json file creates a set of RTPJ objects to be used in other tests.  This includes a Storage Group, Databases, Tablespaces, Tables and Indexes.",
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "CREATE DATABASE RTPJDB:H1 BUFFERPOOL BP1 INDEXBP BP2 STOGROUP SYSDEFLT",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "value": 1,
+            "description": "Database literal counter.",
+            "key": ":H1"
+          }]
+      },
+      {
+        "text": "CREATE TABLESPACE RTPJTS:H1 IN RTPJDB:DB1 USING STOGROUP SYSDEFLT PRIQTY -1 SECQTY -1 ERASE NO BUFFERPOOL BP2 DSSIZE 4G CLOSE YES LOCKMAX SYSTEM SEGSIZE 32 FREEPAGE 0 PCTFREE 0 GBPCACHE CHANGED DEFINE YES LOGGED TRACKMOD YES MAXPARTITIONS 4096 COMPRESS YES LOCKSIZE ANY MAXROWS 1 CCSID EBCDIC NUMPARTS 1;",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 20,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Tablespace literal counter.",
+            "value": 1,
+            "key": ":H1"
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Database literal counter.",
+            "value": 1,
+            "key": ":DB1"
+          }]
+      },
+      {
+        "text": "CREATE TABLE RTPJTB:H1 (id INTEGER NOT NULL WITH DEFAULT, resume VARCHAR(4042) NOT NULL WITH DEFAULT) in RTPJDB:DB1.RTPJTS:H1 APPEND NO CCSID EBCDIC PARTITION BY SIZE EVERY 4G",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 20,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Tablespace literal counter.",
+            "value": 1,
+            "key": ":H1"
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Database literal counter.",
+            "value": 1,
+            "key": ":DB1"
+          }
+        ]
+      },
+      {
+        "text": "INSERT INTO RTPJTB:H1 (id, resume) VALUES (?,?)",
+        "type": "BATCH",
+        "subtype": "INSERT",
+        "repeat": 20,
+        "batches": 5000,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 20
+          },
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "value": 1
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "length": 4042
+          }
+        ]
+      }
+    ]
+  }
+}

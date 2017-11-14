@@ -1,0 +1,21 @@
+{
+  "test": {
+    "description": "This test is designed to generate background activity during the PSA sampling boundary test.",
+    "connection": {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 10,
+      "parallel": true
+    },
+    "statements": [
+      {
+        "text": "SELECT NAME, CREATOR FROM SYSIBM.SYSTABLES FETCH FIRST 1000 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1000
+      }
+    ]
+  }
+}

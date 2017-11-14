@@ -1,0 +1,15 @@
+{
+  "suite": {
+    "description": "Run all Parallel Tests",
+    "connection": {
+      "ssid": "D11A",
+      "userid": "QADBA01"
+    },
+    "tests": [
+      "SP_CALL_RTPJSPF2_Long_Test.JSON",
+      "SP_CALL_RTPJSPF_Long_Test.JSON",
+      "Long_Running_SQL_Test.JSON",
+      "SP_Main_Parallel_Test.JSON "
+    ]
+  }
+}

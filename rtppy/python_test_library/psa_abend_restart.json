@@ -1,0 +1,30 @@
+{
+  "connection":
+  {
+    "lpar": "ca31",
+    "userid": "qartp01",
+    "ssid": "d11a"
+  },
+  "tests":
+  [
+    {
+      "description": "Drives the Abend Restart feature in PSA by forcing abends to occur in <not fully implemented yet>.",
+      "test_type": "abend restart",
+      "product_code": "PSA",
+      "environment": "",
+      "xman": "",
+      "abend_in": "",
+      "wait_time_after_abend_restart": 1,
+      "wait_time_after_coll_init": 6,
+      "options":
+      {
+        "itime": "00:05",
+        "t_limit": "00:00",
+        "extern": "N",
+        "vol_ext": "N",
+        "samp": "6"
+      }
+    }
+  ]
+}
+

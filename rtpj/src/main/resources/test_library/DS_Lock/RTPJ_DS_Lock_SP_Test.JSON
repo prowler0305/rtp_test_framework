@@ -1,0 +1,59 @@
+{
+  "test": {
+    "description": "This json file inserts data into a set of RTPJTB* objects to be used in other tests. ",
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 1,
+      "parallel": "true"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "description": "RTPJDSL(DS lock update sp)",
+        "text": "CALL RTP.RTPJDSL(?,?,?,?,?)",
+        "type": "CALL",
+        "repeat": 5,
+        "subtype": "Procedure",
+        "args": [
+          {
+            "value": 10000,
+            "type": "static",
+            "datatype": "integer"
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "length": 20
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "length": 1
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "length": 128
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "length": 512
+          }
+        ]
+      },
+      {
+        "text": "COMMIT",
+        "type": "IMMEDIATE",
+        "subtype": "COMMIT"
+      }
+    ]
+  }
+}

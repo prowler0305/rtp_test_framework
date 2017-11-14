@@ -1,0 +1,26 @@
+{
+  "test": {
+    "connection": {
+      "ssid": "D11D",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 1,
+      "parallel": "true"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT DEGREE='ANY'",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1
+      },
+      {
+        "text": "SELECT B.NAME FROM SYSIBM.SYSTABLES AS A, SYSIBM.SYSTABLES AS B WHERE A.NAME < 'C' AND B.NAME < 'F' ORDER BY A.NAME FETCH FIRST 1000 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1
+      }
+    ]
+  }
+}

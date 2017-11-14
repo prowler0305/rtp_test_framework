@@ -1,0 +1,30 @@
+{
+  "test": {
+    "connection": {
+      "ssid": "DB2G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "description": "RTPJSPPC(Parallelism with a CLOSE)",
+        "text": "CALL RTP.RTPJSPPC(?,?)",
+        "type": "CALL",
+        "subtype": "Procedure",
+        "args": [
+          {
+            "value": "SELECT B.ID FROM RTP.RTPJSP1 AS A, RTP.RTPJSP1 AS B ORDER BY A.ID FETCH FIRST 10000 ROWS ONLY;",
+            "type": "static",
+            "datatype": "varchar",
+            "length": 140
+          },
+          {
+            "value": "ANY",
+            "type": "static",
+            "datatype": "varchar",
+            "length": 3
+          }
+        ]
+      }
+    ]
+  }
+}

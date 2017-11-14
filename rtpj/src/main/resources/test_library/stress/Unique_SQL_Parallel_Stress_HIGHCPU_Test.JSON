@@ -1,0 +1,34 @@
+{
+  "test": {
+    "description": "Execute a unique SQL statement 10 times over 100 different connections in parallel with cpu parallelism.",
+    "connection": {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 50,
+      "parallel": "true"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT DEGREE = 'ANY'",
+        "type": "IMMEDIATE"
+      },
+      {
+        "text": "SELECT B.ID FROM RTP.RTPJST1 AS A, RTP.RTPJST1 AS B WHERE A.ID > :H1 ORDER BY A.ID FETCH FIRST 1000 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 50,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "key": ":H1",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  }
+}

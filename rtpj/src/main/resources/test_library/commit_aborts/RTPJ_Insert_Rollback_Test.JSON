@@ -1,0 +1,50 @@
+{
+  "test": {
+    "seed": 20,
+    "description": "This json file creates a set of RTPJ objects to be used in other tests.  This includes a Storage Group, Databases, Tablespaces, Tables and Indexes.",
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "INSERT INTO RTPJCT:H1 (id, resume) VALUES (?,?)",
+        "type": "BATCH",
+        "subtype": "INSERT",
+        "repeat": 40,
+        "batches": 1000,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 99
+          },
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "value": 2000
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "length": 4042
+          }
+        ]
+      },
+      {
+        "text": "ROLLBACK",
+        "type": "IMMEDIATE",
+        "subtype": "COMMIT"
+      }
+    ]
+  }
+}

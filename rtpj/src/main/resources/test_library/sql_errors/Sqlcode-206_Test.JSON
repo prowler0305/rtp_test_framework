@@ -1,0 +1,20 @@
+{
+  "test": {
+    "description": "Causes a -206 sqlcode.",
+    "connection": {
+      "ssid": "D11D",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SELECT NOTACOLUMN FROM SYSIBM.SYSTABLES FETCH FIRST 1 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1,
+        "expect": {
+          "sqlerror": -206
+        }
+      }
+    ]
+  }
+}

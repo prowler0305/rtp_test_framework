@@ -1,0 +1,135 @@
+{
+  "test": {
+    "description": "Create objects used by cpu parallel tests.",
+    "connection": {
+      "ssid": "DD0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "DROP DATABASE RTPJCP:H1",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "value": 1,
+            "key": ":H1"
+          }],
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "text": "CREATE DATABASE RTPJCP:H1 BUFFERPOOL BP1 INDEXBP BP2 STOGROUP SYSDEFLT",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "value": 1,
+            "description": "Database literal counter.",
+            "key": ":H1"
+          }]
+      },
+      {
+        "text": "CREATE TABLESPACE RTPJCP:H1 IN RTPJCP:DB1 USING STOGROUP SYSDEFLT PRIQTY -1 SECQTY -1 ERASE NO BUFFERPOOL BP2 DSSIZE 4G CLOSE YES LOCKMAX SYSTEM SEGSIZE 32 FREEPAGE 0 PCTFREE 0 GBPCACHE CHANGED DEFINE YES LOGGED TRACKMOD YES MAXPARTITIONS 4096 COMPRESS YES LOCKSIZE ANY MAXROWS 1 CCSID EBCDIC;",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 4,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Tablespace literal counter.",
+            "value": 1,
+            "key": ":H1"
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Database literal counter.",
+            "value": 1,
+            "key": ":DB1"
+          }]
+      },
+      {
+        "text": "CREATE TABLE RTPJCP:H1 (id INTEGER NOT NULL WITH DEFAULT, name VARCHAR(12) NOT NULL WITH DEFAULT, salary INTEGER NOT NULL WITH DEFAULT, bonus INTEGER NOT NULL WITH DEFAULT, shares INTEGER NOT NULL WITH DEFAULT ) in RTPJCP:DB1.RTPJCP:H1 APPEND NO CCSID EBCDIC PARTITION BY SIZE EVERY 4G",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 4,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Tablespace literal counter.",
+            "value": 1,
+            "key": ":H1"
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Database literal counter.",
+            "value": 1,
+            "key": ":DB1"
+          }
+        ]
+      },
+      {
+        "text": "INSERT INTO RTPJCP:H1 (id, name, salary, bonus, shares) VALUES (?,?,?,?,?)",
+        "type": "BATCH",
+        "subtype": "INSERT",
+        "repeat": 4,
+        "batches": 1000,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 4
+          },
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "value": 1
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "length": 12
+          },
+          {
+            "type": "generated",
+            "datatype": "integer"
+          },
+          {
+            "type": "generated",
+            "datatype": "integer"
+          },
+          {
+            "type": "generated",
+            "datatype": "integer"
+          }
+        ]
+      }
+    ]
+  }
+}

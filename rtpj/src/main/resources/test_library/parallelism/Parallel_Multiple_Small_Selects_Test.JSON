@@ -1,0 +1,53 @@
+{
+  "test": {
+    "connection": {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 100,
+      "parallel": "true"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT DEGREE='ANY'",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1
+      },
+      {
+        "text": "SELECT NAME,CREATOR FROM SYSIBM.SYSTABLES WHERE CREATOR = 'BERGR05' FETCH FIRST 1 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1000
+      },
+      {
+        "text": "SELECT NAME,CREATOR FROM SYSIBM.SYSTABLES WHERE CREATOR = ? FETCH FIRST 1 ROWS ONLY",
+        "type": "PREPARE",
+        "subtype": "SELECT",
+        "repeat": 1000,
+        "args": [
+          {
+            "value": "BERGR05",
+            "type": "static",
+            "datatype": "varchar"
+          }
+        ]
+      },
+      {
+        "text": "SELECT * FROM SYSIBM.SYSCOLUMNS WHERE LENGTH < ? FETCH FIRST 1 ROWS ONLY",
+        "type": "PREPARE",
+        "subtype": "SELECT",
+        "repeat": 1,
+        "sleep":10,
+        "args": [
+          {
+            "value": 512,
+            "type": "incremented",
+            "datatype": "integer"
+          }
+        ]
+      }
+    ]
+  }
+}

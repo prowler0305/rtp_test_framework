@@ -1,0 +1,43 @@
+{
+  "test": {
+    "connection": {
+      "ssid": "D10A",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "CREATE TABLE REGTEMP ( rtpint INTEGER, rtpstring VARCHAR(128))",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "INSERT INTO REGTEMP VALUES (2, ?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "args": [
+          {
+            "value": "This is a string parameter for the *Use a host variable to insert a row* test",
+            "type": "static",
+            "datatype": "varchar"
+          }
+        ]
+      },
+      {
+        "text": "SELECT * FROM REGTEMP",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT"
+      },
+      {
+        "text": "DROP TABLE REGTEMP",
+        "type": "IMMEDIATE",
+        "subtype": "DROP"
+      }
+    ]
+  }
+}

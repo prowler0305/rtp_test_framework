@@ -1,0 +1,682 @@
+{
+  "test": {
+    "description": "Insert different floating point objects.",
+    "connection": {
+      "ssid": "DD0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "INSERT INTO RTPJDTF:H1 (ID, T64, T32, TDEC) VALUES (?,?,?,?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 1
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "value": 1
+          },
+          {
+            "type": "static",
+            "datatype": "double",
+            "value": 1
+          },
+          {
+            "type": "static",
+            "datatype": "float",
+            "value": 1
+          },
+          {
+            "type": "static",
+            "datatype": "decimal",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "text": "INSERT INTO RTPJDTF:H1 (ID, T64, T32, TDEC) VALUES (?,?,?,?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 1
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "value": 2
+          },
+          {
+            "type": "static",
+            "datatype": "double",
+            "value": -1
+          },
+          {
+            "type": "static",
+            "datatype": "float",
+            "value": -1
+          },
+          {
+            "type": "static",
+            "datatype": "decimal",
+            "value": -1
+          }
+        ]
+      },
+      {
+        "text": "INSERT INTO RTPJDTF:H1 (ID, T64, T32, TDEC) VALUES (?,?,?,?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 1
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "value": 3
+          },
+          {
+            "type": "static",
+            "datatype": "double",
+            "value": -0.1
+          },
+          {
+            "type": "static",
+            "datatype": "float",
+            "value": -0.1
+          },
+          {
+            "type": "static",
+            "datatype": "decimal",
+            "value": -0.1
+          }
+        ]
+      },
+      {
+        "text": "INSERT INTO RTPJDTF:H1 (ID, T64, T32, TDEC) VALUES (?,?,?,?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 1
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "value": 4
+          },
+          {
+            "type": "static",
+            "datatype": "double",
+            "value": 0.1
+          },
+          {
+            "type": "static",
+            "datatype": "float",
+            "value": 0.1
+          },
+          {
+            "type": "static",
+            "datatype": "decimal",
+            "value": 0.1
+          }
+        ]
+      },
+      {
+        "text": "INSERT INTO RTPJDTF:H1 (ID, T64, T32, TDEC) VALUES (?,?,?,?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 1
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "value": 5
+          },
+          {
+            "type": "static",
+            "datatype": "double",
+            "value": 15.2199
+          },
+          {
+            "type": "static",
+            "datatype": "float",
+            "value": 15.2199
+          },
+          {
+            "type": "static",
+            "datatype": "decimal",
+            "value": 15.2199
+          }
+        ]
+      },
+      {
+        "text": "INSERT INTO RTPJDTF:H1 (ID, T64, T32, TDEC) VALUES (?,?,?,?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 1
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "value": 6
+          },
+          {
+            "type": "static",
+            "datatype": "double",
+            "value": -15.2199
+          },
+          {
+            "type": "static",
+            "datatype": "float",
+            "value": -15.2199
+          },
+          {
+            "type": "static",
+            "datatype": "decimal",
+            "value": -15.2199
+          }
+        ]
+      },
+      {
+        "text": "INSERT INTO RTPJDTF:H1 (ID, T64, T32, TDEC) VALUES (?,?,?,?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 1
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "value": 7
+          },
+          {
+            "type": "static",
+            "datatype": "double",
+            "value": 0.152199
+          },
+          {
+            "type": "static",
+            "datatype": "float",
+            "value": 0.152199
+          },
+          {
+            "type": "static",
+            "datatype": "decimal",
+            "value": 0.152199
+          }
+        ]
+      },
+      {
+        "text": "INSERT INTO RTPJDTF:H1 (ID, T64, T32, TDEC) VALUES (?,?,?,?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 1
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "value": 8
+          },
+          {
+            "type": "static",
+            "datatype": "double",
+            "value": -0.152199
+          },
+          {
+            "type": "static",
+            "datatype": "float",
+            "value": -0.152199
+          },
+          {
+            "type": "static",
+            "datatype": "decimal",
+            "value": -0.152199
+          }
+        ]
+      },
+      {
+        "text": "INSERT INTO RTPJDTF:H1 (ID, T64, T32, TDEC) VALUES (?,?,?,?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 1
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "value": 9
+          },
+          {
+            "type": "static",
+            "datatype": "double",
+            "value": 0.0
+          },
+          {
+            "type": "static",
+            "datatype": "float",
+            "value": 0.0
+          },
+          {
+            "type": "static",
+            "datatype": "decimal",
+            "value": 0.0
+          }
+        ]
+      },
+      {
+        "text": "INSERT INTO RTPJDTF:H1 (ID, T64, T32, TDEC) VALUES (?,?,?,?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 1
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "value": 10
+          },
+          {
+            "type": "static",
+            "datatype": "double",
+            "value": 99.0000000000000000000000000000044
+          },
+          {
+            "type": "static",
+            "datatype": "float",
+            "value": 99.0000000000000000000000000000044
+          },
+          {
+            "type": "static",
+            "datatype": "decimal",
+            "value": 99.0000000000000000000000000000044
+          }
+        ]
+      },
+      {
+        "text": "INSERT INTO RTPJDTF:H1 (ID, T64, T32, TDEC) VALUES (?,?,?,?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 1
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "value": 11
+          },
+          {
+            "type": "static",
+            "datatype": "double",
+            "value": -99.0000000000000000000000000000044
+          },
+          {
+            "type": "static",
+            "datatype": "float",
+            "value": -99.0000000000000000000000000000044
+          },
+          {
+            "type": "static",
+            "datatype": "decimal",
+            "value": -99.0000000000000000000000000000044
+          }
+        ]
+      },
+      {
+        "text": "INSERT INTO RTPJDTF:H1 (ID, T64, T32, TDEC) VALUES (?,?,?,?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 1
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "value": 12
+          },
+          {
+            "type": "static",
+            "datatype": "double",
+            "value": 9900000000000000000000000000000.44
+          },
+          {
+            "type": "static",
+            "datatype": "float",
+            "value": 9900000000000000000000000000000.44
+          },
+          {
+            "type": "static",
+            "datatype": "decimal",
+            "value": 9900000000000000000000000000000.44
+          }
+        ]
+      },
+      {
+        "text": "INSERT INTO RTPJDTF:H1 (ID, T64, T32, TDEC) VALUES (?,?,?,?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 1
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "value": 13
+          },
+          {
+            "type": "static",
+            "datatype": "double",
+            "value": -9900000000000000000000000000000.44
+          },
+          {
+            "type": "static",
+            "datatype": "float",
+            "value": -9900000000000000000000000000000.44
+          },
+          {
+            "type": "static",
+            "datatype": "decimal",
+            "value": -9900000000000000000000000000000.44
+          }
+        ]
+      },
+      {
+        "text": "INSERT INTO RTPJDTF:H1 (ID, T64, T32, TDEC) VALUES (?,?,?,?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 1
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "value": 14
+          },
+          {
+            "type": "static",
+            "datatype": "double",
+            "value": 9999.9999
+          },
+          {
+            "type": "static",
+            "datatype": "float",
+            "value": 9999.9999
+          },
+          {
+            "type": "static",
+            "datatype": "decimal",
+            "value": 9999.9999
+          }
+        ]
+      },
+      {
+        "text": "INSERT INTO RTPJDTF:H1 (ID, T64, T32, TDEC) VALUES (?,?,?,?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 1
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "value": 15
+          },
+          {
+            "type": "static",
+            "datatype": "double",
+            "value": -9999.9999
+          },
+          {
+            "type": "static",
+            "datatype": "float",
+            "value": -9999.9999
+          },
+          {
+            "type": "static",
+            "datatype": "decimal",
+            "value": -9999.9999
+          }
+        ]
+      },
+      {
+        "text": "INSERT INTO RTPJDTF:H1 (ID, T64, T32, TDEC) VALUES (?,?,?,?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 1
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "value": 16
+          },
+          {
+            "type": "static",
+            "datatype": "double",
+            "value": 0.000000000000000000000000000000000000000000000000000000000000000000000099
+          },
+          {
+            "type": "static",
+            "datatype": "float",
+            "value": 0.0
+          },
+          {
+            "type": "static",
+            "datatype": "decimal",
+            "value": 0.0
+          }
+        ]
+      },
+      {
+        "text": "INSERT INTO RTPJDTF:H1 (ID, T64, T32, TDEC) VALUES (?,?,?,?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 1
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "value": 17
+          },
+          {
+            "type": "static",
+            "datatype": "double",
+            "value": -0.000000000000000000000000000000000000000000000000000000000000000000000099
+          },
+          {
+            "type": "static",
+            "datatype": "float",
+            "value": 0.0
+          },
+          {
+            "type": "static",
+            "datatype": "decimal",
+            "value": 0.0
+          }
+        ]
+      },
+      {
+        "text": "INSERT INTO RTPJDTF:H1 (ID, T64, T32, TDEC) VALUES (?,?,?,?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 1
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "value": 18
+          },
+          {
+            "type": "static",
+            "datatype": "double",
+            "value": 0.0000000099
+          },
+          {
+            "type": "static",
+            "datatype": "float",
+            "value": 0.0
+          },
+          {
+            "type": "static",
+            "datatype": "decimal",
+            "value": 0.0
+          }
+        ]
+      }
+    ]
+  }
+}

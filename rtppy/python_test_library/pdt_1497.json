@@ -1,0 +1,168 @@
+{
+  "connection":
+  {
+    "lpar": "ca11",
+    "userid": "qartp02",
+    "ssid": "d11b"
+  },
+  "tests":
+  [
+    {
+      "description": "Used to test problem related to PDT 1497 by starting a PDT collection using different collection profiles that have been setup and then looks for the existing of exceptions collected from dynamic SQL executed.",
+      "test_type": "start collection",
+      "product_code": "PDT",
+      "environment": "",
+      "options": {
+        "itime": "00:15",
+        "t_limit": "00:15",
+        "extern": "Y",
+        "high_level": "PDTDBA.R19",
+        "current_datastore": "PDT14972",
+        "collection_profile": "P1497TC1",
+        "exclude_list": "Y",
+        "standard": "Y",
+        "dynam_stats": "Y",
+        "dynam_excp": "Y",
+        "static_excp": "N",
+        "sql_errors": "Y",
+        "error_text": "Y",
+        "host_vars": "Y",
+        "excp_cache": "0020"
+      }
+    },
+    {
+      "test_type": "distributed sql",
+      "product_code": "PDT",
+      "rtpj_file": "Select_Count_Test.JSON",
+      "rtpj_library": ""
+    },
+    {
+      "test_type": "exceptions",
+      "product_code": "PDT",
+      "environment": "",
+      "column": "SQL"
+    },
+    {
+      "test_type": "stop collection",
+      "environment": "",
+      "product_code": "PDT"
+    },
+    {
+      "test_type": "start collection",
+      "product_code": "PDT",
+      "environment": "",
+      "options": {
+        "itime": "00:15",
+        "t_limit": "00:15",
+        "extern": "Y",
+        "high_level": "PDTDBA.R19",
+        "current_datastore": "PDT14972",
+        "collection_profile": "P1497TC2",
+        "exclude_list": "Y",
+        "standard": "Y",
+        "dynam_stats": "Y",
+        "dynam_excp": "Y",
+        "static_excp": "N",
+        "sql_errors": "Y",
+        "error_text": "Y",
+        "host_vars": "Y",
+        "excp_cache": "0020"
+      }
+    },
+    {
+      "test_type": "distributed sql",
+      "product_code": "PDT",
+      "rtpj_file": "Select_Count_Test.JSON",
+      "rtpj_library": ""
+    },
+    {
+      "test_type": "exceptions",
+      "product_code": "PDT",
+      "environment": "",
+      "column": "SQL"
+    },
+    {
+      "test_type": "stop collection",
+      "environment": "",
+      "product_code": "PDT"
+    },
+    {
+      "test_type": "start collection",
+      "product_code": "PDT",
+      "environment": "",
+      "options": {
+        "itime": "00:15",
+        "t_limit": "00:15",
+        "extern": "Y",
+        "high_level": "PDTDBA.R19",
+        "current_datastore": "PDT14972",
+        "collection_profile": "P1497TC3",
+        "exclude_list": "Y",
+        "standard": "Y",
+        "dynam_stats": "Y",
+        "dynam_excp": "Y",
+        "static_excp": "N",
+        "sql_errors": "Y",
+        "error_text": "Y",
+        "host_vars": "Y",
+        "excp_cache": "0020"
+      }
+    },
+    {
+      "test_type": "distributed sql",
+      "product_code": "PDT",
+      "rtpj_file": "Select_Count_Test.JSON",
+      "rtpj_library": ""
+    },
+    {
+      "test_type": "exceptions",
+      "product_code": "PDT",
+      "environment": "",
+      "column": "SQL"
+    },
+    {
+      "test_type": "stop collection",
+      "environment": "",
+      "product_code": "PDT"
+    },
+    {
+      "test_type": "start collection",
+      "product_code": "PDT",
+      "environment": "",
+      "options": {
+        "itime": "00:15",
+        "t_limit": "00:15",
+        "extern": "Y",
+        "high_level": "PDTDBA.R19",
+        "current_datastore": "PDT14972",
+        "collection_profile": "P1497TC4",
+        "exclude_list": "Y",
+        "standard": "Y",
+        "dynam_stats": "Y",
+        "dynam_excp": "Y",
+        "static_excp": "N",
+        "sql_errors": "Y",
+        "error_text": "Y",
+        "host_vars": "Y",
+        "excp_cache": "0020"
+      }
+    },
+    {
+      "test_type": "distributed sql",
+      "product_code": "PDT",
+      "rtpj_file": "Select_Count_Test.JSON",
+      "rtpj_library": ""
+    },
+    {
+      "test_type": "exceptions",
+      "product_code": "PDT",
+      "environment": "",
+      "column": "SQL"
+    },
+    {
+      "test_type": "stop collection",
+      "environment": "",
+      "product_code": "PDT"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "connection":
+  {
+    "lpar": "",
+    "userid": "qartp02",
+    "ssid": ""
+  },
+  "tests":
+  [
+    {
+      "description": "Executes the Bind All action option from the RTPTEST SQL suite on the mainframe.",
+      "test_type": "rtptest",
+      "product_code": "RTP",
+      "execute_method": "UI",
+      "action": "4",
+      "wait_to_complete": "",
+      "multiple_plan_packages": ""
+    }
+  ]
+}

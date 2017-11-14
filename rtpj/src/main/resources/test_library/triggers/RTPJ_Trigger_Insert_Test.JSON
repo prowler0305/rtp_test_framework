@@ -1,0 +1,51 @@
+{
+  "test": {
+    "description": "This json file executes an after Trigger. ",
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 1,
+      "parallel": true
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "SET CURRENT DEGREE = 'ANY'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "INSERT INTO RTPJIT:H1 (id, resume) VALUES (?, ?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 1
+          },
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "value": 1
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "length": 4042
+          }]
+      }
+    ]
+  }
+}

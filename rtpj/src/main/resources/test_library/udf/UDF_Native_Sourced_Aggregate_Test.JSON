@@ -1,0 +1,65 @@
+{
+  "test": {
+    "description": "Native UDF Test",
+    "seed": 42,
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "CREATE FUNCTION AGE(BDATE DATE) RETURNS SMALLINT LANGUAGE SQL NOT DETERMINISTIC CONTAINS SQL RETURN (YEAR(CURRENT_DATE) - YEAR(BDATE))",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE TABLE RTPUDF ( id INTEGER, first VARCHAR(16), last VARCHAR(30),  bdate DATE) CCSID UNICODE",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "INSERT INTO RTPUDF (id, first, last, bdate) VALUES (?, ?, ?, ?)",
+        "type": "prepare",
+        "subtype": "INSERT",
+        "repeat": 10,
+        "args": [
+          {
+            "value": 1,
+            "type": "incremented",
+            "datatype": "integer"
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "length": 8
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "length": 12
+          },
+          {
+            "type": "generated",
+            "datatype": "date",
+            "length": 30
+          }
+        ]
+      },
+      {
+        "text": "SELECT ID, FIRST, LAST, QADBA01.AGE(BDATE) as AGE, BDATE as BIRTH_DATE FROM RTPUDF FETCH FIRST 10 ROWS ONLY;",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT"
+      },
+      {
+        "text": "DROP TABLE RTPUDF",
+        "type": "IMMEDIATE",
+        "subtype": "DROP"
+      },
+      {
+        "text": "DROP FUNCTION AGE",
+        "type": "IMMEDIATE",
+        "subtype": "DROP"
+      }
+    ]
+  }
+}

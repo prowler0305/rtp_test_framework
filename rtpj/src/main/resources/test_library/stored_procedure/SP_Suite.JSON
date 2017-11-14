@@ -1,0 +1,16 @@
+{
+  "suite": {
+    "description": "A stored procedure test suite.",
+    "connection": {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "tests": [
+      "SP_Basic_Test.JSON",
+      "SP_Native_Loop_Test.JSON",
+      "SP_Native_Dynamic_Select_Test.JSON",
+      "SP_CALL_RTPJSPPS_Test.JSON",
+      "SP_CALL_RTPJSPPN_Test.JSON"
+    ]
+  }
+}

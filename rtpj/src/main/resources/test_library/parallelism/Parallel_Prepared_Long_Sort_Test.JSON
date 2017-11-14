@@ -1,0 +1,33 @@
+{
+  "test": {
+    "connection": {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 1,
+      "parallel": "true"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT DEGREE='ANY'",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1
+      },
+      {
+        "text": "SELECT a.CREATOR, b.CREATOR, a.COLCOUNT FROM SYSIBM.SYSTABLES as a, SYSIBM.SYSTABLESPACE as b  WHERE a.COLCOUNT > ? ORDER BY a.COLCOUNT,b.CREATOR FETCH FIRST 100 ROWS ONLY",
+        "type": "PREPARE",
+        "subtype": "SELECT",
+        "repeat": 1,
+        "args": [
+          {
+            "value": 1,
+            "type": "static",
+            "datatype": "integer"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "test": {
+    "connection": {
+      "ssid": "D11D",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 5,
+      "parallel": "true"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT DEGREE='ANY'",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1
+      },
+      {
+        "text": "SELECT CAST(FIRSTNME AS VARCHAR(12) CCSID UNICODE) , CAST(LASTNAME AS VARCHAR(15) CCSID UNICODE) FROM RTP.EMP , RTP.EMP1 FETCH FIRST 10000 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 5
+      }
+    ]
+  }
+}

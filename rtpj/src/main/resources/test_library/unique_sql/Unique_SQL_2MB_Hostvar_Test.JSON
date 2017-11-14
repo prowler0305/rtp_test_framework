@@ -1,0 +1,70 @@
+{
+  "test": {
+    "description": "Execute a 2MB unique SQL statement with a hostvar.",
+    "connection": {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 1,
+      "parallel": "true"
+    },
+    "statements": [
+      {
+        "text": "SELECT #2M:H1.RESUME FROM RTP.RTPJUS1 AS #2M:H1 WHERE :W0 and #2M:H1.RESUME <> ? FETCH FIRST 1 ROWS ONLY",
+        "type": "PREPARE",
+        "subtype": "SELECT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "static",
+            "datatype": "varchar",
+            "subtype": "literal",
+            "key": ":W0",
+            "value": ":W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W1 :W2"
+          },
+          {
+            "type": "static",
+            "datatype": "varchar",
+            "subtype": "literal",
+            "key": ":W1",
+            "value": "#2M:H1.RESUME <> ':H2' AND"
+          },
+          {
+            "type": "static",
+            "datatype": "varchar",
+            "subtype": "literal",
+            "key": ":W2",
+            "value": "#2M:H1.RESUME <> ':H3'"
+          },
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "key": ":H1",
+            "value": 1
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "subtype": "literal",
+            "key": ":H2",
+            "length": 32659
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "subtype": "literal",
+            "key": ":H3",
+            "length": 5455
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "length": 512
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "connection": {
+    "lpar": "ca31",
+    "userid": "spean03",
+    "ssid": "d11a"
+  },
+  "tests": [
+    {
+      "description": "Test 1: Compare all the Plan Summary data for the interval.",
+      "test_type": "interval compare",
+      "product_code": "PDT",
+      "baseline_vcat": "PDTDBA.R19",
+      "baseline_datastore": "QATEST19",
+      "current_vcat": "PDTDBA.R19",
+      "current_datastore": "QATEST19",
+      "baseline_interval_date": "17/06/27",
+      "baseline_interval_time": "13:00:00",
+      "baseline_interval_date_2": "17/06/27",
+      "baseline_interval_time_2": "12:55:18",
+      "current_interval_date": "to be filled in before workshop",
+      "current_interval_time": "to be filled in before worshop",
+      "view_by": "P"
+    }
+  ]
+}

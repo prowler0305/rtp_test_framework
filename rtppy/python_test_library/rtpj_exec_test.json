@@ -1,0 +1,18 @@
+{
+  "connection":
+  {
+    "lpar": "ca31",
+    "userid": "qartp03",
+    "ssid": "d11a"
+  },
+  "tests":
+  [
+    {
+      "description": "Executes any JSON file in the RTPJ test library (default) or from a specific test library location specified",
+      "test_type": "distributed sql",
+      "product_code": "PDT",
+      "rtpj_file": "",
+      "rtpj_library": ""
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "connection":
+  {
+    "lpar": "",
+    "userid": "qartp02",
+    "ssid": ""
+  },
+  "tests":
+  [
+    {
+      "description": "Executes the Create Objects action option from the RTPTEST SQL suite on the mainframe.",
+      "test_type": "rtptest",
+      "product_code": "RTP",
+      "execute_method": "UI",
+      "wait_to_complete": "",
+      "action": "2"
+    }
+  ]
+}

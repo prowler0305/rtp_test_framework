@@ -1,0 +1,35 @@
+{
+  "test": {
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "SELECT EDLEVEL, CAST(FIRSTNME AS VARCHAR(12) CCSID UNICODE) FROM EMP, EMP1 ORDER BY EDLEVEL FETCH FIRST 1 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT"
+      },
+      {
+        "text": "SELECT EDLEVEL, CAST(FIRSTNME AS VARCHAR(12) CCSID UNICODE) FROM EMP, EMP1 ORDER BY EDLEVEL FETCH FIRST 1 ROWS ONLY",
+        "type": "PREPARE",
+        "subtype": "SELECT"
+      },
+      {
+        "text": "SELECT EDLEVEL, CAST(FIRSTNME AS VARCHAR(12) CCSID UNICODE) FROM EMP, EMP1 ORDER BY EDLEVEL FETCH FIRST 24000000 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT"
+      },
+      {
+        "text": "SELECT EDLEVEL, CAST(FIRSTNME AS VARCHAR(12) CCSID UNICODE) FROM EMP, EMP1 ORDER BY EDLEVEL FETCH FIRST 24000000 ROWS ONLY",
+        "type": "PREPARE",
+        "subtype": "SELECT"
+      }
+    ]
+  }
+}

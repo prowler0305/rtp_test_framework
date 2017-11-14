@@ -1,0 +1,49 @@
+{
+  "test": {
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "CREATE TABLE REGTEMP ( rtpint INTEGER, rtpstring VARCHAR(128))",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "INSERT INTO REGTEMP VALUES (:H , :H , :H , CURRENT DATE , :H , :H)",
+        "type": "IMMEDIATE",
+        "subtype": "INSERT",
+        "repeat": 1
+      },
+      {
+        "text": "INSERT INTO REGTEMP VALUES (4, ?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "args": [
+          {
+            "value": "does not matter it is null",
+            "type": "static",
+            "datatype": "null"
+          }
+        ]
+      },
+      {
+        "text": "SELECT * FROM REGTEMP",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT"
+      },
+      {
+        "text": "DROP TABLE REGTEMP",
+        "type": "IMMEDIATE",
+        "subtype": "DROP"
+      }
+    ]
+  }
+}

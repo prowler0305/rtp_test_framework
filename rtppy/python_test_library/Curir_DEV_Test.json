@@ -1,0 +1,138 @@
+{
+  "connection":
+  {
+    "lpar": "ca31",
+    "userid": "qartp01",
+    "ssid": "d10a"
+  },
+  "tests":
+  [
+    {
+      "test_type": "start collection",
+      "product_code": "PDT",
+      "environment": "DV20",
+      "options": {
+        "itime": "01:00",
+        "t_limit": "01:00",
+        "extern": "Y",
+        "high_level": "PDTDBA.R20.CUR.DV",
+        "current_datastore": "CUDVTEST",
+        "collection_profile": "AGURI01",
+        "trig_sql": "Y",
+        "exclude_list": "Y",
+        "standard": "Y",
+        "dynam_stats": "Y",
+        "view_keys": "Y",
+        "dynam_excp": "Y",
+        "static_excp": "Y",
+        "sql_errors": "Y",
+        "error_text": "Y",
+        "host_vars": "Y",
+        "excp_cache": "0020"
+      }
+    },
+    {
+      "test_type": "start collection",
+      "product_code": "PSA",
+      "environment": "DV20",
+      "options": {
+        "itime": "01:00",
+        "t_limit": "01:00",
+        "extern": "Y",
+        "high_level": "PDTDBA.R20.CUR.DV",
+        "current_datastore": "CUDVTEST",
+        "vol_ext": "Y",
+        "samp": "100"
+      }
+    },
+    {
+      "test_type": "rtptest",
+      "product_code": "RTP",
+      "environment": "DV20",
+      "execute_method": "UI",
+      "action": "6",
+      "multithreading": "",
+      "multiple_plan_packages": ""
+    },
+    {
+      "test_type": "distributed sql",
+      "product_code": "PDT",
+      "rtpj_file": "RTPJ_Full_Regression_Suite.JSON"
+    },
+    {
+      "test_type": "aggregate compare",
+      "product_code": "PDT",
+      "environment": "DV20",
+      "current_vcat": "PDTDBA.R20.CUR.DV",
+      "current_datastore": "CUDVTEST",
+      "current_interval_date": "1",
+      "current_interval_time": "",
+      "level": "PLAN",
+      "plan": "ALL",
+      "column": "INDB2_TIME"
+    },
+    {
+      "test_type": "aggregate compare",
+      "product_code": "PDT",
+      "environment": "DV20",
+      "current_vcat": "PDTDBA.R20.CUR.DV",
+      "current_datastore": "CUDVTEST",
+      "current_interval_date": "1",
+      "current_interval_time": "",
+      "level": "PLAN",
+      "plan": "ALL",
+      "column": "INDB2_CPU"
+    },
+    {
+      "test_type": "aggregate compare",
+      "product_code": "PDT",
+      "environment": "DV20",
+      "current_vcat": "PDTDBA.R20.CUR.DV",
+      "current_datastore": "CUDVTEST",
+      "current_interval_date": "1",
+      "current_interval_time": "",
+      "level": "PLAN",
+      "plan": "ALL",
+      "column": "GETPAGE"
+    },
+    {
+      "test_type": "aggregate compare",
+      "product_code": "PDT",
+      "environment": "DV20",
+      "current_vcat": "PDTDBA.R20.CUR.DV",
+      "current_datastore": "CUDVTEST",
+      "current_interval_date": "1",
+      "current_interval_time": "",
+      "level": "PROGRAM",
+      "plan": "ALL",
+      "program": "ALL",
+      "column": "INDB2_TIME"
+    },
+    {
+      "test_type": "aggregate compare",
+      "product_code": "PDT",
+      "environment": "DV20",
+      "current_vcat": "PDTDBA.R20.CUR.DV",
+      "current_datastore": "CUDVTEST",
+      "current_interval_date": "1",
+      "current_interval_time": "",
+      "level": "PROGRAM",
+      "plan": "ALL",
+      "program": "ALL",
+      "column": "INDB2_CPU"
+    },
+    {
+      "test_type": "aggregate compare",
+      "product_code": "PDT",
+      "environment": "DV20",
+      "current_vcat": "PDTDBA.R20.CUR.DV",
+      "current_datastore": "CUDVTEST",
+      "current_interval_date": "1",
+      "current_interval_time": "",
+      "level": "PROGRAM",
+      "plan": "ALL",
+      "program": "ALL",
+      "column": "GETPAGE"
+    }
+  ]
+}

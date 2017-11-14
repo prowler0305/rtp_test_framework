@@ -1,0 +1,118 @@
+{
+  "test": {
+    "description": "Creates the objects for the standalone SELECT tests.",
+    "connection": {
+      "ssid": "DD0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "DROP DATABASE RTPJSS:H1",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "value": 1,
+            "key": ":H1"
+          }],
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "text": "CREATE DATABASE RTPJSS:H1 BUFFERPOOL BP1 INDEXBP BP2 STOGROUP SYSDEFLT",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "value": 1,
+            "description": "Database literal counter.",
+            "key": ":H1"
+          }]
+      },
+      {
+        "text": "CREATE TABLESPACE RTPJSS:H1 IN RTPJSS:DB1 USING STOGROUP SYSDEFLT PRIQTY -1 SECQTY -1 ERASE NO BUFFERPOOL BP2 DSSIZE 4G CLOSE YES LOCKMAX SYSTEM SEGSIZE 32 FREEPAGE 0 PCTFREE 0 GBPCACHE CHANGED DEFINE YES LOGGED TRACKMOD YES MAXPARTITIONS 4096 COMPRESS YES LOCKSIZE ANY MAXROWS 1 CCSID EBCDIC;",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Tablespace literal counter.",
+            "value": 1,
+            "key": ":H1"
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Database literal counter.",
+            "value": 1,
+            "key": ":DB1"
+          }]
+      },
+      {
+        "text": "CREATE TABLE RTPJSS:H1 (id INTEGER NOT NULL WITH DEFAULT, resume VARCHAR(4042) NOT NULL WITH DEFAULT) in RTPJSS:DB1.RTPJSS:H1 APPEND NO CCSID EBCDIC PARTITION BY SIZE EVERY 4G",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Tablespace literal counter.",
+            "value": 1,
+            "key": ":H1"
+          },
+          {
+            "type": "static",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Database literal counter.",
+            "value": 1,
+            "key": ":DB1"
+          }
+        ]
+      },
+      {
+        "text": "INSERT INTO RTPJSS:H1 (id) VALUES (?)",
+        "type": "BATCH",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "batches": 100,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 1
+          },
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  }
+}

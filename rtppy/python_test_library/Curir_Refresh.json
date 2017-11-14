@@ -1,0 +1,162 @@
+{
+  "connection":
+  {
+    "lpar": "ca31",
+    "userid": "qartp03",
+    "ssid": "d11a"
+  },
+  "tests":
+  [
+    {
+      "description": "This test gets executed after the DB2 Tools CURIR Test library environment is refreshed everyday. It starts a PDT/PSA synchronized collection, runs some SQL activity, and then executes the aggregate compare tests for both PDT and PSA focusing on the DB2 metrics INDB2_TIME, INDB2_CPU, and GETPAGE",
+      "test_type": "start collection",
+      "product_code": "PDT",
+      "environment": "CURIR",
+      "options": {
+        "itime": "01:00",
+        "t_limit": "01:00",
+        "extern": "Y",
+        "high_level": "PDTDBA.CURIR",
+        "current_datastore": "REFRESH",
+        "collection_profile": "refresh",
+        "trig_sql": "Y",
+        "exclude_list": "Y",
+        "standard": "Y",
+        "dynam_stats": "Y",
+        "view_keys": "Y",
+        "dynam_excp": "Y",
+        "static_excp": "Y",
+        "sql_errors": "Y",
+        "error_text": "Y",
+        "host_vars": "Y",
+        "excp_cache": "0020"
+      }
+    },
+    {
+      "test_type": "start collection",
+      "product_code": "PSA",
+      "environment": "CURIR",
+      "options": {
+        "itime": "01:00",
+        "t_limit": "01:00",
+        "extern": "Y",
+        "high_level": "PDTDBA.CURIR",
+        "current_datastore": "REFRESH",
+        "vol_ext": "Y",
+        "samp": "6"
+      }
+    },
+    {
+      "test_type": "rtptest",
+      "product_code": "RTP",
+      "environment": "CURIR",
+      "execute_method": "UI",
+      "action": "6",
+      "multithreading": "",
+      "multiple_plan_packages": ""
+    },
+    {
+      "test_type": "distributed sql",
+      "product_code": "PDT",
+      "rtpj_file": "RTPJ_Full_Regression_Suite.JSON"
+    },
+    {
+      "test_type": "stop collection",
+      "product_code": "PDT",
+      "environment": "CURIR"
+    },
+    {
+      "test_type": "stop collection",
+      "product_code": "PSA",
+      "environment": "CURIR"
+    },
+    {
+      "test_type": "aggregate compare",
+      "product_code": "PDT",
+      "environment": "CURIR",
+      "current_vcat": "PDTDBA.CURIR",
+      "current_datastore": "REFRESH",
+      "current_interval_date": "1",
+      "current_interval_time": "",
+      "level": "PLAN",
+      "plan": "ALL",
+      "column": "INDB2_TIME"
+    },
+    {
+      "test_type": "aggregate compare",
+      "product_code": "PDT",
+      "environment": "CURIR",
+      "current_vcat": "PDTDBA.CURIR",
+      "current_datastore": "REFRESH",
+      "current_interval_date": "1",
+      "current_interval_time": "",
+      "level": "PLAN",
+      "plan": "ALL",
+      "column": "INDB2_CPU"
+    },
+    {
+      "test_type": "aggregate compare",
+      "product_code": "PDT",
+      "environment": "CURIR",
+      "current_vcat": "PDTDBA.CURIR",
+      "current_datastore": "REFRESH",
+      "current_interval_date": "1",
+      "current_interval_time": "",
+      "level": "PLAN",
+      "plan": "ALL",
+      "column": "GETPAGE"
+    },
+    {
+      "test_type": "aggregate compare",
+      "product_code": "PDT",
+      "environment": "CURIR",
+      "current_vcat": "PDTDBA.CURIR",
+      "current_datastore": "REFRESH",
+      "current_interval_date": "1",
+      "current_interval_time": "",
+      "level": "PROGRAM",
+      "plan": "ALL",
+      "program": "ALL",
+      "column": "INDB2_TIME"
+    },
+    {
+      "test_type": "aggregate compare",
+      "product_code": "PDT",
+      "environment": "CURIR",
+      "current_vcat": "PDTDBA.CURIR",
+      "current_datastore": "REFRESH",
+      "current_interval_date": "1",
+      "current_interval_time": "",
+      "level": "PROGRAM",
+      "plan": "ALL",
+      "program": "ALL",
+      "column": "INDB2_CPU"
+    },
+    {
+      "test_type": "aggregate compare",
+      "product_code": "PDT",
+      "environment": "CURIR",
+      "current_vcat": "PDTDBA.CURIR",
+      "current_datastore": "REFRESH",
+      "current_interval_date": "1",
+      "current_interval_time": "",
+      "level": "PROGRAM",
+      "plan": "ALL",
+      "program": "ALL",
+      "column": "GETPAGE"
+    },
+    {
+      "description": "Aggregate the Database Table Activity data and compare against the Database Activity display data.",
+      "test_type": "aggregate compare",
+      "product_code": "PSA",
+      "environment": "CURIR",
+      "current_vcat": "PDTDBA.CURIR",
+      "current_datastore": "REFRESH",
+      "current_interval_date": "1",
+      "current_interval_time": "",
+      "level": "dbase",
+      "dbname": "ALL",
+      "column": "GETPAGE"
+    }
+  ]
+}

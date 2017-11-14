@@ -1,0 +1,18 @@
+{
+  "connection":
+  {
+    "lpar": "ca11",
+    "userid": "qartp01",
+    "ssid": "d11c"
+  },
+  "tests":
+  [
+    {
+      "description": "Zap instructions in DT$DIU and DT$DIO so that the CML lock is not released.",
+      "test_type": "lock release",
+      "product_code": "PDT",
+      "environment": "",
+      "xman": ""
+    }
+  ]
+}

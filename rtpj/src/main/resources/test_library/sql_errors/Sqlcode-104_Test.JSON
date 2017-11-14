@@ -1,0 +1,20 @@
+{
+  "test": {
+    "description": "Causes a -104 sqlcode.",
+    "connection": {
+      "ssid": "D11D",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "ILLEGALSYMBOL2",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1,
+        "expect": {
+          "sqlerror": -104
+        }
+      }
+    ]
+  }
+}

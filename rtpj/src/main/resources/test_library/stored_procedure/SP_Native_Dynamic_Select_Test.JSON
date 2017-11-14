@@ -1,0 +1,42 @@
+{
+  "test": {
+    "description": "Creates a native SQL stored procedure that takes an SQL statement of max 512 length and prepares it. Created for PDT1372.",
+    "connection": {
+      "ssid": "D11D",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "DROP PROCEDURE RTPSPDYN",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "text": "CREATE PROCEDURE RTPSPDYN (IN TEXT VARCHAR(512)) LANGUAGE SQL DYNAMIC RESULT SETS 1 BEGIN PREPARE C1 FROM TEXT; COMMIT; END",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CALL RTP.RTPSPDYN(?)",
+        "type": "CALL",
+        "subtype": "Procedure",
+        "args": [
+          {
+            "value": "SELECT * FROM SYSIBM.SYSTABLES FETCH FIRST 1 ROWS ONLY",
+            "type": "static",
+            "datatype": "varchar",
+            "length": 128
+          }
+        ]
+      }
+    ]
+  }
+}

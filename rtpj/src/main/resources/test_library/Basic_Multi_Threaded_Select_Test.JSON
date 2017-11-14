@@ -1,0 +1,26 @@
+{
+  "test": {
+    "threading": {
+      "threads": 200,
+      "parallel": "true"
+    },
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SELECT NAME,CREATOR FROM SYSIBM.SYSTABLES WHERE KEYCOLUMNS < ? FETCH FIRST 100 ROWS ONLY",
+        "type": "PREPARE",
+        "subtype": "SELECT",
+        "repeat": 100,
+        "args": [
+         {
+            "value": 10,
+            "type": "incremented",
+            "datatype": "INTEGER"
+         }]
+      }
+    ]
+  }
+}

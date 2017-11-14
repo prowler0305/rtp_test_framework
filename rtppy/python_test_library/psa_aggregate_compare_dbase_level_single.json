@@ -1,0 +1,23 @@
+{
+  "connection":
+  {
+    "lpar": "ca31",
+    "ssid": "d12a",
+    "userid": "qartp01"
+  },
+  "tests":
+  [
+    {
+      "description": "Aggregate the Database Table Activity data and compare against the Database Activity display data.",
+      "test_type": "aggregate compare",
+      "product_code": "PSA",
+      "current_vcat": "PDTDBA.R19",
+      "current_datastore": "RTPCURNT",
+      "current_interval_date": "1",
+      "current_interval_time": "16:20:24",
+      "level": "dbase",
+      "dbname": "",
+      "column": ""
+    }
+  ]
+}

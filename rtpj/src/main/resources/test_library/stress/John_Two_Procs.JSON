@@ -1,0 +1,33 @@
+{
+  "test":
+  {
+    "seed": 42,
+    "description": "Calls two stored procedures with no input parameters and some output parameters.",
+    "connection":
+    {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "statements":
+    [
+      {
+        "text": "CALL HARJO20.PROC100C()",
+        "type": "CALL",
+        "subtype": "Procedure",
+        "expect" :
+        {
+          "ignore": true
+        }
+      },
+      {
+        "text": "CALL HARJO20.PROC019S()",
+        "type": "CALL",
+        "subtype": "Procedure",
+        "expect" :
+        {
+          "ignore": true
+        }
+      }
+    ]
+  }
+}

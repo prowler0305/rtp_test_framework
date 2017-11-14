@@ -1,0 +1,25 @@
+{
+  "suite": {
+    "description": "RTPJ Full Regression Test",
+    "connection": {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "tests": [
+      "Parallel_Catalog_Test.JSON",
+      "Parallel_Select_Test.JSON",
+      "Sqlcode-104_Test.JSON",
+      "Sqlcode-204_Test.JSON",
+      "Sqlcode-206_Test.JSON",
+      "Abort_Stress_Test.JSON",
+      "Commit_Stress_Test.JSON",
+      "SP_Main_Test.JSON",
+      "Unique_SQL_Small_Test.JSON",
+      "Unique_SQL_4K_Test.JSON",
+      "Unique_SQL_32K_Test.JSON",
+      "Unique_SQL_64K_Test.JSON",
+      "Unique_SQL_Small_Error_Stress_Test.JSON",
+      "Unique_SQL_4K_Error_Stress_Test.JSON"
+    ]
+  }
+}

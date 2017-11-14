@@ -1,0 +1,21 @@
+{
+  "test": {
+    "description": "Execute a Select count statement that is useful to test exception problem related to PDT 1497",
+    "connection": {
+      "ssid": "D11B",
+      "userid": "QARTP01"
+    },
+    "threading": {
+      "threads": 1,
+      "parallel": "false"
+    },
+    "statements": [
+      {
+        "text": "SELECT COUNT(*) FROM SYSIBM.SYSTABLES,SYSIBM.SYSTABLES",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "test": {
+    "description": "This test is used to validate that the PSA Sampling feature objects exist.",
+    "connection": {
+      "ssid": "DB2G",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 1,
+      "parallel": true
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "SET CURRENT DEGREE = 'ANY'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "SELECT id FROM RTPJTB:H1 FETCH FIRST 5000 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 20,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "value": 1,
+            "key": ":H1",
+            "max": 20
+          }],
+        "expect": {
+          "columns": 1,
+          "rows": 5000
+        }
+      }
+    ]
+  }
+}

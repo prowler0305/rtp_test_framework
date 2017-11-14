@@ -1,0 +1,41 @@
+{
+  "suite": {
+    "description": "RTPJ Full Regression Test",
+    "connection": {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "tests": [
+      "SP_Basic_Test.JSON",
+      "SP_CALL_RTPJSPPS_Test.JSON",
+      "SP_CALL_RTPJSPPS_Stress_Test.JSON",
+      "SP_CALL_RTPJSPPN_Test.JSON",
+      "SP_Main_Test.JSON",
+      "SP_Main_Parallel_Test.JSON",
+      "Parallel_Catalog_Test.JSON",
+      "Parallel_Select_Test.JSON",
+      "Sqlcode-104_Test.JSON",
+      "Sqlcode-204_Test.JSON",
+      "Sqlcode-206_Test.JSON",
+      "Sqlcode-724_Test.JSON",
+      "Abort_Stress_Test.JSON",
+      "Commit_Stress_Test.JSON",
+      "RTPJ_Trigger_Insert_Test.JSON",
+      "Unique_SQL_Small_Test.JSON",
+      "Unique_SQL_4K_Test.JSON",
+      "Unique_SQL_32K_Test.JSON",
+      "Unique_SQL_64K_Test.JSON",
+      "Unique_SQL_Small_Error_Test.JSON",
+      "Unique_SQL_4K_Error_Test.JSON",
+      "Unique_SQL_32K_Error_Test.JSON",
+      "Unique_SQL_64K_Error_Test.JSON",
+      "Unique_SQL_1MB_Error_Test.JSON",
+      "Unique_SQL_2MB_Error_Test.JSON",
+      "Unique_SQL_2MB_Hostvar_Test.JSON",
+      "Unique_SQL_2MB_Hostvar_Error_Test.JSON",
+      "Unique_SQL_2MB_Test.JSON",
+      "Unique_SQL_Small_Error_Stress_Test.JSON",
+      "Unique_SQL_4K_Error_Stress_Test.JSON"
+    ]
+  }
+}

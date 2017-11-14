@@ -1,0 +1,41 @@
+{
+  "test": {
+    "description": "Executes a long running SQL statement with or without parallel tasks.",
+    "connection": {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 1,
+      "parallel": "true"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT DEGREE = 'ANY'",
+        "type": "IMMEDIATE"
+      },
+      {
+        "text": "SELECT TB.TSNAME FROM SYSIBM.SYSTABLES TB, SYSIBM.SYSCOLUMNS SC, SYSIBM.SYSSTOGROUP SG, SYSIBM.SYSTABLESPACE AS ST, SYSIBM.SYSPACKAGE AS SP FETCH FIRST 8000000 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "key": ":H1",
+            "value": 1
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "subtype": "literal",
+            "key": ":H2",
+            "length": 3987
+          }
+        ]
+      }
+    ]
+  }
+}

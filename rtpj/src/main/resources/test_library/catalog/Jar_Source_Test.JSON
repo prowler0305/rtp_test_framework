@@ -1,0 +1,17 @@
+{
+  "test": {
+    "description": "This test returns 100 rows from the SYSJARCONTENTS table.",
+    "connection": {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SELECT JARSCHEMA, JAR_ID, CLOB(CLASS_SOURCE, 32767) AS CLASS_SOURCE FROM SYSIBM.SYSJARCONTENTS FETCH FIRST 100 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "test": {
+    "description": "Drops then Creates the RTPJSP stored procedures.",
+    "connection": {
+      "ssid": "DD0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "DROP PROCEDURE RTP.RTPJSP",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "text": "CREATE PROCEDURE RTP.RTPJSP (IN TEXT VARCHAR(512), IN PTASK VARCHAR(5)) LANGUAGE SQL DYNAMIC RESULT SETS 1 BEGIN DECLARE MYPARM1 VARCHAR(128); DECLARE RCOUNT INTEGER DEFAULT 1000; DECLARE ICOUNT INTEGER DEFAULT 0; DECLARE C1 CURSOR FOR STMT1; SET CURRENT DEGREE = PTASK; PREPARE STMT1 FROM TEXT; OPEN C1; WHILE ICOUNT < RCOUNT DO FETCH C1 INTO MYPARM1; SET ICOUNT = ICOUNT + 1; END WHILE; CLOSE C1; END",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      }
+    ]
+  }
+}

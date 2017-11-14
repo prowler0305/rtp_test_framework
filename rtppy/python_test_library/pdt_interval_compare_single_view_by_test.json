@@ -1,0 +1,30 @@
+{
+  "connection":
+  {
+    "lpar": "ca31",
+    "userid": "qartp01",
+    "ssid": "d12a",
+    "ssid2": "d12a"
+  },
+  "tests":
+  [
+    {
+      "description": "Compares all the data for an interval between a baseline and a current run for the view_by option display specified.",
+      "test_type": "interval compare",
+      "product_code": "PDT",
+      "baseline_vcat": "PDTDBA.R19",
+      "baseline_datastore": "RTPBASE",
+      "current_vcat": "PDTDBA.R19",
+      "current_datastore": "RTPCURNT",
+      "baseline_interval_date": "1",
+      "baseline_interval_time": "10:07:09",
+      "current_interval_date": "1",
+      "current_interval_time": "10:42:34",
+      "view_type": "",
+      "view_by": "",
+      "key_option": "",
+      "range_pct": "",
+      "column": ""
+    }
+  ]
+}

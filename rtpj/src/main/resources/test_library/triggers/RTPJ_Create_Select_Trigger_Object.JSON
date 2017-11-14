@@ -1,0 +1,36 @@
+{
+  "test": {
+    "description": "Creates RTPJ Trigger Test Objects",
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "CREATE TRIGGER RTP.RTPJTRG4 AFTER INSERT ON RTP.RTPJIT:H1 FOR EACH ROW MODE DB2SQL BEGIN ATOMIC SELECT B.ID FROM RTP.RTPJSP1 AS A, RTP.RTPJSP1 AS B ORDER BY A.ID FETCH FIRST 1000 ROWS ONLY; END",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table/Index literal counter.",
+            "value": 1,
+            "key": ":H1"
+          }]
+      },
+      {
+        "text": "COMMIT",
+        "type": "IMMEDIATE",
+        "subtype": "COMMIT"
+      }
+    ]
+  }
+}

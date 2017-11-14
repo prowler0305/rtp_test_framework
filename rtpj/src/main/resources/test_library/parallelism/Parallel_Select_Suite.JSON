@@ -1,0 +1,14 @@
+{
+  "suite": {
+    "connection": {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "tests": [
+      "Parallel_Select_Test.JSON",
+      "Parallel_Catalog_Test.JSON",
+      "Parallel_Prepared_Long_Sort_Test.JSON",
+      "Parallel_Stored_Proc_Test.JSON"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "test": {
+    "seed": 100,
+    "description": "This json file DROPS a set of RTPJ objects to be used in other tests.  This includes a Storage Group, Databases, Tablespaces, Tables and Indexes.",
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "DROP DATABASE PXMLDB:H1",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "repeat": 2,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "value": 1,
+            "key": ":H1"
+          }]
+      }
+    ]
+  }
+}

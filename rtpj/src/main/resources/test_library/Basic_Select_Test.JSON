@@ -1,0 +1,41 @@
+{
+  "test": {
+    "connection": {
+      "ssid": "D11A",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SELECT NAME FROM SYSIBM.SYSROUTINES ORDER BY NAME FETCH FIRST 10 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1,
+        "expect": {
+          "columns": 1,
+          "rows": 10
+        }
+      },
+      {
+        "text": "SELECT PARM_COUNT FROM SYSIBM.SYSROUTINES WHERE NAME = ? AND PARM_COUNT > ?",
+        "type": "PREPARE",
+        "subtype": "SELECT",
+        "repeat": 1,
+        "args": [
+          {
+            "value": "DB2_INSTALL_JAR",
+            "type": "static",
+            "datatype": "varchar"
+          },
+          {
+            "value": 1,
+            "type": "static",
+            "datatype": "integer"
+          }
+        ],
+        "expect": {
+          "columns": 1
+        }
+      }
+    ]
+  }
+}

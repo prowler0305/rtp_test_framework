@@ -1,0 +1,20 @@
+{
+  "suite": {
+    "description": "Run all Parallel Tests That Work.",
+    "connection": {
+      "ssid": "D11C",
+      "userid": "QADBA01"
+    },
+    "tests": [
+      "Parallel_Catalog_Test.JSON",
+      "Parallel_Immediate_Long_Select_Test.JSON",
+      "Parallel_Multiple_Small_Selects_Test.JSON",
+      "Parallel_Prepared_Long_Select_Test.JSON",
+      "Parallel_Prepared_Long_Sort_Test.JSON",
+      "Parallel_Select_Suite.JSON",
+      "Parallel_Select_Test.JSON",
+      "Parallel_SQL_385_Test.JSON",
+      "Parallel_Stored_Proc_Test.JSON"
+    ]
+  }
+}

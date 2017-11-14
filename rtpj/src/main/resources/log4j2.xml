@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ RTPJ Log4j2 Default Configuration
+ This log4j2 configuration will be used if the -Dlog4j.configurationFile={configfile} parameter is not specified.
+ -->
+
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d %highlight{%-5p} [%t] %C{2} (%F:%L) - %m%n"/>
+        </Console>
+        <File name="File" fileName="logs/rtp.log" append="false">
+            <PatternLayout>
+                <pattern>%d %-5p [%t] %C{2} (%F:%L) - %m%n</pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="info" includeLocation="true">
+            <AppenderRef ref="File" level="info"/>
+            <AppenderRef ref="STDOUT"/>
+        </Root>
+    </Loggers>
+</Configuration>

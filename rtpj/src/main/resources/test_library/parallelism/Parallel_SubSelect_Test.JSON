@@ -1,0 +1,32 @@
+{
+  "test": {
+    "connection": {
+      "ssid": "D11D",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 1,
+      "parallel": "true"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT DEGREE='ANY'",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1
+      },
+      {
+        "text": "SET CURRENT SCHEMA='RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1
+      },
+      {
+        "text": "SELECT A.ID, A.NAME, A.SALARY, A.BONUS, A.SHARES FROM RTPJCP1 AS A, RTPJCP2 AS B, RTPJCP3 AS C, RTPJCP4 AS D WHERE A.ID IN (SELECT A.ID FROM RTPJCP1 AS A, RTPJCP2 AS B, RTPJCP3 AS C, RTPJCP4 AS D WHERE A.BONUS > B.SALARY OR A.BONUS > C.SALARY OR A.BONUS > D.SALARY FETCH FIRST 200000 ROWS ONLY) FETCH FIRST 50000 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1
+      }
+    ]
+  }
+}

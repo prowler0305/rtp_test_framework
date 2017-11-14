@@ -1,0 +1,40 @@
+{
+  "test": {
+    "description": "Execute a 4096 unique SQL statement 10 times over 2 different connections in parallel.",
+    "connection": {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 100,
+      "parallel": "true"
+    },
+    "statements": [
+      {
+        "text": "ERROR SELECT #4KE:H1.RESUME FROM RTP.RTPJUS1 AS #4KE:H1 WHERE #4KE:H1.RESUME <> ':H2' FETCH FIRST -1 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 10,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "key": ":H1",
+            "value": 1
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "subtype": "literal",
+            "key": ":H2",
+            "length": 3987
+          }
+        ],
+        "expect" : {
+          "sqlerror": -104
+        }
+      }
+    ]
+  }
+}

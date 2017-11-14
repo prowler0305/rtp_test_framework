@@ -1,0 +1,105 @@
+{
+  "test": {
+    "description": "This json file creates a set of RTPJ objects to be used in other tests.  This includes a Database, Tablespace, Table and Index.",
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "DROP PROCEDURE RTP.RTPJDSL",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "text": "DROP DATABASE RTPJLDB",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "expect": {
+          "ignore": true
+        }
+      },
+      {
+        "text": "COMMIT",
+        "type": "IMMEDIATE",
+        "subtype": "COMMIT"
+      },
+      {
+        "text": "CREATE DATABASE RTPJLDB BUFFERPOOL BP1 INDEXBP BP2 STOGROUP SYSDEFLT",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 1,
+        "args": []
+      },
+      {
+        "text": "CREATE TABLESPACE RTPJLTS IN RTPJLDB USING STOGROUP SYSDEFLT PRIQTY -1 SECQTY -1 ERASE NO BUFFERPOOL BP2 DSSIZE 4G CLOSE YES LOCKMAX SYSTEM SEGSIZE 32 FREEPAGE 0 PCTFREE 0 GBPCACHE CHANGED DEFINE YES LOGGED TRACKMOD YES MAXPARTITIONS 4096 COMPRESS YES LOCKSIZE ANY CCSID EBCDIC NUMPARTS 1;",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 1,
+        "args": []
+      },
+      {
+        "text": "CREATE TABLE RTPJLTB (id INTEGER NOT NULL WITH DEFAULT, first VARCHAR(20) NOT NULL WITH DEFAULT, middle CHAR(1) NOT NULL WITH DEFAULT, last VARCHAR(128) NOT NULL WITH DEFAULT, resume VARCHAR(512) NOT NULL WITH DEFAULT, PRIMARY KEY(id)) in RTPJLDB.RTPJLTS APPEND NO CCSID EBCDIC PARTITION BY SIZE EVERY 4G",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 1,
+        "args": [
+        ]
+      },
+      {
+        "text": "CREATE UNIQUE INDEX RTPJLIS ON RTPJLTB (id) NOT CLUSTER NOT PADDED DEFINE YES COMPRESS NO BUFFERPOOL BP7 CLOSE NO DEFER NO COPY NO USING STOGROUP SYSDEFLT PRIQTY -1 SECQTY -1 ERASE NO FREEPAGE 0 PCTFREE 5 GBPCACHE CHANGED PIECESIZE 4194304K",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 1,
+        "args": []
+      },
+      {
+        "text": "INSERT INTO RTPJLTB (id, first, middle, last, resume) VALUES (?,?,?,?,?)",
+        "type": "BATCH",
+        "subtype": "INSERT",
+        "batches": 10000,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "value": 1
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "length": 20
+          },
+          {
+            "type": "generated",
+            "datatype": "char",
+            "length": 1
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "length": 128
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "length": 512
+          }
+        ]
+      },
+      {
+        "description": "Procedure RTPJDSL data sharing lock.",
+        "text": "CREATE PROCEDURE RTP.RTPJDSL (IN rows INTEGER, IN fname VARCHAR(20), IN middle CHAR(1), IN last VARCHAR(128), IN resume VARCHAR(512)) LANGUAGE SQL BEGIN DECLARE ROWID INTEGER DEFAULT 1; DECLARE RCOUNT INTEGER DEFAULT 1000; DECLARE STMT VARCHAR(512); DECLARE STMT2 VARCHAR(512); DECLARE STMT3 VARCHAR(512); DECLARE STMT4 VARCHAR(512); DECLARE ICOUNT INTEGER DEFAULT 0; SET RCOUNT = rows; SET STMT = 'UPDATE RTP.RTPJLTB SET first=? WHERE id=?'; SET STMT2 = 'UPDATE RTP.RTPJLTB SET middle=? WHERE id=?'; SET STMT3 = 'UPDATE RTP.RTPJLTB SET last=? WHERE id=?'; SET STMT4 = 'UPDATE RTP.RTPJLTB SET resume=? WHERE id=?'; WHILE ICOUNT < RCOUNT DO PREPARE S1 FROM STMT; EXECUTE S1 USING fname,ROWID; PREPARE S2 FROM STMT2; EXECUTE S2 USING middle,ICOUNT; PREPARE S3 FROM STMT3; EXECUTE S3 USING last,ROWID; PREPARE S4 FROM STMT4; EXECUTE S4 USING resume,ICOUNT; SET ICOUNT = ICOUNT + 1; COMMIT; END WHILE; END",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      }
+    ]
+  }
+}

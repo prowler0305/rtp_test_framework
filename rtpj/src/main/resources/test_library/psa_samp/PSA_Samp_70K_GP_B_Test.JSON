@@ -1,0 +1,45 @@
+{
+  "test": {
+    "description": "This test is used to validate the PSA Sampling feature using many objects. 100 Threads at 70 selects per table will get 70,000 getpages on each of ten tables without any real i/o.",
+    "connection": {
+      "ssid": "DB2G",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 100,
+      "parallel": true
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "SET CURRENT DEGREE = 'ANY'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "SELECT id FROM RTPJTB:H1 FETCH FIRST 699 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 10,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "value": 11,
+            "randomize": true,
+            "key": ":H1",
+            "max": 20
+          }],
+        "expect": {
+          "columns": 1,
+          "rows": 699
+        }
+      }
+    ]
+  }
+}

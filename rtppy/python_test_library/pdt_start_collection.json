@@ -1,0 +1,37 @@
+{
+  "connection":
+  {
+    "lpar": "ca31",
+    "userid": "qartp01",
+    "ssid": "d12a"
+  },
+  "tests":
+  [
+    {
+      "description": "Starts a PDT collection",
+      "test_type": "start collection",
+      "product_code": "PDT",
+      "environment": "",
+      "options":
+      {
+        "itime": "00:15",
+        "t_limit": "00:15",
+        "extern": "Y",
+        "high_level": "",
+        "current_datastore": "",
+        "collection_profile": "",
+        "trig_sql": "Y",
+        "exclude_list": "Y",
+        "standard": "Y",
+        "dynam_stats": "Y",
+        "view_keys": "Y",
+        "dynam_excp": "Y",
+        "static_excp": "Y",
+        "sql_errors": "Y",
+        "error_text": "Y",
+        "host_vars": "Y",
+        "excp_cache": "0020"
+      }
+    }
+  ]
+}

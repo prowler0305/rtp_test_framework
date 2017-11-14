@@ -1,0 +1,28 @@
+{
+  "test": {
+    "description": "Basic prepare.",
+    "connection": {
+      "ssid": "DD0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT DEGREE='ANY'",
+        "type": "static"
+      },
+      {
+        "text": "SELECT NAME FROM SYSIBM.SYSTABLES WHERE CREATOR=? FETCH FIRST 1 ROWS ONLY",
+        "type": "prepare",
+        "subtype": "SELECT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "static",
+            "datatype": "varchar",
+            "value": "SYSIBM"
+          }
+        ]
+      }
+    ]
+  }
+}

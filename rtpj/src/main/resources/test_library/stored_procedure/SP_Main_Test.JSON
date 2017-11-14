@@ -1,0 +1,203 @@
+{
+  "test": {
+    "description": "Invokes the procedures RTPJSPPC(Parallelism with a CLOSE), RTPJSPPN(Parallelism without a CLOSE), RTPJSPC(No Parallelism with a CLOSE), RTPJSPN(No Parallelism without a CLOSE).",
+    "threading": {
+      "threads": 1,
+      "parallel": true
+    },
+    "connection": {
+      "ssid": "DD0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "description": "RTPJSPPC(Parallelism with a CLOSE)",
+        "text": "CALL RTP.RTPJSPPC(?,?)",
+        "type": "CALL",
+        "subtype": "Procedure",
+        "repeat": 1,
+        "args": [
+          {
+            "value": "SELECT B.ID FROM RTP.RTPJSP1 AS A, RTP.RTPJSP1 AS B ORDER BY A.ID FETCH FIRST 10000 ROWS ONLY;",
+            "type": "static",
+            "datatype": "varchar",
+            "length": 140
+          },
+          {
+            "value": "1",
+            "type": "static",
+            "datatype": "varchar",
+            "description": "Parallelism setting.",
+            "length": 3
+          }
+        ]
+      },
+      {
+        "description": "RTPJSPPN(Parallelism without a CLOSE)",
+        "text": "CALL RTP.RTPJSPPN(?,?)",
+        "type": "CALL",
+        "subtype": "Procedure",
+        "repeat": 1,
+        "args": [
+          {
+            "value": "SELECT B.ID FROM RTP.RTPJSP1 AS A, RTP.RTPJSP1 AS B ORDER BY A.ID FETCH FIRST 10000 ROWS ONLY;",
+            "type": "static",
+            "datatype": "varchar",
+            "length": 140
+          },
+          {
+            "value": "1",
+            "type": "static",
+            "datatype": "varchar",
+            "description": "Parallelism setting.",
+            "length": 3
+          }
+        ]
+      },
+      {
+        "description": "RTPJSPC(No Parallelism with a CLOSE)",
+        "text": "CALL RTP.RTPJSPC(?)",
+        "type": "CALL",
+        "subtype": "Procedure",
+        "repeat": 1,
+        "args": [
+          {
+            "value": "SELECT B.ID FROM RTP.RTPJSP1 AS A, RTP.RTPJSP1 AS B ORDER BY A.ID FETCH FIRST 10000 ROWS ONLY;",
+            "type": "static",
+            "datatype": "varchar",
+            "length": 140
+          }
+        ]
+      },
+      {
+        "description": "RTPJSPN(No Parallelism without a CLOSE)",
+        "text": "CALL RTP.RTPJSPN(?)",
+        "type": "CALL",
+        "subtype": "Procedure",
+        "repeat": 1,
+        "args": [
+          {
+            "value": "SELECT B.ID FROM RTP.RTPJSP1 AS A, RTP.RTPJSP1 AS B ORDER BY A.ID FETCH FIRST 10000 ROWS ONLY;",
+            "type": "static",
+            "datatype": "varchar",
+            "description": "Parallelism setting.",
+            "length": 140
+          }
+        ]
+      },
+      {
+        "description": "RTPJSPPM(Parallelism, with CLOSE also calls RTPJSPPC SP)",
+        "text": "CALL RTP.RTPJSPPM(?,?)",
+        "type": "CALL",
+        "subtype": "Procedure",
+        "repeat": 1,
+        "args": [
+          {
+            "value": "SELECT B.ID FROM RTP.RTPJSP1 AS A, RTP.RTPJSP1 AS B ORDER BY A.ID FETCH FIRST 10000 ROWS ONLY;",
+            "type": "static",
+            "datatype": "varchar",
+            "length": 140
+          },
+          {
+            "value": "1",
+            "type": "static",
+            "datatype": "varchar",
+            "description": "Parallelism setting.",
+            "length": 3
+          }
+        ]
+      },
+      {
+        "text": "CALL RTP.RTPJSPPS(?,?,?)",
+        "type": "CALL",
+        "subtype": "Procedure",
+        "repeat": 1,
+        "args": [
+          {
+            "value": "SELECT B.ID FROM RTP.RTPJSP1 AS A, RTP.RTPJSP1 AS B ORDER BY A.ID FETCH FIRST 1000 ROWS ONLY;",
+            "type": "static",
+            "datatype": "varchar",
+            "length": 140
+          },
+          {
+            "value": "SELECT A.ID FROM RTP.RTPJSP1 AS A, RTP.RTPJSP1 AS B ORDER BY B.ID FETCH FIRST 1000 ROWS ONLY;",
+            "type": "static",
+            "datatype": "varchar",
+            "length": 140
+          },
+          {
+            "value": "1",
+            "type": "static",
+            "description": "Parallelism setting.",
+            "datatype": "varchar",
+            "length": 3
+          }
+        ]
+      },
+      {
+        "text": "CALL RTP.RTPJSPPF(?,?,?,?)",
+        "type": "CALL",
+        "subtype": "Procedure",
+        "repeat": 1,
+        "args": [
+          {
+            "value": "SELECT TB.TSNAME FROM SYSIBM.SYSTABLES TB, SYSIBM.SYSCOLUMNS SC, SYSIBM.SYSSTOGROUP SG, SYSIBM.SYSTABLESPACE AS ST, SYSIBM.SYSPACKAGE AS SP FETCH FIRST 1000000 ROWS ONLY;",
+            "type": "static",
+            "datatype": "varchar",
+            "length": 140
+          },
+          {
+            "value": "SELECT TB.TSNAME FROM SYSIBM.SYSTABLES TB, SYSIBM.SYSCOLUMNS SC, SYSIBM.SYSSTOGROUP SG, SYSIBM.SYSTABLESPACE AS ST, SYSIBM.SYSPACKAGE AS SP FETCH FIRST 1000000 ROWS ONLY;",
+            "type": "static",
+            "datatype": "varchar",
+            "length": 140
+          },
+          {
+            "value": "1",
+            "type": "static",
+            "description": "Parallelism setting.",
+            "datatype": "varchar",
+            "length": 3
+          },
+          {
+            "value": "1000000",
+            "type": "static",
+            "datatype": "integer"
+          }
+        ]
+      },
+      {
+        "text": "CALL RTP.RTPJSPF2(?,?,?,?)",
+        "type": "CALL",
+        "subtype": "Procedure",
+        "repeat": 1,
+        "args": [
+          {
+            "value": "SELECT TB.TSNAME FROM SYSIBM.SYSTABLES TB, SYSIBM.SYSCOLUMNS SC, SYSIBM.SYSSTOGROUP SG, SYSIBM.SYSTABLESPACE AS ST, SYSIBM.SYSPACKAGE AS SP FETCH FIRST 1000000 ROWS ONLY;",
+            "type": "static",
+            "datatype": "varchar",
+            "length": 140
+          },
+          {
+            "value": "SELECT TB.TSNAME FROM SYSIBM.SYSTABLES TB, SYSIBM.SYSCOLUMNS SC, SYSIBM.SYSSTOGROUP SG, SYSIBM.SYSTABLESPACE AS ST, SYSIBM.SYSPACKAGE AS SP FETCH FIRST 1000000 ROWS ONLY;",
+            "type": "static",
+            "datatype": "varchar",
+            "length": 140
+          },
+          {
+            "value": "1",
+            "type": "static",
+            "description": "Parallelism setting.",
+            "datatype": "varchar",
+            "length": 3
+          },
+          {
+            "value": "1000000",
+            "type": "static",
+            "datatype": "integer"
+          }
+        ]
+      }
+    ]
+  }
+}

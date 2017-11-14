@@ -1,0 +1,39 @@
+{
+  "test": {
+    "description": "Updates the RTPJTB1 table.",
+    "connection": {
+      "ssid": "DD0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT DEGREE='ANY'",
+        "type": "static"
+      },
+      {
+        "text": "UPDATE RTP.RTPJTB SET resume=? WHERE id=?",
+        "type": "prepare",
+        "subtype": "update",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "static",
+            "datatype": "varchar",
+            "length": 4042,
+            "value": "This is a test."
+          },
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "text": "COMMIT",
+        "type": "static",
+        "subtype": "commit"
+      }
+    ]
+  }
+}

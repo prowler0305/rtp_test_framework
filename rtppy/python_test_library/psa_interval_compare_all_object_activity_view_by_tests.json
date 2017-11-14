@@ -1,0 +1,85 @@
+{
+    "connection":
+    {
+      "lpar": "ca31",
+      "userid": "qartp01",
+      "ssid": "d12a",
+      "ssid2": "d12a"
+    },
+    "tests":
+    [
+      {
+        "description": "Test 1: Compare all the Database Activity Summary data for the interval.",
+        "test_type": "interval compare",
+        "product_code": "PSA",
+        "baseline_vcat": "PDTDBA.R19",
+        "baseline_datastore": "RTPBASE",
+        "current_vcat": "PDTDBA.R19",
+        "current_datastore": "RTPCURNT",
+        "baseline_interval_date": "1",
+        "baseline_interval_time": "10:07:09",
+        "current_interval_date": "1",
+        "current_interval_time": "10:42:34",
+        "view_by": "D"
+      },
+      {
+        "description": "Test 2: Compare all the Spacename Activity Summary data for the interval.",
+        "test_type": "interval compare",
+        "product_code": "PSA",
+        "baseline_vcat": "PDTDBA.R19",
+        "baseline_datastore": "RTPBASE",
+        "current_vcat": "PDTDBA.R19",
+        "current_datastore": "RTPCURNT",
+        "baseline_interval_date": "1",
+        "baseline_interval_time": "10:07:09",
+        "current_interval_date": "1",
+        "current_interval_time": "10:42:34",
+        "view_by": "S"
+      },
+      {
+        "description": "Test 3: Compare all the Table Activity Summary data for the interval.",
+        "test_type": "interval compare",
+        "product_code": "PSA",
+        "baseline_vcat": "PDTDBA.R19",
+        "baseline_datastore": "RTPBASE",
+        "current_vcat": "PDTDBA.R19",
+        "current_datastore": "RTPCURNT",
+        "baseline_interval_date": "1",
+        "baseline_interval_time": "10:07:09",
+        "current_interval_date": "1",
+        "current_interval_time": "10:42:34",
+        "view_by": "T",
+        "view_option": "A"
+      },
+      {
+        "description": "Test 4: Compare all the Table Access Summary data for the interval.",
+        "test_type": "interval compare",
+        "product_code": "PSA",
+        "baseline_vcat": "PDTDBA.R19",
+        "baseline_datastore": "RTPBASE",
+        "current_vcat": "PDTDBA.R19",
+        "current_datastore": "RTPCURNT",
+        "baseline_interval_date": "1",
+        "baseline_interval_time": "10:07:09",
+        "current_interval_date": "1",
+        "current_interval_time": "10:42:34",
+        "view_by": "T",
+        "view_option": "B"
+      },
+      {
+        "description": "Test 5: Compare all the Table Access Ratios data for the interval.",
+        "test_type": "interval compare",
+        "product_code": "PSA",
+        "baseline_vcat": "PDTDBA.R19",
+        "baseline_datastore": "RTPBASE",
+        "current_vcat": "PDTDBA.R19",
+        "current_datastore": "RTPCURNT",
+        "baseline_interval_date": "1",
+        "baseline_interval_time": "10:07:09",
+        "current_interval_date": "1",
+        "current_interval_time": "10:42:34",
+        "view_by": "T",
+        "view_option": "C"
+      }
+    ]
+}

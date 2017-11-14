@@ -1,0 +1,68 @@
+{
+    "connection":
+    {
+      "lpar": "ca31",
+      "userid": "qartp01",
+      "ssid": "d12a",
+      "ssid2": "d12a"
+    },
+    "tests":
+    [
+      {
+        "description": "Test 1: Compare all the Plan Summary data for the interval.",
+        "test_type": "interval compare",
+        "product_code": "PDT",
+        "baseline_vcat": "PDTDBA.R19",
+        "baseline_datastore": "RTPBASE",
+        "current_vcat": "PDTDBA.R19",
+        "current_datastore": "RTPCURNT",
+        "baseline_interval_date": "1",
+        "baseline_interval_time": "10:07:09",
+        "current_interval_date": "1",
+        "current_interval_time": "10:42:34",
+        "view_by": "U"
+      },
+      {
+        "description": "Test 2: Compare all the Program Summary data for the interval.",
+        "test_type": "interval compare",
+        "product_code": "PDT",
+        "baseline_vcat": "PDTDBA.R19",
+        "baseline_datastore": "RTPBASE",
+        "current_vcat": "PDTDBA.R19",
+        "current_datastore": "RTPCURNT",
+        "baseline_interval_date": "1",
+        "baseline_interval_time": "10:07:09",
+        "current_interval_date": "1",
+        "current_interval_time": "10:42:34",
+        "view_by": "G"
+      },
+      {
+        "description": "Test 3: Compare all the Statement Summary data for the interval.",
+        "test_type": "interval compare",
+        "product_code": "PDT",
+        "baseline_vcat": "PDTDBA.R19",
+        "baseline_datastore": "RTPBASE",
+        "current_vcat": "PDTDBA.R19",
+        "current_datastore": "RTPCURNT",
+        "baseline_interval_date": "1",
+        "baseline_interval_time": "10:07:09",
+        "current_interval_date": "1",
+        "current_interval_time": "10:42:34",
+        "view_by": "C"
+      },
+      {
+        "description": "Test 4: Compare all the Dynamic SQL Statement Summary data for the interval.",
+        "test_type": "interval compare",
+        "product_code": "PDT",
+        "baseline_vcat": "PDTDBA.R19",
+        "baseline_datastore": "RTPBASE",
+        "current_vcat": "PDTDBA.R19",
+        "current_datastore": "RTPCURNT",
+        "baseline_interval_date": "1",
+        "baseline_interval_time": "10:07:09",
+        "current_interval_date": "1",
+        "current_interval_time": "10:42:34",
+        "view_by": "L"
+      }
+    ]
+}

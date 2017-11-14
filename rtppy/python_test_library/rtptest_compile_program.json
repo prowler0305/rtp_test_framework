@@ -1,0 +1,25 @@
+{
+  "connection":
+  {
+    "lpar": "",
+    "userid": "qartp02",
+    "ssid": ""
+  },
+  "tests":
+  [
+    {
+      "description": "Executes the Compile Program action option from the RTPTEST SQL suite on the mainframe.",
+      "test_type": "rtptest",
+      "product_code": "RTP",
+      "wait_to_complete": "",
+      "execute_method": "UI",
+      "action": "3",
+      "options":
+      {
+        "program": "",
+        "connection_type": ""
+      }
+    }
+  ]
+}
+

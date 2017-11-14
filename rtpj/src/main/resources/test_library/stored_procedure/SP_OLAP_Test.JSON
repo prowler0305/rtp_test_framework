@@ -1,0 +1,25 @@
+{
+  "test": {
+    "description": "Drops then Creates store procedure RTPJOLAP.",
+    "connection": {
+      "ssid": "DD0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "description": "RTPJOLAP",
+        "text": "CALL RTP.RTPJOLAP()",
+        "type": "CALL",
+        "subtype": "Procedure",
+        "repeat": 1,
+        "args": [
+        ]
+      }
+    ]
+  }
+}

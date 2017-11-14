@@ -1,0 +1,48 @@
+{
+  "test": {
+    "description": "Creates two stored procedures one which invokes the other. The second is executes a SQL statement multiple times in a loop. Created for PDT1411.",
+    "connection": {
+      "ssid": "D10E",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "DROP PROCEDURE RTP.RTPJSP",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "text": "DROP PROCEDURE RTP.RTPJSP2",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "text": "CREATE PROCEDURE RTP.RTPJSP2 LANGUAGE SQL BEGIN DECLARE PARM1 VARCHAR(128); SET CURRENT DEGREE = 'ANY'; SELECT TB.TSNAME INTO PARM1 FROM SYSIBM.SYSTABLES TB FETCH FIRST 1 ROWS ONLY; COMMIT;  END",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE PROCEDURE RTP.RTPJSP LANGUAGE SQL BEGIN DECLARE LOOP INTEGER DEFAULT 10; DECLARE JCOUNT INTEGER DEFAULT 0; DECLARE ICOUNT INTEGER DEFAULT 0; DECLARE RCOUNT INTEGER DEFAULT 0; DECLARE MYPARM1 VARCHAR(128); DECLARE C1 CURSOR FOR SELECT TB.TSNAME FROM SYSIBM.SYSTABLES TB; SET CURRENT SCHEMA = 'RTP'; COMMIT; SET CURRENT DEGREE = 'ANY'; CALL RTPJSP2; COMMIT; SELECT COUNT(*) INTO RCOUNT FROM SYSIBM.SYSTABLES; WHILE JCOUNT < LOOP DO SET ICOUNT = 0; OPEN C1; WHILE ICOUNT < RCOUNT DO FETCH C1 INTO MYPARM1; SET ICOUNT = ICOUNT + 1; END WHILE; CLOSE C1; SET JCOUNT = JCOUNT + 1; END WHILE; END",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CALL RTP.RTPJSP",
+        "type": "CALL",
+        "subtype": "Procedure",
+        "repeat": 1
+      }
+    ]
+  }
+}

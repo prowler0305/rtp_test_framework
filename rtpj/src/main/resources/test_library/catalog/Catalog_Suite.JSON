@@ -1,0 +1,24 @@
+{
+  "suite": {
+    "description": "Executes all Catalog tests.",
+    "conneciton": {
+      "ssid": "D11D",
+      "userid": "QADBA01"
+    },
+    "tests": [
+      "Aliases_Test.JSON",
+      "Checks_Test.JSON",
+      "Collections_Test.JSON",
+      "Columns_Test.JSON",
+      "Controls_Test.JSON",
+      "Jar_Source_Test.JSON",
+      "MQTS_Test.JSON",
+      "Pack_Statement_Test.JSON",
+      "Relationship_Storage_Group_Test.JSON",
+      "Relationship_Tables_Test.JSON",
+      "Tables_Test.JSON",
+      "Trigger_Statement_Test.JSON",
+      "Users_Test.JSON"
+    ]
+  }
+}

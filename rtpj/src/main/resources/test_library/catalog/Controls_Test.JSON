@@ -1,0 +1,17 @@
+{
+  "test": {
+    "description": "This test returns 100 rows from SYSCONTROLS.",
+    "connection": {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SELECT SCHEMA, NAME, CLOB(RULETEXT, 32767) AS RULETEXT FROM SYSIBM.SYSCONTROLS FETCH FIRST 100 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1
+      }
+    ]
+  }
+}

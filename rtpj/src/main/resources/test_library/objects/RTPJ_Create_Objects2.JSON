@@ -1,0 +1,169 @@
+{
+  "test": {
+    "seed": 20,
+    "description": "This json file creates a set of RTPJ objects to be used in other tests.  This includes a Storage Group, Databases, Tablespaces, Tables and Indexes.",
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "CREATE STOGROUP RTPJSG VOLUMES ('*') VCAT DSNDB0G",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE DATABASE RTPJDB:H1 BUFFERPOOL BP1 INDEXBP BP2 STOGROUP RTPJSG",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 2,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "value": 1,
+            "description": "Database literal counter.",
+            "key": ":H1"
+          }]
+      },
+      {
+        "text": "CREATE TABLESPACE RTPJTS:H1 IN RTPJDB:DB1 USING STOGROUP RTPJSG PRIQTY -1 SECQTY -1 ERASE NO BUFFERPOOL BP4K1 DSSIZE 4G CLOSE YES LOCKMAX SYSTEM SEGSIZE 32 FREEPAGE 0 PCTFREE 0 GBPCACHE CHANGED DEFINE YES LOGGED TRACKMOD YES MAXPARTITIONS 4096 COMPRESS YES LOCKSIZE ANY MAXROWS 255 CCSID EBCDIC NUMPARTS 1;",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 10,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Tablespace literal counter.",
+            "value": 1,
+            "key": ":H1"
+          },
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Database literal counter.",
+            "value": 1,
+            "key": ":DB1",
+            "max": 2
+          }]
+      },
+      {
+        "text": "CREATE TABLE RTPJTB:H1 ( id INTEGER NOT NULL WITH DEFAULT CONSTRAINT UNIQUE, firstname VARCHAR(20) NOT NULL WITH DEFAULT, lastname VARCHAR(60) NOT NULL WITH DEFAULT, title VARCHAR(20) NOT NULL WITH DEFAULT, salary INTEGER NOT NULL WITH DEFAULT, resume VARCHAR(4096)) in RTPJDB:DB1.RTPJTS:H1 APPEND NO CCSID EBCDIC PARTITION BY SIZE EVERY 4G",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 10,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Tablespace literal counter.",
+            "value": 1,
+            "key": ":H1"
+          },
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Database literal counter.",
+            "value": 1,
+            "key": ":DB1",
+            "max": 2
+          }
+        ]
+      },
+      {
+        "text": "CREATE INDEX RTPJTB:H1 ON RTPJTB:H1 ( id ASC, firstname ASC, lastname ASC) NOT CLUSTER NOT PADDED DEFINE YES COMPRESS NO BUFFERPOOL BP8K1 CLOSE NO DEFER NO COPY NO USING STOGROUP RTPJSG PRIQTY -1 SECQTY -1 ERASE NO FREEPAGE 0 PCTFREE 5 GBPCACHE CHANGED PIECESIZE 4194304K",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE",
+        "repeat": 10,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table/Index literal counter.",
+            "value": 1,
+            "key": ":H1"
+          }]
+      },
+      {
+        "text": "INSERT INTO RTPJTB:H1 (id, firstname, lastname, title, salary, resume) VALUES (?, ?, ?, ?, ?, ?)",
+        "type": "BATCH",
+        "subtype": "INSERT",
+        "repeat": 10,
+        "batches": 10,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table literal counter.",
+            "value": 1,
+            "key": ":H1",
+            "max": 10
+          },
+          {
+            "value": 1,
+            "type": "incremented",
+            "datatype": "integer"
+          },
+          {
+            "type": "static",
+            "datatype": "varchar",
+            "value": "Paul",
+            "length": 20
+          },
+          {
+            "type": "static",
+            "datatype": "varchar",
+            "value": "Atreides",
+            "length": 60
+          },
+          {
+            "type": "static",
+            "datatype": "varchar",
+            "value": "Duke",
+            "length": 20
+          },
+          {
+            "type": "generated",
+            "datatype": "integer"
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "length": 4095
+          }]
+      },
+      {
+        "text": "SELECT COUNT(*) FROM RTPJTB:H1",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 10,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Tablename literal counter.",
+            "value": 1,
+            "key": ":H1"
+          }],
+        "expect": {
+          "columns": 1,
+          "rows": 1
+        }
+      }
+    ]
+  }
+}

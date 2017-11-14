@@ -1,0 +1,12 @@
+{
+  "suite": {
+    "description" : "An example test suite that includes 4 tests.",
+    "connection": {
+      "ssid": "DH3G",
+      "userid": "QADBA01"
+    },
+    "tests": [
+      "Basic_Select_Test.JSON",
+      "Basic_Multi_Threaded_Select_Test.JSON"
+    ]}
+}

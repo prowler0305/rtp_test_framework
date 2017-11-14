@@ -1,0 +1,66 @@
+{
+  "test":
+  {
+    "seed": 42,
+    "description": "Calls two stored procedures, the first one will generate 2,500,000 FETCHs and the second one will generate 500,000 FETCHs !",
+    "connection":
+    {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "statements":
+    [
+      {
+        "text": "CALL AGURI01.PROC019F()",
+        "type": "CALL",
+        "subtype": "Procedure",
+        "expect" :
+        {
+          "ignore": true
+        }
+      },
+      {
+        "text": "CALL AGURI01.MYPROC()",
+        "type": "CALL",
+        "subtype": "Procedure",
+        "expect" :
+        {
+          "ignore": true
+        }
+      },
+      {
+        "text": "INSERT INTO AGURI01.P1200B_INDIVIDU VALUES ( ? ,? ,? )",
+        "type": "Prepare",
+        "subtype": "INSERT",
+        "args":
+        [
+          {
+            "type": "static",
+            "datatype": "char",
+            "description": "Character Value",
+            "value": "C"
+          },
+          {
+            "type": "static",
+            "datatype": "float",
+            "value": 15
+          },
+          {
+            "type": "Static",
+            "datatype": "Decimal",
+            "value": 15.1
+          }
+        ]
+      },
+      {
+        "text": "COMMIT",
+        "type": "static",
+        "subtype": "commit",
+        "expect" :
+        {
+          "ignore": true
+        }
+      }
+    ]
+  }
+}

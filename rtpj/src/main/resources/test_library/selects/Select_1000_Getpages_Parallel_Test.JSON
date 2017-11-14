@@ -1,0 +1,41 @@
+{
+  "test": {
+    "description": "Executes a select that causes 100 getpages using CPU parallelism.",
+    "connection": {
+      "ssid": "D11D",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 1,
+      "parallel": true
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT DEGREE = 'ANY'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "SELECT PTASK.ID, PTASK2.ID, PTASK3.ID FROM RTP.RTPJSS1 AS PTASK, RTP.RTPJSS1 AS PTASK2, RTP.RTPJSS1 AS PTASK3 ORDER BY PTASK.ID FETCH FIRST :H1 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1,
+        "args": [
+          {
+            "type": "static",
+            "datatype": "integer",
+            "subtype": "literal",
+            "description": "Table rows value.",
+            "value": 10000,
+            "key": ":H1"
+          }
+        ]
+      },
+      {
+        "text": "SET CURRENT DEGREE = 'ANY'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      }
+    ]
+  }
+}

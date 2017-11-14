@@ -1,0 +1,21 @@
+{
+  "connection": {
+    "lpar": "ca11",
+    "userid": "qartp01",
+    "ssid": "d11b"
+  },
+  "tests": [
+    {
+      "description": "Test that extracts the SQL text from the historical displays and prints a report.",
+      "test_type": "sql text",
+      "product_code": "PDT",
+      "current_vcat": "PDTDBA.R19",
+      "current_datastore": "QATEST19",
+      "current_interval_date": "17/08/04",
+      "current_interval_time": "20:37:26",
+      "plan": "",
+      "program": "",
+      "text_type": ""
+    }
+  ]
+}

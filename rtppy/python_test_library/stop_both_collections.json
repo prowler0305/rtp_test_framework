@@ -1,0 +1,22 @@
+{
+  "connection":
+  {
+    "lpar": "ca31",
+    "userid": "qartp01",
+    "ssid": "d12a"
+  },
+  "tests":
+  [
+    {
+      "description": "Stops the PDT and PSA collections.",
+      "test_type": "stop collection",
+      "product_code": "PDT",
+      "environment": ""
+    },
+    {
+      "test_type": "stop collection",
+      "product_code": "PSA",
+      "environment": ""
+    }
+  ]
+}

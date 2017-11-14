@@ -1,0 +1,24 @@
+{
+  "test": {
+    "description": "Execute 100 Abend Restart SELECT statements",
+    "connection": {
+      "ssid": "D11D",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 1,
+      "parallel": "false"
+    },
+    "statements": [
+      {
+        "text": "SELECT PDT ABEND RESTART(100) FETCH FIRST -1 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 100,
+        "expect" : {
+          "sqlerror": -199
+        }
+      }
+    ]
+  }
+}

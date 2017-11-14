@@ -1,0 +1,13 @@
+{
+  "suite": {
+    "description": "A suite of stress tests.",
+    "connection": {
+      "ssid": "D11D",
+      "userid": "QADBA01"
+    },
+    "tests": [
+      "Unique_SQL_Stress_HIGHCPU_Test.JSON",
+      "Unique_32K_SQL_Stress_HIGHCPU_Test.JSON"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "test": {
+    "description": "Execute a 32K unique SQL statement 10 times over 2 different connections in parallel.",
+    "connection": {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 5,
+      "parallel": "true"
+    },
+    "statements": [
+      {
+        "text": "SELECT #32KE:H1.RESUME FROM RTP.RTPJUS1 AS #32KE:H1 WHERE #32KE:H1.RESUME <> ':H2' FETCH FIRST -1 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 2,
+        "args": [
+          {
+            "type": "incremented",
+            "datatype": "integer",
+            "subtype": "literal",
+            "key": ":H1",
+            "value": 1
+          },
+          {
+            "type": "generated",
+            "datatype": "varchar",
+            "subtype": "literal",
+            "key": ":H2",
+            "length": 32659
+          }
+        ],
+        "expect" : {
+          "sqlerror": -104
+        }
+      }
+    ]
+  }
+}

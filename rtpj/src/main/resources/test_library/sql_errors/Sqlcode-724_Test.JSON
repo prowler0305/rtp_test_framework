@@ -1,0 +1,45 @@
+{
+  "test": {
+    "description": "Causes a -724 sqlcode.",
+    "connection": {
+      "ssid": "D11D",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "DROP PROCEDURE RTPJSPREC2",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "text": "DROP PROCEDURE RTPJSPREC",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "text": "CREATE PROCEDURE RTPJSPREC LANGUAGE SQL BEGIN DECLARE C VARCHAR(128); SELECT CREATOR INTO C FROM SYSIBM.SYSTABLES FETCH FIRST 1 ROWS ONLY; COMMIT; CALL RTPJSPREC2; END",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CREATE PROCEDURE RTPJSPREC2 LANGUAGE SQL BEGIN DECLARE TS VARCHAR(128); SELECT TSNAME INTO TS FROM SYSIBM.SYSTABLES FETCH FIRST 1 ROWS ONLY; COMMIT; CALL RTPJSPREC; END",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "CALL RTPJSPREC",
+        "type": "CALL",
+        "subtype": "Procedure",
+        "expect": {
+          "sqlerror": -724
+        }
+      }
+    ]
+  }
+}

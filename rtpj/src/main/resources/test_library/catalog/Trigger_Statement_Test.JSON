@@ -1,0 +1,17 @@
+{
+  "test": {
+    "description": "Retrieves 100 triggers.",
+    "connection": {
+      "ssid": "DH0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SELECT SCHEMA, NAME, CLOB(STATEMENT, 32767) AS STATEMENT FROM SYSIBM.SYSTRIGGERS FETCH FIRST 100 ROWS ONLY",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT",
+        "repeat": 1
+      }
+    ]
+  }
+}

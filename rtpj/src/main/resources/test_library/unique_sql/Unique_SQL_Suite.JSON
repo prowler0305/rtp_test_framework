@@ -1,0 +1,26 @@
+{
+  "suite": {
+    "description": "A suite of stress tests.",
+    "connection": {
+      "ssid": "D11D",
+      "userid": "QADBA01"
+    },
+    "tests": [
+      "Unique_SQL_Small_Test.JSON",
+      "Unique_SQL_4K_Test.JSON",
+      "Unique_SQL_32K_Test.JSON",
+      "Unique_SQL_64K_Test.JSON",
+      "Unique_SQL_1MB_Test.JSON",
+      "Unique_SQL_2MB_Test.JSON",
+      "Unique_SQL_Small_Error_Test.JSON",
+      "Unique_SQL_4K_Error_Test.JSON",
+      "Unique_SQL_32K_Error_Test.JSON",
+      "Unique_SQL_64K_Error_Test.JSON",
+      "Unique_SQL_1MB_Error_Test.JSON",
+      "Unique_SQL_2MB_Error_Test.JSON",
+      "Unique_SQL_Small_Error_Stress_Test.JSON",
+      "Unique_SQL_4K_Error_Stress_Test.JSON",
+      "Unique_SQL_32K_Error_Stress_Test.JSON"
+    ]
+  }
+}

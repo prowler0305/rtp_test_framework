@@ -1,0 +1,11 @@
+{
+  "suite": {
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "tests": [
+      "2MB_Select_Test.JSON",
+      "1Byte_Statement_Test.JSON"
+    ]}
+}

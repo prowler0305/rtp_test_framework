@@ -1,0 +1,17 @@
+{
+  "suite": {
+    "threading": {
+      "threads": "2",
+      "parallel": "true"
+    },
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "tests": [
+      "BasicSelectTest.JSON",
+      "BasicMultiThreadedSelectTest.JSON",
+      "BasicCreateInsertTest.JSON",
+      "BasicStoredProcedureTest.JSON"
+    ]}
+}

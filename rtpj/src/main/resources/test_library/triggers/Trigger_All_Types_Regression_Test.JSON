@@ -1,0 +1,157 @@
+{
+  "test": {
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "INSERT INTO TRIG_EMP1 (L_NAME, EMP_NO, F_NAME, BIRTHDATE, DEPT, SAL) VALUES(?, ?, ?, CURRENT DATE, ?, ?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 10,
+        "args": [
+          {
+            "type": "generated",
+            "datatype": "char",
+            "length": 8
+          },
+          {
+            "value": 1,
+            "type": "incremented",
+            "datatype": "integer"
+          },
+          {
+            "type": "generated",
+            "datatype": "char",
+            "length": 10
+          },
+          {
+            "type": "generated",
+            "datatype": "char",
+            "length": 4
+          },
+          {
+            "type": "generated",
+            "datatype": "float"
+          }
+        ]
+      },
+      {
+        "text": "UPDATE TRIG_EMP1 SET L_NAME = 'REG021DJ' WHERE EMP_NO = ?",
+        "type": "PREPARE",
+        "subtype": "UPDATE",
+        "repeat": 10,
+        "args": [
+          {
+            "value": 1,
+            "type": "incremented",
+            "datatype": "integer"
+          }
+        ]
+      },
+      {
+        "text": "DELETE FROM TRIG_EMP1 WHERE EMP_NO = ?",
+        "type": "PREPARE",
+        "subtype": "DELETE",
+        "repeat": 10,
+        "args": [
+          {
+            "value": 1,
+            "type": "incremented",
+            "datatype": "integer"
+          }
+        ]
+      },
+      {
+        "text": "INSERT INTO TRIG_EMP1_VW (L_NAME, EMP_NO, F_NAME, BIRTHDATE, DEPT, SAL) VALUES(?, ?, ?, CURRENT DATE, ?, ?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 10,
+        "args": [
+          {
+            "type": "generated",
+            "datatype": "char",
+            "length": 8
+          },
+          {
+            "value": 1,
+            "type": "incremented",
+            "datatype": "integer"
+          },
+          {
+            "type": "generated",
+            "datatype": "char",
+            "length": 10
+          },
+          {
+            "type": "generated",
+            "datatype": "char",
+            "length": 4
+          },
+          {
+            "type": "generated",
+            "datatype": "float"
+          }
+        ]
+      },
+      {
+        "text": "UPDATE TRIG_EMP1_VW SET L_NAME = 'REG021DJ' WHERE EMP_NO = ?",
+        "type": "PREPARE",
+        "subtype": "UPDATE",
+        "repeat": 10,
+        "args": [
+          {
+            "value": 1,
+            "type": "incremented",
+            "datatype": "integer"
+          }
+        ]
+      },
+      {
+        "text": "DELETE FROM TRIG_EMP1_VW WHERE EMP_NO = ?",
+        "type": "PREPARE",
+        "subtype": "DELETE",
+        "repeat": 10,
+        "args": [
+          {
+            "value": 1,
+            "type": "incremented",
+            "datatype": "integer"
+          }
+        ]
+      },
+      {
+        "text": "UPDATE TRIG_EMP1 SET L_NAME = 'REG021DJ' WHERE EMP_NO = ?",
+        "type": "PREPARE",
+        "subtype": "UPDATE",
+        "repeat": 10,
+        "args": [
+          {
+            "value": 1,
+            "type": "incremented",
+            "datatype": "integer"
+          }
+        ]
+      },
+      {
+        "text": "DELETE FROM TRIG_EMP1 WHERE EMP_NO = ?",
+        "type": "PREPARE",
+        "subtype": "DELETE",
+        "repeat": 10,
+        "args": [
+          {
+            "value": 1,
+            "type": "incremented",
+            "datatype": "integer"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "test": {
+    "description": "Invokes the RTPJSPST procedure.",
+    "connection": {
+      "ssid": "D11D",
+      "userid": "QADBA01"
+    },
+    "threading": {
+      "threads": 1,
+      "parallel": true
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "CALL RTP.RTPJSPST",
+        "type": "CALL",
+        "subtype": "Procedure",
+        "args": []
+      }
+    ]
+  }
+}

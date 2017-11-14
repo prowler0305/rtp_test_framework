@@ -1,0 +1,30 @@
+{
+  "test": {
+    "description": "Drops then Creates store procedure RTPJSPST.",
+    "connection": {
+      "ssid": "DD0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "DROP PROCEDURE RTP.RTPJSPST",
+        "type": "IMMEDIATE",
+        "subtype": "DROP",
+        "expect" : {
+          "ignore": true
+        }
+      },
+      {
+        "description": "Procedure RTPJSPST is a static procedure.  It uses parallelism and takes no arguments.",
+        "text": "CREATE PROCEDURE RTP.RTPJSPST LANGUAGE SQL DYNAMIC RESULT SETS 1 BEGIN DECLARE MYPARM1 VARCHAR(128); DECLARE RCOUNT INTEGER DEFAULT 1000; DECLARE TEXT VARCHAR(128); DECLARE ICOUNT INTEGER DEFAULT 0; DECLARE C1 CURSOR FOR STMT1; SET TEXT = 'SELECT A.ID FROM RTP.RTPJSP1 AS A, RTP.RTPJSP1 AS B ORDER BY B.ID FETCH FIRST 1000 ROWS ONLY;'; SET CURRENT DEGREE = 'ANY'; PREPARE STMT1 FROM TEXT; OPEN C1; WHILE ICOUNT < RCOUNT DO FETCH C1 INTO MYPARM1; SET ICOUNT = ICOUNT + 1; END WHILE; CLOSE C1; SET ICOUNT = 0; END",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      }
+    ]
+  }
+}

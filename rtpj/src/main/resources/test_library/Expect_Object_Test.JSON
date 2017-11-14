@@ -1,0 +1,27 @@
+{
+  "test": {
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "Z",
+        "type": "immediate",
+        "subtype": "SELECT",
+        "expectations": {
+          "sqlerror": -104
+        }
+      },
+      {
+        "text": "SELECT NAME FROM SYSIBM.SYSTABLES WHERE NAME LIKE 'SYS%' AND CREATOR = 'SYSIBM'",
+        "type": "immediate",
+        "subtype": "SELECT",
+        "expect": {
+          "rows": 146,
+          "columns": 1
+        }
+      }
+    ]
+  }
+}

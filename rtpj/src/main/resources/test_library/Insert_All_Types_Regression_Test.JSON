@@ -1,0 +1,109 @@
+{
+  "test": {
+    "connection": {
+      "ssid": "DB0G",
+      "userid": "QADBA01"
+    },
+    "statements": [
+      {
+        "text": "SET CURRENT SCHEMA = 'RTP'",
+        "type": "IMMEDIATE",
+        "subtype": "SET"
+      },
+      {
+        "text": "CREATE TABLE REGTEMP ( RTPSMALLINT SMALLINT ,RTPINTEGER INTEGER ,RTPBIGINT BIGINT ,RTPDECIMAL DECIMAL ,RTPNUMERIC NUMERIC ,RTPFLOAT FLOAT ,RTPREAL REAL ,RTPDOUBLE DOUBLE ,RTPCHAR CHAR ,RTPVARCHAR VARCHAR(128) ,RTPDATE DATE ,RTPTIME TIME ,RTPTIMESTAMP TIMESTAMP ,RTPROWID ROWID NOT NULL ) CCSID UNICODE",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      },
+      {
+        "text": "INSERT INTO REGTEMP(RTPSMALLINT, RTPINTEGER, RTPBIGINT, RTPDECIMAL, RTPNUMERIC, RTPFLOAT, RTPREAL, RTPDOUBLE, RTPCHAR, RTPVARCHAR ,RTPDATE, RTPTIME, RTPTIMESTAMP) VALUES (1, 1, 1000000000000000000, 12345.6789, 12345.6789, 12345.6789, 12345.6789, 12345.6789, '!', '?', CURRENT DATE, CURRENT TIME, CURRENT TIMESTAMP)",
+        "type": "IMMEDIATE",
+        "subtype": "INSERT",
+        "repeat": 1
+      },
+      {
+        "text": "INSERT INTO REGTEMP(RTPSMALLINT, RTPINTEGER, RTPBIGINT, RTPDECIMAL, RTPNUMERIC, RTPFLOAT, RTPREAL, RTPDOUBLE, RTPCHAR, RTPVARCHAR ,RTPDATE, RTPTIME, RTPTIMESTAMP) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        "type": "PREPARE",
+        "subtype": "INSERT",
+        "repeat": 1,
+        "args": [
+          {
+            "value": 1,
+            "type": "static",
+            "datatype": "smallint"
+          },
+          {
+            "value": 1,
+            "type": "static",
+            "datatype": "integer"
+          },
+          {
+            "value": 1000000000000000000,
+            "type": "static",
+            "datatype": "bigint"
+          },
+          {
+            "value": 12345.6789,
+            "type": "static",
+            "datatype": "decimal"
+          },
+          {
+            "value": 12345.6789,
+            "type": "static",
+            "datatype": "numeric"
+          },
+          {
+            "value": 12345.6789,
+            "type": "static",
+            "datatype": "float"
+          },
+          {
+            "value": 12345.6789,
+            "type": "static",
+            "datatype": "real"
+          },
+          {
+            "value": 12345.6789,
+            "type": "static",
+            "datatype": "double"
+          },
+          {
+            "value": "!",
+            "type": "generated",
+            "datatype": "char"
+          },
+          {
+            "value": "?",
+            "type": "static",
+            "datatype": "varchar"
+          },
+          {
+            "value": 1,
+            "type": "static",
+            "datatype": "date"
+          },
+          {
+            "value": 1,
+            "type": "static",
+            "datatype": "time"
+          },
+          {
+            "value": 1,
+            "type": "static",
+            "datatype": "datetime"
+          }
+        ]
+      },
+      {
+        "text": "SELECT * FROM REGTEMP",
+        "type": "IMMEDIATE",
+        "subtype": "SELECT"
+      },
+      {
+        "text": "DROP TABLE REGTEMP",
+        "type": "IMMEDIATE",
+        "subtype": "CREATE"
+      }
+    ]
+  }
+}
