@@ -4,6 +4,8 @@ from core.InputParms import InputParms
 
 class History(BaseTest):
     """
+    This class inherits from BaseTest and contains methods that interact with the historical interval functionality of
+    products.
 
     """
 
