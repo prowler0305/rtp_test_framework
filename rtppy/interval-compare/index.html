@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Interval Compare - Real Time Performance Test Suite</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../..">Real Time Performance Test Suite</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="../..">Introduction</a>
+                    </li>
+                    <li >
+                        <a href="../../getting-started/">Getting Started</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTPJ <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../rtpj/build-instructions/">Build Instructions</a>
+</li>
+                            
+<li >
+    <a href="../../rtpj/running-tests/">Running Tests</a>
+</li>
+                            
+<li >
+    <a href="../../rtpj/test-tracker/">Tracking Results</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Creating Tests</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../rtpj/writing-tests/">Writing Tests</a>
+</li>
+            
+<li >
+    <a href="../../rtpj/json/single-file-tests/">JSON - Single File Tests</a>
+</li>
+            
+<li >
+    <a href="../../rtpj/json/test-suites/">JSON - Test Suites</a>
+</li>
+    </ul>
+  </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTPPY <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../introduction/">Introduction</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Running Tests</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../executing-tests/">Executing</a>
+</li>
+            
+<li >
+    <a href="../execute-jenkins/">Execute via Jenkins</a>
+</li>
+            
+<li >
+    <a href="../execute-intellij/">Execute via Intellij</a>
+</li>
+            
+<li >
+    <a href="../command-line-options/">Command Line Options</a>
+</li>
+            
+<li >
+    <a href="../json-parameters/">JSON Parameters</a>
+</li>
+            
+<li >
+    <a href="../creating-tests/">Creating Tests</a>
+</li>
+            
+<li >
+    <a href="../jenkins-output/">Viewing Output on Jenkins</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">Test Types</a>
+    <ul class="dropdown-menu">
+            
+<li class="active">
+    <a href="./">Interval Compare</a>
+</li>
+            
+<li >
+    <a href="../aggregate-compare/">Aggregate Compare</a>
+</li>
+            
+<li >
+    <a href="../start-collection/">Start/Stop Collection</a>
+</li>
+            
+<li >
+    <a href="../rtptest/">RTP Test Suite App</a>
+</li>
+            
+<li >
+    <a href="../abend-restart/">Abend Restart</a>
+</li>
+            
+<li >
+    <a href="../rtpj-exec/">Distributed SQL</a>
+</li>
+            
+<li >
+    <a href="../lock-release/">Lock Release</a>
+</li>
+            
+<li >
+    <a href="../sql-text/">SQL Text</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                            
+<li >
+    <a href="../automation_architecture/">Architecture and Design</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../help/environment-variables/">Environment Variables</a>
+</li>
+                            
+<li >
+    <a href="../../help/using-git/">Using Git/GitHub</a>
+</li>
+                            
+<li >
+    <a href="../../help/create-issue/">Creating a GitHug Issue</a>
+</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="../jenkins-output/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../aggregate-compare/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#interval-compare">Interval Compare</a></li>
+            <li><a href="#jenkins-test-status">Jenkins Test Status</a></li>
+            <li><a href="#test-parameters">Test Parameters</a></li>
+        <li class="main "><a href="#json-examples">JSON Examples</a></li>
+            <li><a href="#non-key-display-example">Non-Key Display Example</a></li>
+            <li><a href="#key-display-example">Key Display Example</a></li>
+            <li><a href="#compare-only-a-specific-column-of-data">Compare only a specific column of data</a></li>
+            <li><a href="#selecting-a-range-of-intervals">Selecting a range of intervals</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="interval-compare">Interval Compare</h1>
+<p>The Interval Compare test type can validate all the data for an interval by comparing all the data at a summary display level, i.e.
+Plan Summary, Program Summary, Statement Summary etc, between a baseline and a current set of data.</p>
+<h3 id="jenkins-test-status">Jenkins Test Status</h3>
+<p>The table below lists the jenkins tests that are available and what the status of the last run of the test was. Click on
+the status icon to go straight to jenkins for the particular build project.</p>
+<table>
+<thead>
+<tr>
+<th>Jenkins Build Name</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PDT_all_standard_activity_Interval_compare_summary_levels</td>
+<td><a href="http://plape03-u114063:8080/job/DB2%20Tools/job/RTP/job/RTPPY/job/PDT%20Interval%20Compare%20Tests/job/PDT_all_standard_activity_Interval_compare_summary_levels/"><img alt="Build Status" src="http://plape03-u114063:8080/job/DB2%20Tools/job/RTP/job/RTPPY/job/PDT%20Interval%20Compare%20Tests/job/PDT_all_standard_activity_Interval_compare_summary_levels/badge/icon?style=plastic" /></a></td>
+</tr>
+<tr>
+<td>PDT_interval_compare_single_view_by_test</td>
+<td><a href="http://plape03-u114063:8080/job/DB2%20Tools/job/RTP/job/RTPPY/job/PDT%20Interval%20Compare%20Tests/job/PDT_interval_compare_single_view_by_test/"><img alt="Build Status" src="http://plape03-u114063:8080/job/DB2%20Tools/job/RTP/job/RTPPY/job/PDT%20Interval%20Compare%20Tests/job/PDT_interval_compare_single_view_by_test/badge/icon?style=plastic" /></a></td>
+</tr>
+<tr>
+<td>PSA_all_object_activity_interval_compare_summary_levels</td>
+<td><a href="http://plape03-u114063:8080/job/DB2%20Tools/job/RTP/job/RTPPY/job/PSA/job/PSA_all_object_activity_interval_compare_summary_levels/"><img alt="Build Status" src="http://plape03-u114063:8080/job/DB2%20Tools/job/RTP/job/RTPPY/job/PSA/job/PSA_all_object_activity_interval_compare_summary_levels/badge/icon?style=plastic" /></a></td>
+</tr>
+<tr>
+<td>PSA_interval_compare_single_view_by_test</td>
+<td><a href="http://plape03-u114063:8080/job/DB2%20Tools/job/RTP/job/RTPPY/job/PSA/job/PSA_interval_compare_single_view_by_test/"><img alt="Build Status" src="http://plape03-u114063:8080/job/DB2%20Tools/job/RTP/job/RTPPY/job/PSA/job/PSA_interval_compare_single_view_by_test/badge/icon?style=plastic" /></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="test-parameters">Test Parameters</h2>
+<p>The table below lists the required and optional parameters that are valid for this test. Follow the link by clicking on the
+parameter name in the JSON column. If the parameter has a command line override option it will be listed in the Command Line Override
+column. Additionally there are <a href="#json-examples">examples</a> at the bottom of this page.</p>
+<h4 id="required">Required</h4>
+<table>
+<thead>
+<tr>
+<th>JSON</th>
+<th>Command Line Override</th>
+<th>Special Usage or Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../json-parameters/#product_code">product_code</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#test_type">test_type</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#lpar">lpar</a></td>
+<td><a href="../command-line-options/#lpar">lpar</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#userid">userid</a></td>
+<td><a href="../command-line-options/#userid">userid</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#ssid">ssid</a></td>
+<td><a href="../command-line-options/#ssid">ssid</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#baseline_vcat">baseline_vcat</a></td>
+<td><a href="../command-line-options/#baseline_vcat">baseline_vcat</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#baseline_datastore">baseline_datastore</a></td>
+<td><a href="../command-line-options/#baseline_datastore">baseline_datastore</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#baseline_interval_datecurrent_interval_date">baseline_interval_date</a></td>
+<td><a href="../command-line-options/#baseline_interval_datecurrent_interval_date">baseline_interval_date</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#baseline_interval_timecurrent_interval_time">baseline_interval_time</a></td>
+<td><a href="../command-line-options/#baseline_interval_timecurrent_interval_time">baseline_interval_time</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#current_vcat">current_vcat</a></td>
+<td><a href="../command-line-options/#current_vcat">current_vcat</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#current_datastore">current_datastore</a></td>
+<td><a href="../command-line-options/#current_datastore">current_datastore</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#baseline_interval_datecurrent_interval_date">current_interval_date</a></td>
+<td><a href="../command-line-options/#baseline_interval_datecurrent_interval_date">current_interval_date</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#baseline_interval_timecurrent_interval_time">current_interval_time</a></td>
+<td><a href="../command-line-options/#baseline_interval_timecurrent_interval_time">current_interval_time</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#view_by">view_by</a></td>
+<td><a href="../command-line-options/#view_by">view_by</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="optional">Optional</h4>
+<table>
+<thead>
+<tr>
+<th>JSON</th>
+<th>Command Line Override</th>
+<th>Special Usage or Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../json-parameters/#environment">environment</a></td>
+<td><a href="../command-line-options/#environment">environment</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#output_location">output_location</a></td>
+<td><a href="../command-line-options/#output_location">output_location</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#range_pct">range_pct</a></td>
+<td><a href="../command-line-options/#range_pct">range_pct</a></td>
+<td>Default - 10% if not specified.</td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#view_type">view_type</a></td>
+<td><a href="../command-line-options/#view_type">view_type</a></td>
+<td>If not provided then products default is used.</td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#view_option">view_option</a></td>
+<td><a href="../command-line-options/#view_option">view_option</a></td>
+<td>Applies only to Subsystem Analyzer.</td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#key_option">key_option</a></td>
+<td><a href="../command-line-options/#key_options">key_option</a></td>
+<td>If <strong>view_by=K</strong> must be specified otherwise error occurs.</td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#ssid2">ssid2</a></td>
+<td><a href="../command-line-options/#ssid2">ssid2</a></td>
+<td>If provided indicates the baseline_datastore is for a different ssid than the primary.</td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#column">column</a></td>
+<td><a href="../command-line-options/#column">column</a></td>
+<td>Can be used to indicate that only the data in the specified column should be compared for the test.</td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#baseline_interval_date_2current_interval_date_2">baseline_interval_date_2</a></td>
+<td><a href="../command-line-options/#baseline_interval_date_2current_interval_date_2">baseline_interval_date_2</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#baseline_interval_time_2current_interval_time_2">baseline_interval_time_2</a></td>
+<td><a href="../command-line-options/#baseline_interval_time_2current_interval_time_2">baseline_interval_time_2</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#baseline_interval_date_2current_interval_date_2">current_interval_date_2</a></td>
+<td><a href="../command-line-options/#baseline_interval_date_2current_interval_date_2">current_interval_date_2</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#baseline_interval_time_2current_interval_time_2">current_interval_time_2</a></td>
+<td><a href="../command-line-options/#baseline_interval_time_2current_interval_time_2">current_interval_time_2</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="json-examples">JSON Examples</h1>
+<hr />
+<h4 id="non-key-display-example">Non-Key Display Example</h4>
+<pre><code class="json">{
+    &quot;connection&quot;:
+    {
+      &quot;lpar&quot;: &quot;ca31&quot;,
+      &quot;userid&quot;: &quot;qartp01&quot;,
+      &quot;ssid&quot;: &quot;d12a&quot;,
+      &quot;ssid2&quot;: &quot;d11a&quot;
+    },
+ &quot;tests&quot;:
+    [
+      {
+        &quot;test_type&quot;: &quot;interval compare&quot;,
+        &quot;product_code&quot;: &quot;PDT&quot;,
+        &quot;environment&quot;: &quot;SPEAN03.R19.PARMLIB&quot;,
+        &quot;baseline_vcat&quot;: &quot;PDTDBA.SPEAN03&quot;,
+        &quot;baseline_datastore&quot;: &quot;PYTHON&quot;,
+        &quot;current_vcat&quot;: &quot;PDTDBA.SPEAN03&quot;,
+        &quot;current_datastore&quot;: &quot;PYTHON&quot;,
+        &quot;baseline_interval_date&quot;: &quot;16/07/20&quot;,
+        &quot;baseline_interval_time&quot;: &quot;10:07:09&quot;,
+        &quot;current_interval_date&quot;: &quot;16/07/20&quot;,
+        &quot;current_interval_time&quot;: &quot;10:42:34&quot;,
+        &quot;view_by&quot;: &quot;S&quot;,
+        &quot;view_type&quot;: &quot;A&quot;
+      }
+    ]
+}
+</code></pre>
+
+<h4 id="key-display-example">Key Display Example</h4>
+<pre><code class="json">{
+    &quot;connection&quot;:
+    {
+      &quot;lpar&quot;: &quot;ca31&quot;,
+      &quot;userid&quot;: &quot;qartp01&quot;,
+      &quot;ssid&quot;: &quot;d12a&quot;,
+      &quot;ssid2&quot;: &quot;d11a&quot;
+    },
+ &quot;tests&quot;:
+    [
+      {
+        &quot;test_type&quot;: &quot;interval compare&quot;,
+        &quot;product_code&quot;: &quot;PDT&quot;,
+        &quot;environment&quot;: &quot;SPEAN03.R19.PARMLIB&quot;,
+        &quot;baseline_vcat&quot;: &quot;PDTDBA.SPEAN03&quot;,
+        &quot;baseline_datastore&quot;: &quot;PYTHON&quot;,
+        &quot;current_vcat&quot;: &quot;PDTDBA.SPEAN03&quot;,
+        &quot;current_datastore&quot;: &quot;PYTHON&quot;,
+        &quot;baseline_interval_date&quot;: &quot;16/07/20&quot;,
+        &quot;baseline_interval_time&quot;: &quot;10:07:09&quot;,
+        &quot;current_interval_date&quot;: &quot;16/07/20&quot;,
+        &quot;current_interval_time&quot;: &quot;10:42:34&quot;,
+        &quot;view_by&quot;: &quot;K&quot;,
+        &quot;key_option&quot;: &quot;R&quot;,
+        &quot;view_type&quot;: &quot;A&quot;,
+        &quot;range_pct&quot;: 15
+      }
+    ]
+}
+</code></pre>
+
+<h4 id="compare-only-a-specific-column-of-data">Compare only a specific column of data</h4>
+<pre><code class="json">{
+    &quot;connection&quot;:
+    {
+      &quot;lpar&quot;: &quot;ca31&quot;,
+      &quot;userid&quot;: &quot;qartp01&quot;,
+      &quot;ssid&quot;: &quot;d12a&quot;,
+      &quot;ssid2&quot;: &quot;d11a&quot;
+    },
+ &quot;tests&quot;:
+    [
+      {
+        &quot;test_type&quot;: &quot;interval compare&quot;,
+        &quot;product_code&quot;: &quot;PDT&quot;,
+        &quot;environment&quot;: &quot;SPEAN03.R19.PARMLIB&quot;,
+        &quot;baseline_vcat&quot;: &quot;PDTDBA.SPEAN03&quot;,
+        &quot;baseline_datastore&quot;: &quot;PYTHON&quot;,
+        &quot;current_vcat&quot;: &quot;PDTDBA.SPEAN03&quot;,
+        &quot;current_datastore&quot;: &quot;PYTHON&quot;,
+        &quot;baseline_interval_date&quot;: &quot;16/07/20&quot;,
+        &quot;baseline_interval_time&quot;: &quot;10:07:09&quot;,
+        &quot;current_interval_date&quot;: &quot;16/07/20&quot;,
+        &quot;current_interval_time&quot;: &quot;10:42:34&quot;,
+        &quot;view_by&quot;: &quot;G&quot;,
+        &quot;view_type&quot;: &quot;A&quot;,
+        &quot;column&quot;: &quot;INDB2_TIME&quot;
+      }
+    ]
+}
+</code></pre>
+
+<h4 id="selecting-a-range-of-intervals">Selecting a range of intervals</h4>
+<pre><code class="json">{
+    &quot;connection&quot;:
+    {
+      &quot;lpar&quot;: &quot;ca31&quot;,
+      &quot;userid&quot;: &quot;qartp01&quot;,
+      &quot;ssid&quot;: &quot;d12a&quot;,
+      &quot;ssid2&quot;: &quot;d11a&quot;
+    },
+ &quot;tests&quot;:
+    [
+      {
+        &quot;test_type&quot;: &quot;interval compare&quot;,
+        &quot;product_code&quot;: &quot;PDT&quot;,
+        &quot;environment&quot;: &quot;SPEAN03.R19.PARMLIB&quot;,
+        &quot;baseline_vcat&quot;: &quot;PDTDBA.SPEAN03&quot;,
+        &quot;baseline_datastore&quot;: &quot;PYTHON&quot;,
+        &quot;current_vcat&quot;: &quot;PDTDBA.SPEAN03&quot;,
+        &quot;current_datastore&quot;: &quot;PYTHON&quot;,
+        &quot;baseline_interval_date&quot;: &quot;16/07/20&quot;,
+        &quot;baseline_interval_time&quot;: &quot;10:07:09&quot;,
+        &quot;baseline_interval_date_2&quot;: &quot;16/07/20&quot;,
+        &quot;baseline_interval_time_2&quot;: &quot;12:07:09&quot;,
+        &quot;current_interval_date&quot;: &quot;16/07/20&quot;,
+        &quot;current_interval_time&quot;: &quot;12:42:34&quot;,
+        &quot;current_interval_date_2&quot;: &quot;16/07/20&quot;,
+        &quot;current_interval_time_2&quot;: &quot;12:42:34&quot;,
+        &quot;view_by&quot;: &quot;S&quot;,
+        &quot;view_type&quot;: &quot;A&quot;
+      }
+    ]
+}
+</code></pre></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '../..';</script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&larr;</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&rarr;</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </body>
+</html>

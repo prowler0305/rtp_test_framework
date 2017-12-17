@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>JSON - Single File Tests - Real Time Performance Test Suite</title>
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../..">Real Time Performance Test Suite</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="../../..">Introduction</a>
+                    </li>
+                    <li >
+                        <a href="../../../getting-started/">Getting Started</a>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTPJ <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../build-instructions/">Build Instructions</a>
+</li>
+                            
+<li >
+    <a href="../../running-tests/">Running Tests</a>
+</li>
+                            
+<li >
+    <a href="../../test-tracker/">Tracking Results</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Creating Tests</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../writing-tests/">Writing Tests</a>
+</li>
+            
+<li class="active">
+    <a href="./">JSON - Single File Tests</a>
+</li>
+            
+<li >
+    <a href="../test-suites/">JSON - Test Suites</a>
+</li>
+    </ul>
+  </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTPPY <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../../rtppy/introduction/">Introduction</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Running Tests</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../../rtppy/executing-tests/">Executing</a>
+</li>
+            
+<li >
+    <a href="../../../rtppy/execute-jenkins/">Execute via Jenkins</a>
+</li>
+            
+<li >
+    <a href="../../../rtppy/execute-intellij/">Execute via Intellij</a>
+</li>
+            
+<li >
+    <a href="../../../rtppy/command-line-options/">Command Line Options</a>
+</li>
+            
+<li >
+    <a href="../../../rtppy/json-parameters/">JSON Parameters</a>
+</li>
+            
+<li >
+    <a href="../../../rtppy/creating-tests/">Creating Tests</a>
+</li>
+            
+<li >
+    <a href="../../../rtppy/jenkins-output/">Viewing Output on Jenkins</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">Test Types</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../../rtppy/interval-compare/">Interval Compare</a>
+</li>
+            
+<li >
+    <a href="../../../rtppy/aggregate-compare/">Aggregate Compare</a>
+</li>
+            
+<li >
+    <a href="../../../rtppy/start-collection/">Start/Stop Collection</a>
+</li>
+            
+<li >
+    <a href="../../../rtppy/rtptest/">RTP Test Suite App</a>
+</li>
+            
+<li >
+    <a href="../../../rtppy/abend-restart/">Abend Restart</a>
+</li>
+            
+<li >
+    <a href="../../../rtppy/rtpj-exec/">Distributed SQL</a>
+</li>
+            
+<li >
+    <a href="../../../rtppy/lock-release/">Lock Release</a>
+</li>
+            
+<li >
+    <a href="../../../rtppy/sql-text/">SQL Text</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                            
+<li >
+    <a href="../../../rtppy/automation_architecture/">Architecture and Design</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../../help/environment-variables/">Environment Variables</a>
+</li>
+                            
+<li >
+    <a href="../../../help/using-git/">Using Git/GitHub</a>
+</li>
+                            
+<li >
+    <a href="../../../help/create-issue/">Creating a GitHug Issue</a>
+</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="../../writing-tests/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../test-suites/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#test-structure">Test Structure</a></li>
+        <li class="main "><a href="#description">Description</a></li>
+        <li class="main "><a href="#connection-information">Connection Information</a></li>
+            <li><a href="#connection-object">Connection Object</a></li>
+        <li class="main "><a href="#statements">Statements</a></li>
+            <li><a href="#statements-array">Statements Array</a></li>
+            <li><a href="#statement-object">Statement Object</a></li>
+            <li><a href="#text">Text</a></li>
+            <li><a href="#types">Types</a></li>
+            <li><a href="#subtypes">SubTypes</a></li>
+            <li><a href="#expect">Expect</a></li>
+            <li><a href="#repeat">Repeat</a></li>
+            <li><a href="#sleep">Sleep</a></li>
+        <li class="main "><a href="#arguments">Arguments</a></li>
+            <li><a href="#arguments-array">Arguments Array</a></li>
+            <li><a href="#argument-object">Argument Object</a></li>
+            <li><a href="#types_1">Types</a></li>
+            <li><a href="#subtypes_1">Subtypes</a></li>
+            <li><a href="#datatypes">DataTypes</a></li>
+            <li><a href="#value">Value</a></li>
+        <li class="main "><a href="#multi-threaded-tests">Multi Threaded Tests</a></li>
+            <li><a href="#threading-object">Threading Object</a></li>
+        <li class="main "><a href="#complete-example">Complete Example</a></li>
+            <li><a href="#some-notes-about-this-example">Some Notes About this Example</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="test-structure">Test Structure</h1>
+<hr />
+<p>A single file test is a JSON file that specifies a <strong>test</strong> parameter that contains an object with a <a href="#connection-object">connection parameter</a>, a <a href="#statement-object">statements parameter</a>, an <em>optional</em> <a href="#generated">seed parameter</a> and an <em>optional</em> <a href="#threading">threading parameter</a>. The following example can be used as a outline for writing single file tests. There is also a <a href="#complete-example">complete example</a> at the end of this document.</p>
+<pre><code class="json">{
+  &quot;test&quot;: {
+    &quot;description&quot;: &quot;A test description&quot;,
+    &quot;connection&quot;: {...},
+    &quot;statements&quot;: [
+      {...},
+      {...},
+      {...}
+    ]
+  }
+}
+</code></pre>
+
+<h1 id="description">Description</h1>
+<p>The <code>description</code> string is an optional test parameter that provides a basic textual description of the test.  The description
+is currently not used by the framework, but may be used in the future for diagnostic and reporting purposes.</p>
+<p>Adding a short textual description of the test or test suite is recommended.</p>
+<pre><code class="json">{&quot;description&quot;: &quot;A textual description for a test.&quot;}
+</code></pre>
+
+<h1 id="connection-information">Connection Information</h1>
+<hr />
+<h2 id="connection-object">Connection Object</h2>
+<h5 id="valid-parameters">Valid Parameters</h5>
+<ul>
+<li>ssid</li>
+<li>userid</li>
+</ul>
+<p>The connection parameter object specifies the <strong>ssid</strong> and <strong>userid</strong> to be used for this test. Each test establishes it's own thread that will be used for all the the statements specified in the <a href="#statements-array">statements array</a>. These connection parameters can be overridden at the <a href="../test-suites">test suite</a> level but must be specified to give the test values to default to.</p>
+<h4 id="example">Example</h4>
+<pre><code class="json">{&quot;connection&quot;: {
+  &quot;ssid&quot;: &quot;D11B&quot;,
+  &quot;userid&quot;: &quot;QADBA01&quot;
+}}
+</code></pre>
+
+<h1 id="statements">Statements</h1>
+<hr />
+<h2 id="statements-array">Statements Array</h2>
+<p>The statement array contains a JSON array of <a href="#statement-object">statement objects</a> that will be sequentially executed.</p>
+<pre><code class="json">{&quot;statements&quot;:[
+  {...},
+  {...},
+  {...}
+]}
+</code></pre>
+
+<h2 id="statement-object">Statement Object</h2>
+<h5 id="valid-parameters_1">Valid Parameters</h5>
+<ul>
+<li>text   </li>
+<li>type</li>
+<li>subtype</li>
+<li>expect <em>optional</em></li>
+<li>repeat</li>
+<li>pause</li>
+<li><a href="#arguments">args Array</a></li>
+</ul>
+<h4 id="example_1">Example</h4>
+<pre><code class="json">{
+  &quot;text&quot;: &quot;WITH PROCS (name, parms) AS (SELECT NAME, PARM_COUNT FROM SYSIBM.SYSROUTINES) SELECT * FROM PROCS WHERE NAME = ?&quot;,
+  &quot;type&quot;: &quot;PREPARE&quot;,
+  &quot;subtype&quot;: &quot;SELECT&quot;,
+  &quot;repeat&quot;: 100,
+  &quot;sleep&quot;: 1,
+  &quot;args&quot;: [
+    {
+      &quot;value&quot;: &quot;ADMIN_EXPLAIN_MAINT&quot;,
+      &quot;type&quot;: &quot;static&quot;,
+      &quot;datatype&quot;: &quot;varchar&quot;
+    }
+  ]
+}
+</code></pre>
+
+<h2 id="text">Text</h2>
+<p>The <strong>text</strong> parameter specifies the text of the SQL or DDL Statement to be executed. JSON does not allow for multi-line strings so writing in <a href="https://notepad-plus-plus.org/">an editor with line wrapping</a> and <a href="https://sourceforge.net/projects/npp-plugins/files/TextFX/">the ability to unwrap or fold lines</a> will help you construct longer statements before copying them into your test. You do not need to include a semicolon at the end of the statement.</p>
+<h2 id="types">Types</h2>
+<p><strong>Type</strong> specifies how you would like the framework to execute your statement. The following are the valid values for <strong>type</strong> and a few notes about each.</p>
+<ul>
+<li><em>Immediate</em><ul>
+<li>Statement is passed to DB2 and immediately executed</li>
+<li>DB2 may choose to prepare the statement (don't be confused if this is how Detector catches it since it is not 1 to 1 analogous with EXECUTE IMMEDIATE)</li>
+<li>Parameter markers can not be used, text is static and final</li>
+</ul>
+</li>
+<li><em>Prepare</em><ul>
+<li>Statement is prepared and then executed</li>
+<li>If the <a href="#repeat">repeat</a> parameter is specified the statement will not be prepared again (This is a good way to mimic real world distributed applications)</li>
+</ul>
+</li>
+<li><em>Callable</em><ul>
+<li>Statement is prepared and then executed</li>
+<li>If the <a href="#repeat">repeat</a> parameter is specified the statement will not be prepared again</li>
+<li>Allows use of CALL statements to call stored procedures</li>
+</ul>
+</li>
+</ul>
+<h2 id="subtypes">SubTypes</h2>
+<p><strong>SubType</strong> specifies the kind of statement you are executing. Currently, the subtype parameter is not used by the framework. Regardless, subtype should be specified for all statements in case a need arises in the future, such as reporting or logging. Examples of <strong>subtype</strong> are: <em>SELECT</em>, <em>CREATE</em>, <em>INSERT</em>, <em>DROP</em>, etc.</p>
+<h2 id="expect">Expect</h2>
+<p><strong>Expect</strong> specifies an object containing the expected results from the execution of the statement. <strong>Expect</strong> should be specified to allow the <a href="">test tracker</a> to accuratly report whether a test achieved a <em>Passed</em> or <em>Failed</em> status. The following parameters are currently supported:</p>
+<ul>
+<li>sqlerror<ul>
+<li>Only checks errors (negative SQLCODES) not warnings (positive SQLCODES)</li>
+<li>If an error occurs, the framework will check if that error matches the specified integer and if it does, the test will be considered a success</li>
+</ul>
+</li>
+<li>columns<ul>
+<li>Checks number of columns returned in a result set</li>
+<li>Marks the test as failed if number of columns does not match the specified value</li>
+</ul>
+</li>
+<li>rows<ul>
+<li>Checks number of rows returned in a result set</li>
+<li>Marks the test as failed if number of rows does not match the specified value</li>
+</ul>
+</li>
+<li>ignore (true/false)<ul>
+<li>ignores any sql errors and the rows/columns returned for a statement. This is useful if the stmt may fail in some cases but the test
+  should not fail, such as when dropping objects.</li>
+</ul>
+</li>
+</ul>
+<h4 id="examples">Examples</h4>
+<pre><code class="json">&quot;expect&quot;: {
+  &quot;sqlerror&quot;: -104
+}
+</code></pre>
+
+<pre><code class="json">&quot;expect&quot;: {
+  &quot;rows&quot;: 138,
+  &quot;columns&quot;: 1
+}
+</code></pre>
+
+<pre><code class="json">&quot;expect&quot;: {
+  &quot;ignore&quot;: true,
+}
+</code></pre>
+
+<h2 id="repeat">Repeat</h2>
+<p>The <strong>repeat</strong> parameter specifies the number of times the framework should execute the statement.</p>
+<p>Note that when used on a statement with the <strong>type</strong> <em>prepare</em> or <em>callable</em> the statement will only be prepared once. This means that the dynamic SQL's access path will only be determined once.</p>
+<p>The <strong>repeat</strong> parameter also has special interactions with <a href="#incremented"><em>incremented</em></a> and <a href="#generated"><em>generated</em></a> argument types.</p>
+<h2 id="sleep">Sleep</h2>
+<p>The <strong>sleep</strong> parameter specifies the number of seconds to pause the test execution after executing the given statement.</p>
+<p>If the sleep parameter is omitted the default is 0 seconds.</p>
+<h1 id="arguments">Arguments</h1>
+<hr />
+<h2 id="arguments-array">Arguments Array</h2>
+<p>The arguments array contains a JSON array of <a href="#argument-object">argument objects</a> that will be set to the parameter markers, in the statement, in the order that they appear.</p>
+<pre><code class="json">&quot;args&quot;:[
+  {...},
+  {...},
+  {...}
+]
+</code></pre>
+
+<h2 id="argument-object">Argument Object</h2>
+<h5 id="valid-parameters_2">Valid Parameters</h5>
+<ul>
+<li>type</li>
+<li>subtype</li>
+<li>datatype</li>
+<li>value</li>
+<li>length</li>
+<li>key</li>
+</ul>
+<p>Arguments (<strong>args</strong>) allow you to specify values to be inserted into the parameter markers of the statment. Arguments and parameter markers can only be specified on <em>prepare</em> or <em>callable</em> <strong>type</strong> statements.</p>
+<h2 id="types_1">Types</h2>
+<p>Just like statements, arguments have a <strong>type</strong> parameter. There are three types of parameters and two subtypes.</p>
+<h3 id="static">Static</h3>
+<p>For parameters where you want to specify an explicit <strong>value</strong>.</p>
+<h4 id="example_2">Example</h4>
+<pre><code class="json">{
+  &quot;value&quot;: &quot;ADMIN_EXPLAIN_MAINT&quot;,
+  &quot;type&quot;: &quot;static&quot;,
+  &quot;datatype&quot;: &quot;varchar&quot;
+}
+</code></pre>
+
+<h3 id="incremented">Incremented</h3>
+<p>For parameters where you want the <strong>datatype</strong> to increment for every <a href="#repeat">repetition</a> starting at the given <strong>value</strong>. <em>Currently only the INTEGER datatype is supported.</em></p>
+<h4 id="example_3">Example</h4>
+<pre><code class="json">{
+  &quot;value&quot;: 1,
+  &quot;type&quot;: &quot;incremented&quot;,
+  &quot;datatype&quot;: &quot;integer&quot;
+}
+</code></pre>
+
+<h3 id="generated">Generated</h3>
+<p>For parameters that you would like randomly generated data of the given <strong>datatype</strong>. If a <strong>value</strong> parameter is specified it will be ignored and the generated value will be used.</p>
+<p>Currently, generation is supported for the following datatypes:</p>
+<ul>
+<li>BIGINT</li>
+<li>BOOLEAN</li>
+<li>CHAR*</li>
+<li>DOUBLE</li>
+<li>FLOAT</li>
+<li>INTEGER</li>
+<li>SMALLINT</li>
+<li>TINYINT</li>
+<li>VARCHAR*</li>
+</ul>
+<p>* <em><strong>length</strong> parameter must be specified or else generated value will be truncated when set</em></p>
+<p>If a <strong>seed</strong> value is provided on the <strong>test</strong> object each execution of the test will generate the same random data. This does not mean that every <a href="#repeat">repetition</a> of the statement will have the same value generated for it; rather, all <a href="#repeat">repetitions</a> will produce the same random data every time the test is executed.</p>
+<h4 id="example_4">Example</h4>
+<pre><code class="json">{
+  &quot;type&quot;: &quot;generated&quot;,
+  &quot;datatype&quot;: &quot;char&quot;,
+  &quot;length&quot;: 10
+}
+</code></pre>
+
+<h2 id="subtypes_1">Subtypes</h2>
+<p><strong>Subtype</strong> only needs to be specified when using Statement Type: <em>Callable</em> when calling a stored procedure.</p>
+<h3 id="in">In</h3>
+<p><em>In</em> is the implied default for all parameters (even for non <em>callable</em> statements). An <em>in</em> parameter is expected, by the framework, to provide a value to be set to the corresponding parameter marker.</p>
+<h3 id="out">Out</h3>
+<p><em>Out</em> should be specified for <a href="https://www.ibm.com/support/knowledgecenter/SSEPEK_10.0.0/com.ibm.db2z10.doc.apsg/src/tpc/db2z_parameterlistsp.dita">output-only</a> parameters. The <em>out</em> parameter should not specify a <strong>value</strong>. Note that the <strong>length</strong> parameter does not have to be set in the example. <em>Out</em> parameter's returned value will be logged.</p>
+<h4 id="example_5">Example</h4>
+<pre><code class="json">{
+  &quot;type&quot;: &quot;static&quot;,
+  &quot;subtype&quot;: &quot;out&quot;,
+  &quot;datatype&quot;: &quot;varchar&quot;
+},
+</code></pre>
+
+<h3 id="inout">InOut</h3>
+<p><em>InOut</em> should be specified for <a href="https://www.ibm.com/support/knowledgecenter/SSEPEK_10.0.0/com.ibm.db2z10.doc.apsg/src/tpc/db2z_parameterlistsp.dita">input and output</a> parameters. <em>InOut</em> parameters should be used like <em>In</em> parameters and follow all the required rules of the parameter's <strong>type</strong>. <em>InOut</em> parameter's returned value will be logged.</p>
+<h4 id="example_6">Example</h4>
+<pre><code class="json">{
+  &quot;value&quot;: 2,
+  &quot;type&quot;: &quot;static&quot;,
+  &quot;subtype&quot;: &quot;inout&quot;,
+  &quot;datatype&quot;: &quot;smallint&quot;
+}
+</code></pre>
+
+<h3 id="literal">literal</h3>
+<p><em>literal</em> is used when certain values are to be inserted directly into the sql statement by the java program.</p>
+<h4 id="example_7">Example</h4>
+<pre><code class="json">&quot;args&quot;: [
+  {
+    &quot;type&quot;: &quot;generated&quot;,
+    &quot;datatype&quot;: &quot;integer&quot;,
+    &quot;subtype&quot;: &quot;literal&quot;,
+    &quot;key&quot;: &quot;:H1&quot;
+  }
+</code></pre>
+
+<h3 id="key">key</h3>
+<p><em>key</em> is used only when <em>literal</em> is the subtype.  The string designated by the key parameter will be replaced in the SQL statement
+by the value indicated in the argument.  This can be static, incremented, or generated parameter.</p>
+<h4 id="example_8">Example</h4>
+<pre><code class="json"> &quot;statements&quot;: [
+      {
+        &quot;text&quot;: &quot;SELECT CREATOR,NAME FROM SYSIBM.SYSTABLES WHERE COLCOUNT &lt; :H1 FETCH FIRST 1 ROWS ONLY&quot;,
+        &quot;type&quot;: &quot;IMMEDIATE&quot;,
+        &quot;subtype&quot;: &quot;SELECT&quot;,
+        &quot;repeat&quot;: 100,
+        &quot;args&quot;: [
+          {
+            &quot;type&quot;: &quot;generated&quot;,
+            &quot;datatype&quot;: &quot;integer&quot;,
+            &quot;subtype&quot;: &quot;literal&quot;,
+            &quot;key&quot;: &quot;:H1&quot;
+          }
+        ]
+      }
+    ]
+</code></pre>
+
+<h3 id="max">Max</h3>
+<p>Sets the maximum number of incremented values for a single argument.  Once the maximum number of values 
+has been reached the value will be reset to the original value.</p>
+<p>This parameter is designed to support separation of repeating literal values from the "repeat" parameter at the 
+statement level.</p>
+<h4 id="example_9">Example</h4>
+<p>In the below example the Table literal counter argument will cycle through values (1-10).  This will cause values to 
+be inserted into tables (RTPJTB1 - RTPJTB10).  Since the statement is repeated 10 times and in batches of 10, this
+will result in 10 rows being inserted into ten tables.</p>
+<pre><code class="json">    &quot;text&quot;: &quot;INSERT INTO RTPJTB:H1 (id, firstname, lastname, title, salary, resume) VALUES (?, ?, ?, ?, ?, ?)&quot;,
+    &quot;type&quot;: &quot;BATCH&quot;,
+    &quot;subtype&quot;: &quot;INSERT&quot;,
+    &quot;repeat&quot;: 10,
+    &quot;batches&quot;: 10,
+    &quot;args&quot;: [
+      {
+        &quot;type&quot;: &quot;incremented&quot;,
+        &quot;datatype&quot;: &quot;integer&quot;,
+        &quot;subtype&quot;: &quot;literal&quot;,
+        &quot;description&quot;: &quot;Table literal counter.&quot;,
+        &quot;value&quot;: 1,
+        &quot;key&quot;: &quot;:H1&quot;,
+        &quot;max&quot;: 10
+      },
+</code></pre>
+
+<h3 id="batches">Batches</h3>
+<p>The batches parameter is only valid when the statement type is "BATCH".  The parameter is used for executing batch statements.
+The batches value indicates the number of times a statement should be added to the batch. For example, A statement with a repeat value of 1 and 
+a batches value of 10 will cause the statement to be added 10 times and executed during one batch execution.</p>
+<h4 id="example_10">Example</h4>
+<p>In the below example the statement will be executed 100 times in 10 execution batches.
+Since the statement is repeated 10 times and in batches of 10, this will result in 10 rows being inserted into ten tables.</p>
+<pre><code class="json">    &quot;text&quot;: &quot;INSERT INTO RTPJTB:H1 (id, firstname, lastname, title, salary, resume) VALUES (?, ?, ?, ?, ?, ?)&quot;,
+    &quot;type&quot;: &quot;BATCH&quot;,
+    &quot;subtype&quot;: &quot;INSERT&quot;,
+    &quot;repeat&quot;: 10,
+    &quot;batches&quot;: 10,
+    &quot;args&quot;: [
+      {
+        &quot;type&quot;: &quot;incremented&quot;,
+        &quot;datatype&quot;: &quot;integer&quot;,
+        &quot;subtype&quot;: &quot;literal&quot;,
+        &quot;description&quot;: &quot;Table literal counter.&quot;,
+        &quot;value&quot;: 1,
+        &quot;key&quot;: &quot;:H1&quot;,
+        &quot;max&quot;: 10
+      },
+</code></pre>
+
+<h2 id="datatypes">DataTypes</h2>
+<p><strong>DataType</strong> specifies the DB2 type of the parameter. Currently, the following datatypes are supported for <a href="#static"><em>static</em></a> types; <a href="#generated"><em>generated</em></a> types and <a href="../incremented"><em>incremented</em></a> types only support subsets of this list:</p>
+<ul>
+<li>BIGINT</li>
+<li>BINARY</li>
+<li>BIT</li>
+<li>BLOB</li>
+<li>BOOLEAN</li>
+<li>CHAR</li>
+<li>CLOB</li>
+<li>DATE</li>
+<li>DECIMAL</li>
+<li>DOUBLE</li>
+<li>FLOAT</li>
+<li>INTEGER</li>
+<li>LONGVARBINARY</li>
+<li>LONGVARCHAR</li>
+<li>NULL</li>
+<li>NUMERIC</li>
+<li>REAL</li>
+<li>ROWID</li>
+<li>SMALLINT</li>
+<li>SQLXML</li>
+<li>TIME</li>
+<li>TIMESTAMP</li>
+<li>TINYINT</li>
+<li>VARBINARY</li>
+<li>VARCHAR</li>
+</ul>
+<h2 id="value">Value</h2>
+<p>The <strong>value</strong> parameter allows you to provide values for <em>static</em> parameters and starting values for <em>incrementing</em> parameters. Note that values like <em>integer</em> should not be specified within quotes.</p>
+<h3 id="length">Length</h3>
+<p>The <strong>length</strong> parameter is, currently, only used for <em>generated</em> parameters. There is no harm in specifying it for static parameters as it could be used by the framework in the future.</p>
+<h1 id="multi-threaded-tests">Multi Threaded Tests</h1>
+<hr />
+<h2 id="threading-object">Threading Object</h2>
+<h5 id="valid-parameters_3">Valid Parameters</h5>
+<ul>
+<li>threads (integer) : The number of threads to execute test.  Each thread will execute the entire test. One is the default.</li>
+<li>parallel (boolean): Execute all threads in parallel or wait for each thread to finish before starting the next. True is the default.</li>
+<li>sleep (integer)   : The amount of time to wait before executing the next thread.  Zero is the default.</li>
+</ul>
+<p>The <strong>threading</strong> parameter object is used to execute multiple instances of a test either in parallel or sequentially. The <strong>threads</strong> parameter specifies the number of threads to be created; each thread will have it's own connection. The <strong>parallel</strong> parameter specifies whether the threads should execute in parallel or sequentially waiting for each to finish before the next is created.</p>
+<h4 id="example_11">Example</h4>
+<pre><code class="json">&quot;threading&quot;: {
+  &quot;threads&quot;: 100,
+  &quot;parallel&quot;: &quot;true&quot;
+  &quot;sleep&quot;: 1
+}
+</code></pre>
+
+<h1 id="complete-example">Complete Example</h1>
+<hr />
+<p>The following is an example that creates a table, inserts 50 rows to it using all three <strong>type</strong> of parameters, selects the contents of that table, and drops the table.</p>
+<pre><code class="json">{
+  &quot;test&quot;: {
+    &quot;description&quot;: &quot;This is an example test file.&quot;,
+    &quot;seed&quot;: 42,
+    &quot;threading&quot;: {
+      &quot;threads&quot;: 2,
+      &quot;parallel&quot;: &quot;false&quot;
+    },
+    &quot;connection&quot;: {
+      &quot;ssid&quot;: &quot;D10A&quot;,
+      &quot;userid&quot;: &quot;QADBA01&quot;
+    },
+    &quot;statements&quot;: [
+      {
+        &quot;text&quot;: &quot;CREATE TABLE RTPJSONTEST ( id INTEGER, myint INTEGER, mystring VARCHAR(30), mydouble DOUBLE, myfloat FLOAT)&quot;,
+        &quot;type&quot;: &quot;IMMEDIATE&quot;,
+        &quot;subtype&quot;: &quot;CREATE&quot;
+      },
+      {
+        &quot;text&quot;: &quot;INSERT INTO RTPJSONTEST (id, myint, mystring, mydouble, myfloat) VALUES (?, ?, ?, ?, ?)&quot;,
+        &quot;type&quot;: &quot;prepare&quot;,
+        &quot;subtype&quot;: &quot;INSERT&quot;,
+        &quot;repeat&quot;: 50,
+        &quot;args&quot;: [
+          {
+            &quot;value&quot;: 1,
+            &quot;type&quot;: &quot;incremented&quot;,
+            &quot;datatype&quot;: &quot;integer&quot;
+          },
+          {
+            &quot;type&quot;: &quot;generated&quot;,
+            &quot;datatype&quot;: &quot;integer&quot;
+          },
+          {
+            &quot;type&quot;: &quot;generated&quot;,
+            &quot;datatype&quot;: &quot;varchar&quot;,
+            &quot;length&quot;: 30
+          },
+          {
+            &quot;type&quot;: &quot;generated&quot;,
+            &quot;datatype&quot;: &quot;double&quot;
+          },
+          {
+            &quot;type&quot;: &quot;generated&quot;,
+            &quot;datatype&quot;: &quot;float&quot;
+          }
+        ]
+      },
+      {
+        &quot;text&quot;: &quot;SELECT * FROM RTPJSONTEST&quot;,
+        &quot;type&quot;: &quot;IMMEDIATE&quot;,
+        &quot;subtype&quot;: &quot;SELECT&quot;,
+        &quot;expect&quot;: {
+          &quot;columns&quot;: 5,
+          &quot;rows&quot;: 50
+        }
+      },
+      {
+        &quot;text&quot;: &quot;DROP TABLE RTPJSONTEST;&quot;,
+        &quot;type&quot;: &quot;IMMEDIATE&quot;,
+        &quot;subtype&quot;: &quot;DROP&quot;
+      }
+    ]
+  }
+}
+</code></pre>
+
+<h4 id="some-notes-about-this-example">Some Notes About this Example</h4>
+<ul>
+<li>The <strong>seed</strong> parameter is set which causes the data to be inserted to be the same every time this test is executed</li>
+<li>The SELECT statement uses the <strong>expect</strong> parameter to verify that the correct number of columns and rows were returned</li>
+<li>The <strong>threading</strong> object executes this test twice, on two threads, one after another</li>
+<li>If <strong>parallel</strong> was set to <em>true</em> in the <strong>threading</strong> object...<ul>
+<li>The CREATE and DROP statements would most likely get sqlerrors on the second thread to execute</li>
+<li>The SELECT would most likely fail to meet it's <strong>expect</strong> because the second thread would have inserted more than 50 rows to the table</li>
+</ul>
+</li>
+</ul></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '../../..';</script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../search/require.js"></script>
+        <script src="../../../search/search.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&larr;</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&rarr;</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </body>
+</html>

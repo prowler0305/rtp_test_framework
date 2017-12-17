@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>SQL Text - Real Time Performance Test Suite</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../..">Real Time Performance Test Suite</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="../..">Introduction</a>
+                    </li>
+                    <li >
+                        <a href="../../getting-started/">Getting Started</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTPJ <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../rtpj/build-instructions/">Build Instructions</a>
+</li>
+                            
+<li >
+    <a href="../../rtpj/running-tests/">Running Tests</a>
+</li>
+                            
+<li >
+    <a href="../../rtpj/test-tracker/">Tracking Results</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Creating Tests</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../rtpj/writing-tests/">Writing Tests</a>
+</li>
+            
+<li >
+    <a href="../../rtpj/json/single-file-tests/">JSON - Single File Tests</a>
+</li>
+            
+<li >
+    <a href="../../rtpj/json/test-suites/">JSON - Test Suites</a>
+</li>
+    </ul>
+  </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTPPY <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../introduction/">Introduction</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Running Tests</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../executing-tests/">Executing</a>
+</li>
+            
+<li >
+    <a href="../execute-jenkins/">Execute via Jenkins</a>
+</li>
+            
+<li >
+    <a href="../execute-intellij/">Execute via Intellij</a>
+</li>
+            
+<li >
+    <a href="../command-line-options/">Command Line Options</a>
+</li>
+            
+<li >
+    <a href="../json-parameters/">JSON Parameters</a>
+</li>
+            
+<li >
+    <a href="../creating-tests/">Creating Tests</a>
+</li>
+            
+<li >
+    <a href="../jenkins-output/">Viewing Output on Jenkins</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">Test Types</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../interval-compare/">Interval Compare</a>
+</li>
+            
+<li >
+    <a href="../aggregate-compare/">Aggregate Compare</a>
+</li>
+            
+<li >
+    <a href="../start-collection/">Start/Stop Collection</a>
+</li>
+            
+<li >
+    <a href="../rtptest/">RTP Test Suite App</a>
+</li>
+            
+<li >
+    <a href="../abend-restart/">Abend Restart</a>
+</li>
+            
+<li >
+    <a href="../rtpj-exec/">Distributed SQL</a>
+</li>
+            
+<li >
+    <a href="../lock-release/">Lock Release</a>
+</li>
+            
+<li class="active">
+    <a href="./">SQL Text</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                            
+<li >
+    <a href="../automation_architecture/">Architecture and Design</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../help/environment-variables/">Environment Variables</a>
+</li>
+                            
+<li >
+    <a href="../../help/using-git/">Using Git/GitHub</a>
+</li>
+                            
+<li >
+    <a href="../../help/create-issue/">Creating a GitHug Issue</a>
+</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="../lock-release/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../automation_architecture/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#sql-text">SQL Text</a></li>
+            <li><a href="#test-1">Test 1:</a></li>
+            <li><a href="#test-2">Test 2:</a></li>
+            <li><a href="#test-parameters">Test Parameters</a></li>
+        <li class="main "><a href="#json-examples">JSON Examples</a></li>
+            <li><a href="#access-the-static-sql-for-a-specific-plan-and-program">Access the static SQL for a specific plan and program</a></li>
+            <li><a href="#access-the-dynamic-sql-for-all-the-programs-for-a-specific-plan">Access the dynamic SQL for all the programs for a specific plan</a></li>
+            <li><a href="#access-the-dynamic-sql-for-all-the-programs-for-a-specific-plan-and-validate-it-against-a-list-of-user-specified-sql-text">Access the dynamic SQL for all the programs for a specific plan and validate it against a list of user specified SQL Text. </a></li>
+        <li class="main "><a href="#example-output">Example Output</a></li>
+            <li><a href="#example-output-for-test-1">Example Output for Test 1</a></li>
+            <li><a href="#example-output-for-test-2">Example Output for Test 2</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="sql-text">SQL Text</h1>
+<p>This test type provides different ways of testing the SQL Text obtained by Detector depending on the supplied parameters.
+See the list below for the different sub-tests.</p>
+<h5 id="test-1">Test 1:</h5>
+<p>Was SQL text obtained for the statements executed under a given program under a plan.</p>
+<ul>
+<li>This is the test that is always performed which minimum validates that the SQL Text display for the SQL statement is accessible without an error indicating the SQL text could not be located. The text is then extracted from this display and put in the report that is generated at the end of the test. This gives a quick overall visual for each program under the plan what the statement was and the SQL Text that appears when selecting that statement. See an example of the output <a href="#example-output-for-test-1">here</a>.</li>
+</ul>
+<h5 id="test-2">Test 2:</h5>
+<p>Does the SQL text collected equally compare to the source SQL that was executed. </p>
+<ul>
+<li>This level of validation testing is only done when the optional parameter <a href="#anchorlist">text list</a> is included in the test, see the <a href="#jsonwithtextlist">example</a> of how to use the parameter. When present the SQL text obtained in <a href="#test-1">test 1</a> is searched against the specified list for a match. An additional column is added to the same report produced by test 1 that is either left blank or contains the text from the list that matched the display text. An additional report is included for any SQL text from the user provided text list that no match was found. See an example of the output <a href="#example-output-for-test-2">here</a>.     </li>
+</ul>
+<h2 id="test-parameters">Test Parameters</h2>
+<p>The table below lists the required and optional parameters that are valid for this test. Follow the link by clicking on the
+parameter name in the JSON column. If the parameter has a command line override option it will be listed in the Command Line Override
+column. Additionally there are <a href="#json-examples">examples</a> at the bottom of this page.</p>
+<h4 id="required">Required</h4>
+<table>
+<thead>
+<tr>
+<th>JSON</th>
+<th>Command Line Override</th>
+<th>Special Usage or Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../json-parameters/#product_code">product_code</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#test_type">test_type</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#lpar">lpar</a></td>
+<td><a href="../command-line-options/#lpar">lpar</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#userid">userid</a></td>
+<td><a href="../command-line-options/#userid">userid</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#ssid">ssid</a></td>
+<td><a href="../command-line-options/#ssid">ssid</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#current_vcat">current_vcat</a></td>
+<td><a href="../command-line-options/#current_vcat">current_vcat</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#current_datastore">current_datastore</a></td>
+<td><a href="../command-line-options/#current_datastore">current_datastore</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#baseline_interval_datecurrent_interval_date">current_interval_date</a></td>
+<td><a href="../command-line-options/#baseline_interval_datecurrent_interval_date">current_interval_date</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#baseline_interval_timecurrent_interval_time">current_interval_time</a></td>
+<td><a href="../command-line-options/#baseline_interval_timecurrent_interval_time">current_interval_time</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#plan">plan</a></td>
+<td><a href="../command-line-options/#plan">plan</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#program">program</a></td>
+<td><a href="../command-line-options/#program">program</a></td>
+<td>Provide a specific program name or value of <strong>ALL</strong> to indicate all programs under the requested plan should be tested.</td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#collid">collid</a></td>
+<td><a href="../command-line-options/#collid">collid</a></td>
+<td>Required only if <strong>program</strong> parameter indicates a specific name.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="optional">Optional <a name="anchorlist"></a></h4>
+<table>
+<thead>
+<tr>
+<th>JSON</th>
+<th>Command Line Override</th>
+<th>Special Usage or Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../json-parameters/#environment">environment</a></td>
+<td><a href="../command-line-options/#environment">environment</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#output_location">output_location</a></td>
+<td><a href="../command-line-options/#output_location">output_location</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#baseline_interval_date_2current_interval_date_2">current_interval_date_2</a></td>
+<td><a href="../command-line-options/#baseline_interval_date_2current_interval_date_2">current_interval_date_2</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#baseline_interval_time_2current_interval_time_2">current_interval_time_2</a></td>
+<td><a href="../command-line-options/#baseline_interval_time_2current_interval_time_2">current_interval_time_2</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#text_type">text_type</a></td>
+<td></td>
+<td>Indicates if the SQL executed under the program(s) is dynamic or static. Defaults to static.</td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#text-list">text list</a></td>
+<td></td>
+<td>The list of SQL text to compare against the text obtained from the product displays. The list is composed of key/value pairs where the key is any string and the value is the correct version of the SQL text that would have been executed.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="json-examples">JSON Examples</h1>
+<hr />
+<h4 id="access-the-static-sql-for-a-specific-plan-and-program">Access the static SQL for a specific plan and program</h4>
+<pre><code class="json">{
+  &quot;connection&quot;: {
+    &quot;lpar&quot;: &quot;ca11&quot;,
+    &quot;userid&quot;: &quot;qartp01&quot;,
+    &quot;ssid&quot;: &quot;d11b&quot;
+  },
+  &quot;tests&quot;: [
+    {
+      &quot;test_type&quot;: &quot;sql text&quot;,
+      &quot;environment&quot;: &quot;SPEAN03.R20.PARMLIB(99)&quot;,
+      &quot;product_code&quot;: &quot;PDT&quot;,
+      &quot;current_vcat&quot;: &quot;PDTDBA.R19&quot;,
+      &quot;current_datastore&quot;: &quot;PDT1511&quot;,
+      &quot;current_interval_date&quot;: &quot;1&quot;,
+      &quot;current_interval_time&quot;: &quot;20:37:26&quot;,
+      &quot;plan&quot;: &quot;RCUUD190&quot;,
+      &quot;program&quot;: &quot;PTASSPI&quot;,
+      &quot;collid&quot;: &quot;AUTHD190_BSSP&quot;
+    }
+  ]
+}
+</code></pre>
+
+<h4 id="access-the-dynamic-sql-for-all-the-programs-for-a-specific-plan">Access the dynamic SQL for all the programs for a specific plan</h4>
+<pre><code class="json">{
+  &quot;connection&quot;: {
+    &quot;lpar&quot;: &quot;ca11&quot;,
+    &quot;userid&quot;: &quot;qartp01&quot;,
+    &quot;ssid&quot;: &quot;d11b&quot;
+  },
+  &quot;tests&quot;: [
+    {
+      &quot;test_type&quot;: &quot;sql text&quot;,
+      &quot;environment&quot;: &quot;SPEAN03.R20.PARMLIB(99)&quot;,
+      &quot;product_code&quot;: &quot;PDT&quot;,
+      &quot;current_vcat&quot;: &quot;PDTDBA.R19&quot;,
+      &quot;current_datastore&quot;: &quot;PDT1511&quot;,
+      &quot;current_interval_date&quot;: &quot;1&quot;,
+      &quot;current_interval_time&quot;: &quot;20:37:26&quot;,
+      &quot;plan&quot;: &quot;DISTSERV&quot;,
+      &quot;program&quot;: &quot;ALL&quot;,
+      &quot;text_type&quot;: &quot;dynamic&quot;
+    }
+  ]
+}
+</code></pre>
+
+<h4 id="access-the-dynamic-sql-for-all-the-programs-for-a-specific-plan-and-validate-it-against-a-list-of-user-specified-sql-text">Access the dynamic SQL for all the programs for a specific plan and validate it against a list of user specified SQL Text. <a name="jsonwithtextlist"></a></h4>
+<pre><code class="json">{
+  &quot;connection&quot;: {
+    &quot;lpar&quot;: &quot;ca11&quot;,
+    &quot;userid&quot;: &quot;qartp01&quot;,
+    &quot;ssid&quot;: &quot;d11b&quot;
+  },
+  &quot;tests&quot;: [
+    {
+      &quot;test_type&quot;: &quot;sql text&quot;,
+      &quot;environment&quot;: &quot;SPEAN03.R20.PARMLIB(99)&quot;,
+      &quot;product_code&quot;: &quot;PDT&quot;,
+      &quot;current_vcat&quot;: &quot;PDTDBA.R19&quot;,
+      &quot;current_datastore&quot;: &quot;PDT1511&quot;,
+      &quot;current_interval_date&quot;: &quot;1&quot;,
+      &quot;current_interval_time&quot;: &quot;20:37:26&quot;,
+      &quot;plan&quot;: &quot;DISTSERV&quot;,
+      &quot;program&quot;: &quot;ALL&quot;,
+      &quot;text_type&quot;: &quot;dynamic&quot;,
+      &quot;text list&quot;:
+            {
+              &quot;text1&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSPACKAGE&quot;,
+              &quot;text2&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSTABLES WHERE TYPE = 'T'&quot;,
+              &quot;text3&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSTABLES WHERE TYPE = 'V'&quot;,
+              &quot;text4&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSTABLES WHERE TYPE = 'A'&quot;,
+              &quot;text5&quot;: &quot;SELECT  COUNT ( DISTINCT CREATOR ) FROM SYSIBM.SYSTABLES&quot;,
+              &quot;text6&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSTABLESPACE&quot;,
+              &quot;text7&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSTABLES WHERE TYPE = 'M'&quot;,
+              &quot;text8&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSROUTINES WHERE ROUTINETYPE = 'F'&quot;,
+              &quot;text9&quot;: &quot;SELECT  FOREIGNKEY FROM SYSIBM.SYSCOLUMNS WHERE NAME = 'TEXT' AND TBNAME = 'SYSTRIGGERS' AND TBCREATOR = 'SYSIBM'&quot;,
+              &quot;text10&quot;: &quot;SELECT  FOREIGNKEY FROM SYSIBM.SYSCOLUMNS WHERE NAME = 'TEXT' AND TBNAME = 'SYSVIEWS' AND TBCREATOR = 'SYSIBM'&quot;,
+              &quot;text11&quot;: &quot;SELECT  FOREIGNKEY FROM SYSIBM.SYSCOLUMNS WHERE NAME = 'CREATESTMT' AND TBNAME = 'SYSROUTINES_SRC' AND TBCREATOR = 'SYSIBM'&quot;,
+              &quot;text12&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSINDEXES&quot;,
+              &quot;text13&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSTABCONST&quot;,
+              &quot;text14&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSROUTINES WHERE ROUTINETYPE = 'P'&quot;,
+              &quot;text15&quot;: &quot;SELECT  FOREIGNKEY FROM SYSIBM.SYSCOLUMNS WHERE NAME = 'STMT' AND TBNAME = 'SYSPACKSTMT' AND TBCREATOR = 'SYSIBM'&quot;,
+              &quot;text16&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSSYNONYMS&quot;,
+              &quot;text17&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSDATATYPES WHERE OWNERTYPE = ''&quot;,
+              &quot;text18&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSTRIGGERS&quot;,
+              &quot;text19&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSSEQUENCES&quot;,
+              &quot;text20&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.XSROBJECTS&quot;
+            }
+    }
+  ]
+}
+</code></pre>
+
+<h1 id="example-output">Example Output</h1>
+<h4 id="example-output-for-test-1">Example Output for Test 1</h4>
+<h5 id="example-1">Example 1:</h5>
+<p>Test output when specifying the minimum type of test parameters. Where the SQL Text for all the statements executed under the program specified were extracted successfully.</p>
+<h6 id="json-file-input">JSON file input</h6>
+<pre><code class="json">{
+  &quot;connection&quot;: {
+    &quot;lpar&quot;: &quot;ca11&quot;,
+    &quot;userid&quot;: &quot;qartp01&quot;,
+    &quot;ssid&quot;: &quot;d11b&quot;
+  },
+  &quot;tests&quot;: 
+  [
+    {
+      &quot;test_type&quot;: &quot;sql text&quot;,
+      &quot;environment&quot;: &quot;R20&quot;,
+      &quot;product_code&quot;: &quot;PDT&quot;,
+      &quot;current_vcat&quot;: &quot;PDTDBA.R19&quot;,
+      &quot;current_datastore&quot;: &quot;QATEST19&quot;,
+      &quot;current_interval_date&quot;: &quot;1&quot;,
+      &quot;current_interval_time&quot;: &quot;20:37:26&quot;,
+      &quot;plan&quot;: &quot;RCUUD190&quot;,
+      &quot;program&quot;: &quot;PTASSPI&quot;,
+      &quot;collid&quot;: &quot;AUTHD190_BSSP&quot;
+    }
+  ]
+}
+</code></pre>
+
+<h6 id="report-output">Report Output</h6>
+<div style="overflow-x:hidden;overflow-y:hidden;width:355%">
+
+    <pre>-----------------------------------------------------------------------------------</br>
+    2017-08-21                               SQL Text Captured Report          12:01:36
+
+    2017-08-21-12:01:36, PLAN:  RCUUD190
+
+    2017-08-21-12:01:36, PROGRAM:  PTASSPI 
+
+    2017-08-21-12:01:36, SQL_CALL STMT#    SECT#    TEXT CAPTURED BY PRODUCT
+    2017-08-21-12:01:36, -------- -------- -------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    2017-08-21-12:01:36, CONNT2   0000948  00000    CONNECT                                                                                                                                                                                                                                                                                                                                                                 
+    2017-08-21-12:01:36, FETCH    0001046  00001    DECLARE CURSOR2 CURSOR FOR SELECT  A.SQL_TEXT_CREATOR , A.SQL_TEXT_NAME , A.SQL_SHARE , A.SQL_PANEL , A.SQL_DESCRIPTION , A.SQL_WHERE_TEXT , A.SQL_ORDER_TEXT , A.SQL_TABLE_NAME , A.SQL_TABLE_CREATOR , A.SQL_DEFAULT , A.SQL_QUERY_TYPE FROM PTI.PTSQL_TEXT_115 A WHERE A.SQL_TEXT_CREATOR = :H AND A.SQL_PRODUCT = :H AND A.SQL_PANEL LIKE :H AND A.SQL_DEFAULT = 'Y'
+    2017-08-21-12:01:36, OPEN     0001039  00001    DECLARE CURSOR2 CURSOR FOR SELECT  A.SQL_TEXT_CREATOR , A.SQL_TEXT_NAME , A.SQL_SHARE , A.SQL_PANEL , A.SQL_DESCRIPTION , A.SQL_WHERE_TEXT , A.SQL_ORDER_TEXT , A.SQL_TABLE_NAME , A.SQL_TABLE_CREATOR , A.SQL_DEFAULT , A.SQL_QUERY_TYPE FROM PTI.PTSQL_TEXT_115 A WHERE A.SQL_TEXT_CREATOR = :H AND A.SQL_PRODUCT = :H AND A.SQL_PANEL LIKE :H AND A.SQL_DEFAULT = 'Y'
+    2017-08-21-12:01:36, CLOSE    0001085  00001    DECLARE CURSOR2 CURSOR FOR SELECT  A.SQL_TEXT_CREATOR , A.SQL_TEXT_NAME , A.SQL_SHARE , A.SQL_PANEL , A.SQL_DESCRIPTION , A.SQL_WHERE_TEXT , A.SQL_ORDER_TEXT , A.SQL_TABLE_NAME , A.SQL_TABLE_CREATOR , A.SQL_DEFAULT , A.SQL_QUERY_TYPE FROM PTI.PTSQL_TEXT_115 A WHERE A.SQL_TEXT_CREATOR = :H AND A.SQL_PRODUCT = :H AND A.SQL_PANEL LIKE :H AND A.SQL_DEFAULT = 'Y'</pre>
+</div>
+
+<h5 id="example-2">Example 2:</h5>
+<p>Test output when specifying the minimum type of test parameters. Where the SQL Text for the statement executed under the program specified was not obtained.</p>
+<h6 id="json-file-input_1">JSON file input</h6>
+<pre><code class="json">{
+  &quot;connection&quot;: {
+    &quot;lpar&quot;: &quot;ca11&quot;,
+    &quot;userid&quot;: &quot;qartp01&quot;,
+    &quot;ssid&quot;: &quot;d11b&quot;
+  },
+  &quot;tests&quot;: 
+  [
+    {
+      &quot;test_type&quot;: &quot;sql text&quot;,
+      &quot;environment&quot;: &quot;R20&quot;,
+      &quot;product_code&quot;: &quot;PDT&quot;,
+      &quot;current_vcat&quot;: &quot;PDTDBA.R19&quot;,
+      &quot;current_datastore&quot;: &quot;QATEST19&quot;,
+      &quot;current_interval_date&quot;: &quot;1&quot;,
+      &quot;current_interval_time&quot;: &quot;20:37:26&quot;,
+      &quot;plan&quot;: &quot;RCUUD190&quot;,
+      &quot;program&quot;: &quot;PTASSPI&quot;,
+      &quot;collid&quot;: &quot;AUTHD190_BSSP&quot;
+    }
+  ]
+}
+</code></pre>
+
+<h6 id="report-output_1">Report Output</h6>
+<div style="overflow:scroll;overflow-x:hidden;overflow-y:hidden">
+
+    <pre>-----------------------------------------------------------------------------------
+         2017-08-21                               SQL Text Captured Report          14:42:07
+         2017-08-21-14:42:07, PLAN:  DISTSERV
+
+         2017-08-21-14:42:07, PROGRAM:  SYSSTAT 
+
+         2017-08-21-14:42:07, SQL_CALL STMT#    SECT#    TEXT CAPTURED BY PRODUCT
+         2017-08-21-14:42:07, -------- -------- -------- -------------------------
+         2017-08-21-14:42:07, CALLSTMT 0000002  00002     </pre>                                      
+</div>
+
+<h4 id="example-output-for-test-2">Example Output for Test 2</h4>
+<h5 id="example-1_1">Example 1:</h5>
+<p>Test output when specifying a list of source SQL text. Where the SQL Text for all the statements executed under the program(s) specified matched the source SQL text. </p>
+<h6 id="json-file-input_2">JSON file input</h6>
+<div style="overflow:scroll;overflow-x:hidden;overflow-y:hidden;width:200%">
+
+<pre><code class="json">{
+  &quot;connection&quot;: {
+    &quot;lpar&quot;: &quot;ca11&quot;,
+    &quot;userid&quot;: &quot;qartp01&quot;,
+    &quot;ssid&quot;: &quot;d11b&quot;
+  },
+  &quot;tests&quot;: 
+  [
+    {
+      &quot;test_type&quot;: &quot;sql text&quot;,
+      &quot;environment&quot;: &quot;R20&quot;,
+      &quot;product_code&quot;: &quot;PDT&quot;,
+      &quot;current_vcat&quot;: &quot;PDTDBA.R19&quot;,
+      &quot;current_datastore&quot;: &quot;QATEST19&quot;,
+      &quot;current_interval_date&quot;: &quot;1&quot;,
+      &quot;current_interval_time&quot;: &quot;20:37:26&quot;,
+      &quot;plan&quot;: &quot;DISTSERV&quot;,
+      &quot;program&quot;: &quot;ALL&quot;,
+      &quot;text_type&quot;: &quot;dynamic&quot;,
+      &quot;text list&quot;:
+      {
+        &quot;text1&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSPACKAGE&quot;,
+        &quot;text2&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSTABLES WHERE TYPE = 'T'&quot;,
+        &quot;text3&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSTABLES WHERE TYPE = 'V'&quot;,
+        &quot;text4&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSTABLES WHERE TYPE = 'A'&quot;,
+        &quot;text5&quot;: &quot;SELECT  COUNT ( DISTINCT CREATOR ) FROM SYSIBM.SYSTABLES&quot;,
+        &quot;text6&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSTABLESPACE&quot;,
+        &quot;text7&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSTABLES WHERE TYPE = 'M'&quot;,
+        &quot;text8&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSROUTINES WHERE ROUTINETYPE = 'F'&quot;,
+        &quot;text9&quot;: &quot;SELECT  FOREIGNKEY FROM SYSIBM.SYSCOLUMNS WHERE NAME = 'TEXT' AND TBNAME = 'SYSTRIGGERS' AND TBCREATOR = 'SYSIBM'&quot;,
+        &quot;text10&quot;: &quot;SELECT  FOREIGNKEY FROM SYSIBM.SYSCOLUMNS WHERE NAME = 'TEXT' AND TBNAME = 'SYSVIEWS' AND TBCREATOR = 'SYSIBM'&quot;,
+        &quot;text11&quot;: &quot;SELECT  FOREIGNKEY FROM SYSIBM.SYSCOLUMNS WHERE NAME = 'CREATESTMT' AND TBNAME = 'SYSROUTINES_SRC' AND TBCREATOR = 'SYSIBM'&quot;,
+        &quot;text12&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSINDEXES&quot;,
+        &quot;text13&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSTABCONST&quot;,
+        &quot;text14&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSROUTINES WHERE ROUTINETYPE = 'P'&quot;,
+        &quot;text15&quot;: &quot;SELECT  FOREIGNKEY FROM SYSIBM.SYSCOLUMNS WHERE NAME = 'STMT' AND TBNAME = 'SYSPACKSTMT' AND TBCREATOR = 'SYSIBM'&quot;,
+        &quot;text16&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSSYNONYMS&quot;,
+        &quot;text17&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSDATATYPES WHERE OWNERTYPE = ''&quot;,
+        &quot;text18&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSTRIGGERS&quot;,
+        &quot;text19&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.SYSSEQUENCES&quot;,
+        &quot;text20&quot;: &quot;SELECT  COUNT ( * ) FROM SYSIBM.XSROBJECTS&quot;
+      }
+    }
+  ]
+}
+</code></pre>
+
+</div>
+
+<h6 id="report-output_2">Report Output</h6>
+<div style="overflow:scroll;overflow-x:hidden;overflow-y:hidden;width:275%">
+
+    <pre>-----------------------------------------------------------------------------------
+         2017-08-21                               SQL Text Captured Report          14:42:56
+         2017-08-21-14:42:56, PLAN:  DISTSERV
+
+         2017-08-21-14:42:56, PROGRAM:  SYSLH200
+
+         2017-08-21-14:42:56, SQL_CALL STMT#    SECT#    TEXT CAPTURED BY PRODUCT                                                                                                    MATCHED USER SUPPLIED TEXT                                                                                                 
+         2017-08-21-14:42:56, -------- -------- -------- --------------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------------
+         2017-08-21-14:42:56, PREPARE  0000002  00002    SELECT  COUNT ( * ) FROM SYSIBM.SYSPACKAGE                                                                                  SELECT  COUNT ( * ) FROM SYSIBM.SYSPACKAGE
+         2017-08-21-14:42:56, PREPARE  0000002  00002    SELECT  COUNT ( * ) FROM SYSIBM.SYSTABLES WHERE TYPE = 'T'                                                                  SELECT  COUNT ( * ) FROM SYSIBM.SYSTABLES WHERE TYPE = 'T'
+         2017-08-21-14:42:56, PREPARE  0000002  00002    SELECT  COUNT ( * ) FROM SYSIBM.SYSTABLES WHERE TYPE = 'V'                                                                  SELECT  COUNT ( * ) FROM SYSIBM.SYSTABLES WHERE TYPE = 'V'
+         2017-08-21-14:42:56, PREPARE  0000002  00002    SELECT  COUNT ( * ) FROM SYSIBM.SYSTABLES WHERE TYPE = 'A'                                                                  SELECT  COUNT ( * ) FROM SYSIBM.SYSTABLES WHERE TYPE = 'A'
+         2017-08-21-14:42:56, PREPARE  0000002  00002    SELECT  COUNT ( DISTINCT CREATOR ) FROM SYSIBM.SYSTABLES                                                                    SELECT  COUNT ( DISTINCT CREATOR ) FROM SYSIBM.SYSTABLES
+         2017-08-21-14:42:56, PREPARE  0000002  00002    SELECT  COUNT ( * ) FROM SYSIBM.SYSTABLESPACE                                                                               SELECT  COUNT ( * ) FROM SYSIBM.SYSTABLESPACE
+         2017-08-21-14:42:56, PREPARE  0000002  00002    SELECT  COUNT ( * ) FROM SYSIBM.SYSTABLES WHERE TYPE = 'M'                                                                  SELECT  COUNT ( * ) FROM SYSIBM.SYSTABLES WHERE TYPE = 'M'
+         2017-08-21-14:42:56, PREPARE  0000001  00001    SELECT  COUNT ( * ) FROM SYSIBM.SYSROUTINES WHERE ROUTINETYPE = 'F'                                                         SELECT  COUNT ( * ) FROM SYSIBM.SYSROUTINES WHERE ROUTINETYPE = 'F'
+         2017-08-21-14:42:56, PREPARE  0000001  00001    SELECT  FOREIGNKEY FROM SYSIBM.SYSCOLUMNS WHERE NAME = 'TEXT' AND TBNAME = 'SYSTRIGGERS' AND TBCREATOR = 'SYSIBM'           SELECT  FOREIGNKEY FROM SYSIBM.SYSCOLUMNS WHERE NAME = 'TEXT' AND TBNAME = 'SYSTRIGGERS' AND TBCREATOR = 'SYSIBM'
+         2017-08-21-14:42:56, PREPARE  0000001  00001    SELECT  FOREIGNKEY FROM SYSIBM.SYSCOLUMNS WHERE NAME = 'TEXT' AND TBNAME = 'SYSVIEWS' AND TBCREATOR = 'SYSIBM'              SELECT  FOREIGNKEY FROM SYSIBM.SYSCOLUMNS WHERE NAME = 'TEXT' AND TBNAME = 'SYSVIEWS' AND TBCREATOR = 'SYSIBM'
+         2017-08-21-14:42:56, PREPARE  0000001  00001    SELECT  FOREIGNKEY FROM SYSIBM.SYSCOLUMNS WHERE NAME = 'CREATESTMT' AND TBNAME = 'SYSROUTINES_SRC' AND TBCREATOR = 'SYSIBM' SELECT  FOREIGNKEY FROM SYSIBM.SYSCOLUMNS WHERE NAME = 'CREATESTMT' AND TBNAME = 'SYSROUTINES_SRC' AND TBCREATOR = 'SYSIBM'
+         2017-08-21-14:42:56, PREPARE  0000002  00002    SELECT  COUNT ( * ) FROM SYSIBM.SYSINDEXES                                                                                  SELECT  COUNT ( * ) FROM SYSIBM.SYSINDEXES
+         2017-08-21-14:42:56, PREPARE  0000002  00002    SELECT  COUNT ( * ) FROM SYSIBM.SYSTABCONST                                                                                 SELECT  COUNT ( * ) FROM SYSIBM.SYSTABCONST
+         2017-08-21-14:42:56, PREPARE  0000002  00002    SELECT  COUNT ( * ) FROM SYSIBM.SYSROUTINES WHERE ROUTINETYPE = 'P'                                                         SELECT  COUNT ( * ) FROM SYSIBM.SYSROUTINES WHERE ROUTINETYPE = 'P'
+         2017-08-21-14:42:56, PREPARE  0000001  00001    SELECT  FOREIGNKEY FROM SYSIBM.SYSCOLUMNS WHERE NAME = 'STMT' AND TBNAME = 'SYSPACKSTMT' AND TBCREATOR = 'SYSIBM'           SELECT  FOREIGNKEY FROM SYSIBM.SYSCOLUMNS WHERE NAME = 'STMT' AND TBNAME = 'SYSPACKSTMT' AND TBCREATOR = 'SYSIBM'
+         2017-08-21-14:42:56, PREPARE  0000002  00002    SELECT  COUNT ( * ) FROM SYSIBM.SYSSYNONYMS                                                                                 SELECT  COUNT ( * ) FROM SYSIBM.SYSSYNONYMS
+         2017-08-21-14:42:56, PREPARE  0000002  00002    SELECT  COUNT ( * ) FROM SYSIBM.SYSDATATYPES WHERE OWNERTYPE = ''                                                           SELECT  COUNT ( * ) FROM SYSIBM.SYSDATATYPES WHERE OWNERTYPE = ''
+         2017-08-21-14:42:56, PREPARE  0000002  00002    SELECT  COUNT ( * ) FROM SYSIBM.SYSTRIGGERS                                                                                 SELECT  COUNT ( * ) FROM SYSIBM.SYSTRIGGERS
+         2017-08-21-14:42:56, PREPARE  0000002  00002    SELECT  COUNT ( * ) FROM SYSIBM.SYSSEQUENCES                                                                                SELECT  COUNT ( * ) FROM SYSIBM.SYSSEQUENCES
+         2017-08-21-14:42:56, PREPARE  0000001  00001    SELECT  COUNT ( * ) FROM SYSIBM.XSROBJECTS                                                                                  SELECT  COUNT ( * ) FROM SYSIBM.XSROBJECTS</pre>                                      
+</div>
+
+<h5 id="example-2_1">Example 2:</h5>
+<p>Test output when specifying a list of source SQL text. Where the SQL Text for all the statement executed under the program specified did not match any of the source SQL text provided and none of the SQL test in the user provided list list so a SQL Text not Found report is printed.</p>
+<h6 id="json-file-input_3">JSON file input</h6>
+<pre><code class="json">{
+  &quot;connection&quot;: {
+    &quot;lpar&quot;: &quot;ca11&quot;,
+    &quot;userid&quot;: &quot;qartp01&quot;,
+    &quot;ssid&quot;: &quot;d11b&quot;
+  },
+  &quot;tests&quot;: 
+  [
+    {
+      &quot;test_type&quot;: &quot;sql text&quot;,
+      &quot;environment&quot;: &quot;R20&quot;,
+      &quot;product_code&quot;: &quot;PDT&quot;,
+      &quot;current_vcat&quot;: &quot;PDTDBA.R19&quot;,
+      &quot;current_datastore&quot;: &quot;QATEST19&quot;,
+      &quot;current_interval_date&quot;: &quot;1&quot;,
+      &quot;current_interval_time&quot;: &quot;20:37:26&quot;,
+      &quot;plan&quot;: &quot;DISTSERV&quot;,
+      &quot;program&quot;: &quot;SYSSTAT&quot;,
+      &quot;collid&quot;: &quot;NULLID&quot;,
+      &quot;text_type&quot;: &quot;dynamic&quot;,
+      &quot;text list&quot;:
+      {
+        &quot;text1&quot;: &quot;CALL PROGRAM&quot;
+      }
+    }
+  ]
+}
+</code></pre>
+
+<h6 id="report-output_3">Report Output</h6>
+<div style="overflow:scroll;overflow-x:hidden;overflow-y:hidden">
+
+    <pre>-----------------------------------------------------------------------------------
+    2017-08-21                               SQL Text Captured Report          14:44:48
+    2017-08-21-14:44:48, PLAN:  DISTSERV
+
+    2017-08-21-14:44:48, PROGRAM:  SYSSTAT 
+
+    2017-08-21-14:44:48, SQL_CALL STMT#    SECT#    TEXT CAPTURED BY PRODUCT  MATCHED USER SUPPLIED TEXT
+    2017-08-21-14:44:48, -------- -------- -------- ------------------------- -------------------------
+    2017-08-21-14:44:48, CALLSTMT 0000002  00002     
+
+    ------------------------------------------------------------------------------------
+    2017-08-21                               SQL Text Not Found Report          14:44:48
+    2017-08-21-14:44:48, USER KEY USER TEXT                                         
+    2017-08-21-14:44:48, -------- --------------------------------------------------
+    2017-08-21-14:44:48, text1    CALL PROGRAM                                      
+    </prev>
+
+</div></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '../..';</script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&larr;</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&rarr;</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </body>
+</html>

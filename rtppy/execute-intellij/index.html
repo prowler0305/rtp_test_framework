@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Execute via Intellij - Real Time Performance Test Suite</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../..">Real Time Performance Test Suite</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="../..">Introduction</a>
+                    </li>
+                    <li >
+                        <a href="../../getting-started/">Getting Started</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTPJ <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../rtpj/build-instructions/">Build Instructions</a>
+</li>
+                            
+<li >
+    <a href="../../rtpj/running-tests/">Running Tests</a>
+</li>
+                            
+<li >
+    <a href="../../rtpj/test-tracker/">Tracking Results</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Creating Tests</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../rtpj/writing-tests/">Writing Tests</a>
+</li>
+            
+<li >
+    <a href="../../rtpj/json/single-file-tests/">JSON - Single File Tests</a>
+</li>
+            
+<li >
+    <a href="../../rtpj/json/test-suites/">JSON - Test Suites</a>
+</li>
+    </ul>
+  </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTPPY <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../introduction/">Introduction</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Running Tests</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../executing-tests/">Executing</a>
+</li>
+            
+<li >
+    <a href="../execute-jenkins/">Execute via Jenkins</a>
+</li>
+            
+<li class="active">
+    <a href="./">Execute via Intellij</a>
+</li>
+            
+<li >
+    <a href="../command-line-options/">Command Line Options</a>
+</li>
+            
+<li >
+    <a href="../json-parameters/">JSON Parameters</a>
+</li>
+            
+<li >
+    <a href="../creating-tests/">Creating Tests</a>
+</li>
+            
+<li >
+    <a href="../jenkins-output/">Viewing Output on Jenkins</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">Test Types</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../interval-compare/">Interval Compare</a>
+</li>
+            
+<li >
+    <a href="../aggregate-compare/">Aggregate Compare</a>
+</li>
+            
+<li >
+    <a href="../start-collection/">Start/Stop Collection</a>
+</li>
+            
+<li >
+    <a href="../rtptest/">RTP Test Suite App</a>
+</li>
+            
+<li >
+    <a href="../abend-restart/">Abend Restart</a>
+</li>
+            
+<li >
+    <a href="../rtpj-exec/">Distributed SQL</a>
+</li>
+            
+<li >
+    <a href="../lock-release/">Lock Release</a>
+</li>
+            
+<li >
+    <a href="../sql-text/">SQL Text</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                            
+<li >
+    <a href="../automation_architecture/">Architecture and Design</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../help/environment-variables/">Environment Variables</a>
+</li>
+                            
+<li >
+    <a href="../../help/using-git/">Using Git/GitHub</a>
+</li>
+                            
+<li >
+    <a href="../../help/create-issue/">Creating a GitHug Issue</a>
+</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="../execute-jenkins/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../command-line-options/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#executing-locally-via-intellij">Executing Locally via Intellij</a></li>
+            <li><a href="#step-1-click-edit-configurations-option-in-the-drop-down-on-the-toolbar">Step 1 - Click "Edit Configurations..." option in the drop down on the toolbar.</a></li>
+            <li><a href="#step-2-add-a-new-python-configuration">Step 2 - Add a new Python configuration.</a></li>
+            <li><a href="#step-3-fill-in-fields">Step 3 - Fill in fields.</a></li>
+            <li><a href="#example">Example</a></li>
+            <li><a href="#step-5-run-it">Step 5 - Run it</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="executing-locally-via-intellij">Executing Locally via Intellij</h1>
+<p>To execute scripts locally on your machine you need to have <strong><em>Intellij</em></strong>, <strong><em>PTG2</em></strong>, and the entire <strong><em>RTP testing repository</em></strong> installed
+on your machine before continuing with the instructions below. See our <a href="../../getting-started/">Getting Started</a> page on how to accomplish this.</p>
+<h4 id="step-1-click-edit-configurations-option-in-the-drop-down-on-the-toolbar">Step 1 - Click "Edit Configurations..." option in the drop down on the toolbar.</h4>
+<p><img alt="Step 1" src="../../images/intellij-setup/python_execute_configurations/edit_configurations.png" /></p>
+<h4 id="step-2-add-a-new-python-configuration">Step 2 - Add a new Python configuration.</h4>
+<p><img alt="Step 2" src="../../images/intellij-setup/python_execute_configurations/add_new_config.png" /></p>
+<h4 id="step-3-fill-in-fields">Step 3 - Fill in fields.</h4>
+<ul>
+<li>Name - name your configuration.</li>
+<li>
+<p>Script - <code>[path to ISPFTest.py]</code> Path should be similar to: <br></p>
+<pre><code>C:\Users\spean03\IdeaProjects\RTP\rtppy\speantest\ISPFTest.py
+</code></pre>
+</li>
+<li>
+<p>Script Parameters - Specify minimally the <a href="../command-line-options/#file">--file</a> command line parameter and other needed RTPPY <a href="../command-line-options/">Command Line Overrides</a> </p>
+</li>
+<li>Working Directory - <code>[path to rtppy directory in Intellij repository]</code> Path should be similiar to: <br><pre><code>C:\Users\spean03\IdeaProjects\RTP\rtppy
+</code></pre>
+</li>
+</ul>
+<p><img alt="Step 2" src="../../images/intellij-setup/python_execute_configurations/fill_in_fields.png" /></p>
+<h4 id="example">Example</h4>
+<p><img alt="Example" src="../../images/intellij-setup/python_execute_configurations/example_configuration.png" /></p>
+<h4 id="step-5-run-it">Step 5 - Run it</h4>
+<p><img alt="Step 5" src="../../images/intellij-setup/python_execute_configurations/run_configuration.png" /></p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '../..';</script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&larr;</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&rarr;</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </body>
+</html>

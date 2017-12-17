@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Abend Restart - Real Time Performance Test Suite</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../..">Real Time Performance Test Suite</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="../..">Introduction</a>
+                    </li>
+                    <li >
+                        <a href="../../getting-started/">Getting Started</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTPJ <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../rtpj/build-instructions/">Build Instructions</a>
+</li>
+                            
+<li >
+    <a href="../../rtpj/running-tests/">Running Tests</a>
+</li>
+                            
+<li >
+    <a href="../../rtpj/test-tracker/">Tracking Results</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Creating Tests</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../rtpj/writing-tests/">Writing Tests</a>
+</li>
+            
+<li >
+    <a href="../../rtpj/json/single-file-tests/">JSON - Single File Tests</a>
+</li>
+            
+<li >
+    <a href="../../rtpj/json/test-suites/">JSON - Test Suites</a>
+</li>
+    </ul>
+  </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTPPY <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../introduction/">Introduction</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Running Tests</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../executing-tests/">Executing</a>
+</li>
+            
+<li >
+    <a href="../execute-jenkins/">Execute via Jenkins</a>
+</li>
+            
+<li >
+    <a href="../execute-intellij/">Execute via Intellij</a>
+</li>
+            
+<li >
+    <a href="../command-line-options/">Command Line Options</a>
+</li>
+            
+<li >
+    <a href="../json-parameters/">JSON Parameters</a>
+</li>
+            
+<li >
+    <a href="../creating-tests/">Creating Tests</a>
+</li>
+            
+<li >
+    <a href="../jenkins-output/">Viewing Output on Jenkins</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">Test Types</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../interval-compare/">Interval Compare</a>
+</li>
+            
+<li >
+    <a href="../aggregate-compare/">Aggregate Compare</a>
+</li>
+            
+<li >
+    <a href="../start-collection/">Start/Stop Collection</a>
+</li>
+            
+<li >
+    <a href="../rtptest/">RTP Test Suite App</a>
+</li>
+            
+<li class="active">
+    <a href="./">Abend Restart</a>
+</li>
+            
+<li >
+    <a href="../rtpj-exec/">Distributed SQL</a>
+</li>
+            
+<li >
+    <a href="../lock-release/">Lock Release</a>
+</li>
+            
+<li >
+    <a href="../sql-text/">SQL Text</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                            
+<li >
+    <a href="../automation_architecture/">Architecture and Design</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../help/environment-variables/">Environment Variables</a>
+</li>
+                            
+<li >
+    <a href="../../help/using-git/">Using Git/GitHub</a>
+</li>
+                            
+<li >
+    <a href="../../help/create-issue/">Creating a GitHug Issue</a>
+</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="../rtptest/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../rtpj-exec/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#abend-restart">Abend Restart</a></li>
+            <li><a href="#jenkins-test-status">Jenkins Test Status</a></li>
+            <li><a href="#test-parameters">Test Parameters</a></li>
+        <li class="main "><a href="#json-examples">JSON Examples</a></li>
+            <li><a href="#execute-abend-restart-in-pdt-forcing-an-abend-in-dii-6-minutes-after-the-first-collection-start-and-60-minutes-after-the-abend-restart">Execute Abend Restart in PDT forcing an abend in DII 6 minutes after the first collection start and 60 minutes after the abend restart.</a></li>
+            <li><a href="#no-abend-restart-within-5-minutes-of-initial-starting-of-collection">No abend restart within 5 minutes of initial starting of collection</a></li>
+            <li><a href="#execute-abend-restart-in-pdt-forcing-an-abend-in-diu-6-minutes-after-the-first-collection-start-but-within-60-minutes-after-the-abend-restart">Execute Abend Restart in PDT forcing an abend in DIU 6 minutes after the first collection start but within 60 minutes after the abend restart.</a></li>
+            <li><a href="#execute-abend-restart-in-pdt-forcing-an-abend-in-diu-6-minutes-after-the-first-collection-start-and-60-minutes-after-the-abend-restart-twice">Execute Abend Restart in PDT forcing an abend in DIU 6 minutes after the first collection start and 60 minutes after the abend restart twice.</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="abend-restart">Abend Restart</h1>
+<p>This test type can drive the PDT and PSA abend restart feature by setting abends to occur in different areas of the products
+collection engine. Then uses the RTPJ framework to submit just the right amount of activity to cause enough abends to get the
+collections to terminate allowing abend restart to be invoked naturally.</p>
+<p>Because of the nature of this test altering code in collection engine modules that is directly execute by threads in the DB2
+address space and modules that remain loaded for the duration of the xmanager address space. It is highly suggested that users
+understand the implications of running this test on DB2 SSID's and XMANAGERS that are used by the entire development
+community (i.e. xmanagers that service the PRD, DEV, QA, and CURIR environments).</p>
+<h3 id="jenkins-test-status">Jenkins Test Status</h3>
+<p>The table below lists the jenkins tests that are available and what the status of the last run of the test was. Click on
+the status icon to go straight to jenkins for the particular build project.</p>
+<table>
+<thead>
+<tr>
+<th>Jenkins Build Name</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="test-parameters">Test Parameters</h2>
+<p>The table below lists the required and optional parameters that are valid for this test. Follow the link by clicking on the
+parameter name in the JSON column. If the parameter has a command line override option it will be listed in the Command Line Override
+column. Additionally there are <a href="#json-examples">examples</a> at the bottom of this page.</p>
+<h4 id="required">Required</h4>
+<table>
+<thead>
+<tr>
+<th>JSON</th>
+<th>Command Line Override</th>
+<th>Special Usage or Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../json-parameters/#product_code">product_code</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#test_type">test_type</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#lpar">lpar</a></td>
+<td><a href="../command-line-options/#lpar">lpar</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#userid">userid</a></td>
+<td><a href="../command-line-options/#userid">userid</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#ssid">ssid</a></td>
+<td><a href="../command-line-options/#ssid">ssid</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#xman">xman</a></td>
+<td><a href="../command-line-options/#xman">xman</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#abend_in">abend_in</a></td>
+<td><a href="../command-line-options/#abend_in">abend_in</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="optional">Optional</h4>
+<table>
+<thead>
+<tr>
+<th>JSON</th>
+<th>Command Line Override</th>
+<th>Special Usage or Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../json-parameters/#output_location">output_location</a></td>
+<td><a href="../command-line-options/#output_location">output_location</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#wait_time_after_coll_init">wait_time_after_coll_init</a></td>
+<td></td>
+<td>Defaults to 6 minutes if not specified. More info on how to use the wait times in section <a href="#how-to-use-wait-times">How to use wait times</a></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#wait_time_after_abend_restart">wait_time_after_abend_restart</a></td>
+<td></td>
+<td>Defaults to 61 minutes if not specified. More info on how to use the wait times in section <a href="#how-to-use-wait-times">How to use wait times</a></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#number_of_abend_restarts">number_of_abend_restarts</a></td>
+<td><a href="../command-line-options/#num_ar">num_ar</a></td>
+<td>Defaults to 2.</td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#options">options</a></td>
+<td></td>
+<td>Identifies the options to be used to start a product collection as defined in the <a href="../start-collection/#collection-options">Collection Options</a> section of the Start Collections test type.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="how-to-use-wait-times">How to use wait times</h4>
+<p>The wait time parameters are used correlate with the design of the abend restart feature. The time limits within the abend restart feature can be exercised by using the number_of_abend_restarts combined with the single or combined use of the wait_time_after_coll_init and wait_time_after_abend_restart parameters. See some of the JSON examples below.  </p>
+<h1 id="json-examples">JSON Examples</h1>
+<hr />
+<h4 id="execute-abend-restart-in-pdt-forcing-an-abend-in-dii-6-minutes-after-the-first-collection-start-and-60-minutes-after-the-abend-restart">Execute Abend Restart in PDT forcing an abend in DII 6 minutes after the first collection start and 60 minutes after the abend restart.</h4>
+<pre><code class="json">{
+  &quot;connection&quot;:
+  {
+    &quot;lpar&quot;: &quot;ca31&quot;,
+    &quot;userid&quot;: &quot;qartp02&quot;,
+    &quot;ssid&quot;: &quot;d11a&quot;,
+    &quot;ssid2&quot;: &quot;d11a&quot;
+  },
+  &quot;tests&quot;:
+  [
+    {
+          &quot;test_type&quot;: &quot;abend restart&quot;,
+          &quot;product_code&quot;: &quot;PDT&quot;,
+          &quot;environment&quot;: &quot;SPEAN03.R19.PARMLIB(IR)&quot;,
+          &quot;xman&quot;: &quot;PTX0005&quot;,
+          &quot;abend_in&quot;: &quot;DII&quot;,
+          &quot;options&quot;:
+          {
+            &quot;itime&quot;: &quot;00:05&quot;,
+            &quot;t_limit&quot;: &quot;00:00&quot;,
+            &quot;extern&quot;: &quot;N&quot;,
+            &quot;collection_profile&quot;: &quot;COLLALL&quot;,
+            &quot;standard&quot;: &quot;Y&quot;
+          }
+    }
+  ]
+}
+</code></pre>
+
+<h4 id="no-abend-restart-within-5-minutes-of-initial-starting-of-collection">No abend restart within 5 minutes of initial starting of collection</h4>
+<pre><code class="json">{
+  &quot;connection&quot;:
+  {
+    &quot;lpar&quot;: &quot;ca31&quot;,
+    &quot;userid&quot;: &quot;qartp02&quot;,
+    &quot;ssid&quot;: &quot;d11a&quot;,
+  },
+  &quot;tests&quot;:
+  [
+    {
+          &quot;test_type&quot;: &quot;abend restart&quot;,
+          &quot;product_code&quot;: &quot;PDT&quot;,
+          &quot;environment&quot;: &quot;SPEAN03.R19.PARMLIB(IR)&quot;,
+          &quot;xman&quot;: &quot;PTX0005&quot;,
+          &quot;abend_in&quot;: &quot;DII&quot;,
+          &quot;number_of_abend_restarts&quot;: 1,
+          &quot;wait_time_after_coll_init&quot;: 3,
+          &quot;options&quot;:
+          {
+            &quot;itime&quot;: &quot;00:05&quot;,
+            &quot;t_limit&quot;: &quot;00:00&quot;,
+            &quot;extern&quot;: &quot;N&quot;,
+            &quot;collection_profile&quot;: &quot;COLLALL&quot;,
+            &quot;standard&quot;: &quot;Y&quot;
+          }
+    }
+  ]
+}
+</code></pre>
+
+<h4 id="execute-abend-restart-in-pdt-forcing-an-abend-in-diu-6-minutes-after-the-first-collection-start-but-within-60-minutes-after-the-abend-restart">Execute Abend Restart in PDT forcing an abend in DIU 6 minutes after the first collection start but within 60 minutes after the abend restart.</h4>
+<pre><code class="json">{
+  &quot;connection&quot;:
+  {
+    &quot;lpar&quot;: &quot;ca31&quot;,
+    &quot;userid&quot;: &quot;qartp02&quot;,
+    &quot;ssid&quot;: &quot;d11a&quot;,
+    &quot;ssid2&quot;: &quot;d11a&quot;
+  },
+  &quot;tests&quot;:
+  [
+    {
+          &quot;test_type&quot;: &quot;abend restart&quot;,
+          &quot;product_code&quot;: &quot;PDT&quot;,
+          &quot;environment&quot;: &quot;SPEAN03.R19.PARMLIB(IR)&quot;,
+          &quot;xman&quot;: &quot;PTX0005&quot;,
+          &quot;abend_in&quot;: &quot;DIU&quot;,
+          &quot;wait_time_after_abend_restart&quot;: 10,
+          &quot;wait_time_after_coll_init&quot;: 6,
+          &quot;options&quot;:
+          {
+            &quot;itime&quot;: &quot;00:05&quot;,
+            &quot;t_limit&quot;: &quot;00:00&quot;,
+            &quot;extern&quot;: &quot;N&quot;,
+            &quot;collection_profile&quot;: &quot;COLLALL&quot;,
+            &quot;standard&quot;: &quot;Y&quot;
+          }
+    }
+  ]
+}
+</code></pre>
+
+<h4 id="execute-abend-restart-in-pdt-forcing-an-abend-in-diu-6-minutes-after-the-first-collection-start-and-60-minutes-after-the-abend-restart-twice">Execute Abend Restart in PDT forcing an abend in DIU 6 minutes after the first collection start and 60 minutes after the abend restart twice.</h4>
+<pre><code class="json">{
+  &quot;connection&quot;:
+  {
+    &quot;lpar&quot;: &quot;ca31&quot;,
+    &quot;userid&quot;: &quot;qartp02&quot;,
+    &quot;ssid&quot;: &quot;d11a&quot;,
+    &quot;ssid2&quot;: &quot;d11a&quot;
+  },
+  &quot;tests&quot;:
+  [
+    {
+          &quot;test_type&quot;: &quot;abend restart&quot;,
+          &quot;product_code&quot;: &quot;PDT&quot;,
+          &quot;environment&quot;: &quot;SPEAN03.R19.PARMLIB(IR)&quot;,
+          &quot;xman&quot;: &quot;PTX0005&quot;,
+          &quot;abend_in&quot;: &quot;DII&quot;,
+          &quot;number_of_abend_restarts&quot;: 3,
+          &quot;options&quot;:
+          {
+            &quot;itime&quot;: &quot;00:05&quot;,
+            &quot;t_limit&quot;: &quot;00:00&quot;,
+            &quot;extern&quot;: &quot;N&quot;,
+            &quot;collection_profile&quot;: &quot;COLLALL&quot;,
+            &quot;standard&quot;: &quot;Y&quot;
+          }
+    }
+  ]
+}
+</code></pre></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '../..';</script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&larr;</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&rarr;</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </body>
+</html>

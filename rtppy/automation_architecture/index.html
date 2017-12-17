@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Architecture and Design - Real Time Performance Test Suite</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../..">Real Time Performance Test Suite</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="../..">Introduction</a>
+                    </li>
+                    <li >
+                        <a href="../../getting-started/">Getting Started</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTPJ <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../rtpj/build-instructions/">Build Instructions</a>
+</li>
+                            
+<li >
+    <a href="../../rtpj/running-tests/">Running Tests</a>
+</li>
+                            
+<li >
+    <a href="../../rtpj/test-tracker/">Tracking Results</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Creating Tests</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../rtpj/writing-tests/">Writing Tests</a>
+</li>
+            
+<li >
+    <a href="../../rtpj/json/single-file-tests/">JSON - Single File Tests</a>
+</li>
+            
+<li >
+    <a href="../../rtpj/json/test-suites/">JSON - Test Suites</a>
+</li>
+    </ul>
+  </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTPPY <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../introduction/">Introduction</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Running Tests</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../executing-tests/">Executing</a>
+</li>
+            
+<li >
+    <a href="../execute-jenkins/">Execute via Jenkins</a>
+</li>
+            
+<li >
+    <a href="../execute-intellij/">Execute via Intellij</a>
+</li>
+            
+<li >
+    <a href="../command-line-options/">Command Line Options</a>
+</li>
+            
+<li >
+    <a href="../json-parameters/">JSON Parameters</a>
+</li>
+            
+<li >
+    <a href="../creating-tests/">Creating Tests</a>
+</li>
+            
+<li >
+    <a href="../jenkins-output/">Viewing Output on Jenkins</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">Test Types</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../interval-compare/">Interval Compare</a>
+</li>
+            
+<li >
+    <a href="../aggregate-compare/">Aggregate Compare</a>
+</li>
+            
+<li >
+    <a href="../start-collection/">Start/Stop Collection</a>
+</li>
+            
+<li >
+    <a href="../rtptest/">RTP Test Suite App</a>
+</li>
+            
+<li >
+    <a href="../abend-restart/">Abend Restart</a>
+</li>
+            
+<li >
+    <a href="../rtpj-exec/">Distributed SQL</a>
+</li>
+            
+<li >
+    <a href="../lock-release/">Lock Release</a>
+</li>
+            
+<li >
+    <a href="../sql-text/">SQL Text</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                            
+<li class="active">
+    <a href="./">Architecture and Design</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../help/environment-variables/">Environment Variables</a>
+</li>
+                            
+<li >
+    <a href="../../help/using-git/">Using Git/GitHub</a>
+</li>
+                            
+<li >
+    <a href="../../help/create-issue/">Creating a GitHug Issue</a>
+</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="../sql-text/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../../help/environment-variables/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#automation-architecture-and-design">Automation Architecture and Design</a></li>
+            <li><a href="#user-interface-architecture-front-end">User Interface Architecture (Front End)</a></li>
+            <li><a href="#product-based-functionality-back-end">Product based functionality (Back End)</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="automation-architecture-and-design">Automation Architecture and Design</h1>
+<hr />
+<p>This section contains information on the Python Automation (RTPPY) frameworks architecture and design. The architecture is composed in a way to provide a verbose keyword data driven user interface while simplifying and quickening the development of functionality expansion.</p>
+<p>Overall the architecture uses a class-based hybrid inheritance structure which combines the concept of multilevel and hierarchical inheritance. It can be logically viewed as two entities, the class structures that provide the user interface(referred to as the front end) and the class structures that provide basic ISPF and product based functionality (referred to as the back end) which includes PTG2 functionality wrappers.</p>
+<p>You can view <a href="https://cawiki.ca.com/display/DB2QA/Real+Time+Performance+Automation+Project#RealTimePerformanceAutomationProject-RTPUML">UML</a> and <a href="https://cawiki.ca.com/display/DB2QA/Real+Time+Performance+Automation+Project#RealTimePerformanceAutomationProject-HighLevelFlowChart">Flowchart</a> diagrams that visually show the class and program flow of the architecture.</p>
+<h2 id="user-interface-architecture-front-end">User Interface Architecture (Front End)</h2>
+<p>The front end architecture is designed around input from the user as a file written in JSON format and/or optional overriding command line arguments when invoking the main executable.</p>
+<h4 id="builder">Builder</h4>
+<p>The Builder class is a static class that contain methods called by the main executable used to interact with the command line arguments and JSON file and most importantly create the correct "test type" BaseTest class instance which drives the rest of the execution.</p>
+<h4 id="inputparms">InputParms</h4>
+<p>A static class that provides functionality for a class to retrieve test input parameters from the command line and/or JSON file. Also provide methods to raise an error or information message related to input parameters existence or non existence.</p>
+<h4 id="basetest">BaseTest</h4>
+<p>This is the highest class in the hierarchy in which all sub classes inherit from. Methods here are not particular to any one subclass. The Base Test classes build_test super method sets global class instance variables for those parameters that are needed across all tests(e.g. LPAR, USERID, SSID, etc.). Also provides generic methods like finding a value for a test input parameter using methods in the static InputParms class.</p>
+<h4 id="history">History</h4>
+<p>The history class inherits from the BaseTest class and is the base class in the hierarchical inheritance in which all test sub classes that interact with the products historical data displays inherit from either directly or indirectly. This class handles setting certain global class instance variables from the input parameters for those required and optional parameters needed by tests.</p>
+<h4 id="aggregatefactory">AggregateFactory</h4>
+<p>A static class who's only responsibility is to interrogate the "level" input parameter for a test from the JSON file in order to determine which Aggregate Compare sub class to create an instance of so that the Builder class and main can call the correct build_test and execute_test methods.</p>
+<h4 id="aggregatebase">AggregateBase</h4>
+<p>This class while serving as a sub class in the hierarchical inheritance structure also serves as the base in another hierarchical inheritance structure for the below mentioned sub classes. The build_test method provided here overrides the History class build_test method in which the History class method is called as a super to ensure those parameters commonly handle by its parent are present. Then handles the required and optional parameters unique to an Aggregate Compare test. The execute_method handles the logic common across all aggregate sub classes that involves using the "back end" functionality to interact with the product displays.</p>
+<p>Both the build_test and execute_test methods are overridden by its sub classes however are super called by the sub classes. All sub classes also have access to methods in the History and BaseTest classes through the AggregateBase classes inheritance.</p>
+<h5 id="aggregateplan">AggregatePlan</h5>
+<p>Subclass that performs an aggregation of the program data and compares it to the plan data.</p>
+<h5 id="aggregateprogram">AggregateProgram</h5>
+<p>Subclass that performs an aggregation of the statement data and compares it to the program data.</p>
+<h5 id="aggregatekeys">AggregateKeys</h5>
+<p>Subclass that can aggregate either the plan or program data against the data for a user key.</p>
+<h4 id="intervalcompare">IntervalCompare</h4>
+<p>This class inherits from the History class directly. It provides functionality that allows data at the interval summary level (i.e. View By level only) to be compared against a baseline and a current collection of the same executed SQL statements.</p>
+<h2 id="product-based-functionality-back-end">Product based functionality (Back End)</h2>
+<p>As mentioned previously the RTPPY automation uses the PTG2 framework which is a python framework that provides the ability to navigate a mainframe emulator programmatically. The RTPPY framework wrappers simple and complex PTG2 services into ISPF and product based functionality for easier development. The design and architecture of the PTG2 framework is not discussed in detail here. If more information about PTG2 is wanted see the PTG2 Architecture wiki page.</p>
+<p>The back end architecture is designed around providing classes and methods that encapsulate functionality around ISPF and product navigation, using the PTG2 architecture, and display data interaction.</p>
+<h4 id="commonnav">CommonNav</h4>
+<p>Static class that contains a variety of methods around things like simple ISPF navigation (shift left, right, up, down, max up, max down, freeze and sort columns, etc....) that are non product specific. Also includes method for using PTG2 services for capturing a whole ISPF display.</p>
+<h4 id="navrtp">NavRtp</h4>
+<p>This class contains encapsulates product functionality that is usable for all the RTP products (PDT/PSA/PTT) and is the base class that is inherited by the sub classes described below.</p>
+<h4 id="navpdt">NavPdt</h4>
+<p>Subclass of NavRtp that encapsulates product functionality specific to Detector.</p>
+<h4 id="navpsa">NavPsa</h4>
+<p>Subclass of NavRtp that encapsulates product functionality specific to Subsystem Analyzer.</p>
+<h4 id="rtpprimarykeys">RtpPrimaryKeys</h4>
+<p>A static class that provides information used by method(s) in the product Nav classes. The information is on the columns that should be used as primary keys when matching data rows for a specific or set of product displays.</p>
+<h4 id="results">Results</h4>
+<p>This class is composed by a method in the product Nav classes and is retained by a test class. The Results class encapsulates functionality to extract and interact with the columns and data on the product displays which is contained in the ColumnInfo class that is composed.</p>
+<h4 id="columninfo">ColumnInfo</h4>
+<p>Class composed by the Results class that encapsulates the information about the columns and the data for a dynamic data area in the product displays.</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '../..';</script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&larr;</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&rarr;</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </body>
+</html>

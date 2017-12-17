@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>JSON Parameters - Real Time Performance Test Suite</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../..">Real Time Performance Test Suite</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="../..">Introduction</a>
+                    </li>
+                    <li >
+                        <a href="../../getting-started/">Getting Started</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTPJ <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../rtpj/build-instructions/">Build Instructions</a>
+</li>
+                            
+<li >
+    <a href="../../rtpj/running-tests/">Running Tests</a>
+</li>
+                            
+<li >
+    <a href="../../rtpj/test-tracker/">Tracking Results</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Creating Tests</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../rtpj/writing-tests/">Writing Tests</a>
+</li>
+            
+<li >
+    <a href="../../rtpj/json/single-file-tests/">JSON - Single File Tests</a>
+</li>
+            
+<li >
+    <a href="../../rtpj/json/test-suites/">JSON - Test Suites</a>
+</li>
+    </ul>
+  </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTPPY <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../introduction/">Introduction</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Running Tests</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../executing-tests/">Executing</a>
+</li>
+            
+<li >
+    <a href="../execute-jenkins/">Execute via Jenkins</a>
+</li>
+            
+<li >
+    <a href="../execute-intellij/">Execute via Intellij</a>
+</li>
+            
+<li >
+    <a href="../command-line-options/">Command Line Options</a>
+</li>
+            
+<li class="active">
+    <a href="./">JSON Parameters</a>
+</li>
+            
+<li >
+    <a href="../creating-tests/">Creating Tests</a>
+</li>
+            
+<li >
+    <a href="../jenkins-output/">Viewing Output on Jenkins</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">Test Types</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../interval-compare/">Interval Compare</a>
+</li>
+            
+<li >
+    <a href="../aggregate-compare/">Aggregate Compare</a>
+</li>
+            
+<li >
+    <a href="../start-collection/">Start/Stop Collection</a>
+</li>
+            
+<li >
+    <a href="../rtptest/">RTP Test Suite App</a>
+</li>
+            
+<li >
+    <a href="../abend-restart/">Abend Restart</a>
+</li>
+            
+<li >
+    <a href="../rtpj-exec/">Distributed SQL</a>
+</li>
+            
+<li >
+    <a href="../lock-release/">Lock Release</a>
+</li>
+            
+<li >
+    <a href="../sql-text/">SQL Text</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                            
+<li >
+    <a href="../automation_architecture/">Architecture and Design</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../help/environment-variables/">Environment Variables</a>
+</li>
+                            
+<li >
+    <a href="../../help/using-git/">Using Git/GitHub</a>
+</li>
+                            
+<li >
+    <a href="../../help/create-issue/">Creating a GitHug Issue</a>
+</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="../command-line-options/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../creating-tests/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#json-parameters">JSON parameters</a></li>
+            <li><a href="#connection-object-parameters">Connection object parameters</a></li>
+            <li><a href="#test-object-parameters">Test object parameters</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="json-parameters">JSON parameters</h1>
+<hr />
+<p>Below is the complete list of parameters that can be specified in a JSON file. View the documentation for the
+<a href="../creating-tests/#test-structure">test</a> to find out what parameters are valid.</p>
+<h2 id="connection-object-parameters">Connection object parameters</h2>
+<hr />
+<h3 id="lpar">lpar</h3>
+<p>The LPAR in which to connect to.</p>
+<pre><code class="json">&quot;lpar&quot;: &quot;ca31&quot;
+</code></pre>
+
+<h3 id="userid">userid</h3>
+<p>The ID to use to log onto the LPAR.</p>
+<pre><code class="json">&quot;userid&quot;: &quot;qartp01&quot;
+</code></pre>
+
+<h3 id="ssid">ssid</h3>
+<p>The primary SSID to be used for test execution.</p>
+<pre><code class="json">&quot;ssid&quot;: &quot;d12a&quot;
+</code></pre>
+
+<h3 id="ssid2">ssid2</h3>
+<p>A second ssid to use during test execution. Refer to the documentation for the specific test as to its meaning and use.</p>
+<pre><code class="json">&quot;ssid2&quot;: &quot;d11a&quot;
+</code></pre>
+
+<h2 id="test-object-parameters">Test object parameters</h2>
+<hr />
+<h3 id="description">description</h3>
+<p>Can be provided to give a description about a test. The occurrence of the description parameter also provides content for the <a href="../command-line-options/#print">print</a> command line option functionality to print the description to the console for you without having to open the JSON file to see it.</p>
+<pre><code class="json">&quot;description&quot;: &quot;description about a this test&quot;
+</code></pre>
+
+<p>Example in a JSON file:</p>
+<pre><code class="json"> &quot;tests&quot;:
+  [
+    {
+      &quot;description&quot;: &quot;Compares all the data for an interval between a baseline and a current run for the view_by option display specified.&quot;,
+      &quot;test_type&quot;: &quot;interval compare&quot;,
+      ...
+    }
+  ]
+</code></pre>
+
+<h3 id="product_code">product_code</h3>
+<p>Identifies the product the test is for using the 3 character product code. (e.g. PDT, PSA, PTT, etc...)</p>
+<pre><code class="json">&quot;product_code&quot;: &quot;PDT&quot;
+</code></pre>
+
+<h3 id="baseline_vcat">baseline_vcat</h3>
+<p>Identifies the VCAT name to be used to identify the baseline datastore to use.</p>
+<pre><code class="json">&quot;baseline_vcat&quot;: &quot;PDTDBA.QATEST&quot;
+</code></pre>
+
+<h3 id="baseline_datastore">baseline_datastore</h3>
+<p>Identifies the datastore that should be considered to contain the baseline execution metrics.</p>
+<pre><code class="json">&quot;baseline_datastore&quot;: &quot;BASEDS&quot;
+</code></pre>
+
+<h3 id="current_vcat">current_vcat</h3>
+<p>Identifies the VCAT name to be used to identify the current datastore to use.</p>
+<pre><code class="json">&quot;current_vcat&quot;: &quot;PDTDBA.R19&quot;
+</code></pre>
+
+<h3 id="current_datastore">current_datastore</h3>
+<p>Identifies the datastore that should be considered to contain the current execution metrics to compare against the baseline.</p>
+<pre><code class="json">&quot;current_datastore&quot;: &quot;QATEST&quot;
+</code></pre>
+
+<h3 id="baseline_interval_datecurrent_interval_date">baseline_interval_date/current_interval_date</h3>
+<p>Identifies the interval, by date, in the datastore that should be selected in combination with the corresponding
+interval_time parameter below.</p>
+<h4 id="format">Format</h4>
+<p>The interval date can be supplied as it appears on the products "Datastore Interval Summary Display" or a value string
+of "1" can be used to indicate the most recent interval should be selected.</p>
+<p>Using <strong>16/05/13</strong>:</p>
+<pre><code class="json">&quot;baseline_interval_date&quot;: &quot;16/05/13&quot;
+&quot;current_interval_date&quot;: &quot;16/05/13&quot;
+</code></pre>
+
+<p><strong>OR</strong></p>
+<pre><code class="json">&quot;baseline_interval_date&quot;: &quot;1&quot;
+&quot;current_interval_date&quot;: &quot;1&quot;
+</code></pre>
+
+<h3 id="baseline_interval_timecurrent_interval_time">baseline_interval_time/current_interval_time</h3>
+<p>Further identifies the interval, by time, in the datastore that should be selected in combination with the corresponding
+interval_date parameter specified above. Unless the interval date parameter indicates the most recent interval should be
+selected, in which the interval time parameter is ignored.</p>
+<h4 id="format_1">Format</h4>
+<p>The interval time should be supplied as it appears on the products "Datastore Interval Summary Display".</p>
+<p>Using <strong>02:00:00</strong>:</p>
+<pre><code class="json">&quot;baseline_interval_time&quot;: &quot;02:00:00&quot;
+&quot;current_interval_time&quot;: &quot;02:00:00&quot;
+</code></pre>
+
+<h3 id="baseline_interval_date_2current_interval_date_2">baseline_interval_date_2/current_interval_date_2</h3>
+<p>Used to indicate a range of intervals should be selected by identifying a second interval, by date, in the datastore that should be selected in combination with the corresponding interval_time_2 parameter below.</p>
+<pre><code class="json">&quot;baseline_interval_date_2&quot;: &quot;16/05/13&quot;
+&quot;current_interval_date_2&quot;: &quot;16/05/13&quot;
+</code></pre>
+
+<p><strong>OR</strong></p>
+<pre><code class="json">&quot;baseline_interval_date_2&quot;: &quot;1&quot;
+&quot;current_interval_date_2&quot;: &quot;1&quot;
+</code></pre>
+
+<h3 id="baseline_interval_time_2current_interval_time_2">baseline_interval_time_2/current_interval_time_2</h3>
+<p>Further identifies the second interval that should be selected, by time, in the datastore that should be selected with the corresponding interval_date_2 parameter above when requesting a range of intervals to be selected. If the interval_date_2 parameter indicates the most recent interval should be selected, then the interval_time_2 parameter is ignored.</p>
+<pre><code class="json">&quot;baseline_interval_time_2&quot;: &quot;02:00:00&quot;
+&quot;current_interval_time_2&quot;: &quot;02:00:00&quot;
+</code></pre>
+
+<h3 id="view_type">view_type</h3>
+<p>Indicates what type of data displays to navigate to. (i.e. Standard Activity, Exceptions, Errors, etc...)</p>
+<pre><code class="json">&quot;view_type&quot;: &quot;X&quot;
+</code></pre>
+
+<h3 id="view_by">view_by</h3>
+<p>Indicates what Summary Display panel to navigate to.</p>
+<pre><code class="json">&quot;view_by&quot;: &quot;S&quot;
+</code></pre>
+
+<h3 id="view_option">view_option</h3>
+<p>Indicates what additional Summary Display panel to navigate to within certain displays in Subsystem Analyzer.</p>
+<pre><code class="json">&quot;view_option&quot;: &quot;C&quot;
+</code></pre>
+
+<h3 id="environment">environment</h3>
+<p>Indicates the release environment of the products to use. This parameter overrides the frameworks default of <strong>R19</strong>.</p>
+<pre><code class="json">&quot;environment&quot;: &quot;DV19&quot;
+</code></pre>
+
+<h4 id="entering-via-dball">Entering via DB.ALL</h4>
+<p>To enter into the products using the "Extended General Selection Menu", i.e. DB.ALL, using an overriding parmlib and/or suffix.
+Simply specify the overriding parmlib and optionally a suffix in <strong>()</strong>.</p>
+<p>Example:</p>
+<pre><code class="json">&quot;environment&quot;: &quot;MY.OVERRIDE.PARMLIB(99)&quot;
+</code></pre>
+
+<h3 id="range_pct">range_pct</h3>
+<p>Indicates allowable plus or minus range percentage the comparison can be between. This parameter can override a tests default value.</p>
+<pre><code class="json">&quot;range_pct&quot;: 15
+</code></pre>
+
+<h3 id="column">column</h3>
+<p>Can be used to specify a specific column name for a test to use. The use of the column name can be different for each type of test.
+Refer to the documentation for the specific test as to its meaning and use.</p>
+<pre><code class="json">&quot;column&quot;: &quot;INDB2_TIME&quot;
+</code></pre>
+
+<h3 id="line_command">line_command</h3>
+<p>Indicates the single character line command option to be used on a display row.</p>
+<pre><code class="json">&quot;line_command&quot;: &quot;G&quot;
+</code></pre>
+
+<h3 id="level">level</h3>
+<p>Indicates to what level data should be aggregated for during an aggregation comparison. Valid values are <strong>plan</strong>, <strong>program</strong>, or <strong>keys</strong>.</p>
+<ul>
+<li>plan - indicates that the program statistics should be aggregated and compared to the plan level.</li>
+<li>program - indicates that the statement statistics should be aggregated and compared to the program level.</li>
+<li>keys - indicates that the aggregation should be between a key summary display, which is based on the optional <strong>key_option</strong> parameter provided, and
+either a "<strong>Key Planname Display</strong>" or a "<strong>Key Package Display</strong>"</li>
+<li>dbase - indicates that the Table Activity data statistics should be aggregated and compared to the Database level.</li>
+</ul>
+<pre><code class="json">&quot;level&quot;: &quot;plan&quot;
+&quot;level&quot;: &quot;program&quot;
+&quot;level&quot;: &quot;keys&quot;
+</code></pre>
+
+<h3 id="key_option">key_option</h3>
+<p>Specifies the single character that is to be used in the "Key" field on the standard activity Key Summary Display.</p>
+<pre><code class="json">&quot;key_option&quot;: &quot;R&quot;
+</code></pre>
+
+<h3 id="key_value">key_value</h3>
+<p>Indicates the value for the "Key" column on the standard activity Key Summary Display or the keyword "ALL" which indicates to some tests that all the Key rows on the display should be selected.</p>
+<pre><code class="json">&quot;key_value&quot;: &quot;SPEAN03&quot;
+</code></pre>
+
+<h3 id="plan">plan</h3>
+<p>Specifies a value that can be used to identify a row on a Planname Display or the keyword "ALL" which can indicate to some tests that all the Plans should be selected.</p>
+<pre><code class="json">&quot;plan&quot;: &quot;RTPPLNMN&quot;
+</code></pre>
+
+<p>Or</p>
+<pre><code class="json">&quot;plan&quot;: &quot;ALL&quot;
+</code></pre>
+
+<h3 id="program">program</h3>
+<p>Specifies a value that can be used to identify a row on a Program Display or the keyword "ALL" which can indicate to some tests that all the Programs should be selected.</p>
+<pre><code class="json">&quot;program&quot;: &quot;REG133DR&quot;
+</code></pre>
+
+<p>Or</p>
+<pre><code class="json">&quot;program&quot;: &quot;ALL&quot;
+</code></pre>
+
+<h3 id="collid">collid</h3>
+<p>Specifies a value that can be used to identify a row on a display that contains the "COLLID" column.</p>
+<pre><code class="json">&quot;collid&quot;: &quot;RTPCOLMN&quot;
+</code></pre>
+
+<h3 id="dbname">dbname</h3>
+<p>Specifies a value that can be used to identify a row on the Database Activity Display or the keyword "ALL" which indicates that all the Databases should be selected.</p>
+<pre><code class="json">&quot;dbname&quot;: &quot;SEGMDB&quot;
+</code></pre>
+
+<p>Or</p>
+<pre><code class="json">&quot;dbname&quot;: &quot;ALL&quot;
+</code></pre>
+
+<h3 id="output_location">output_location</h3>
+<p>Indicates that all output should be written to the specified directory location.</p>
+<p><strong>Executing via Locally -</strong> the directory can be any valid path on your local machine and the directory and file will be
+ created for you automatically.</p>
+<p><strong>Executing via Jenkins -</strong> This parameter should not be altered.</p>
+<pre><code class="json">&quot;output_location&quot;: &quot;C:\Users\spean03\Desktop\output&quot;
+</code></pre>
+
+<h3 id="options">options</h3>
+<p>Can be used to contain an array of additional JSON parameters defined within a test. The use of the options parameter can be different for each type of test.
+Refer to the documentation for the specific test as to its meaning and use.</p>
+<pre><code class="json">&quot;options&quot;:
+{
+  ...
+}
+</code></pre>
+
+<h3 id="xman">xman</h3>
+<p>Specifies the name of an Xmanager.</p>
+<pre><code class="json">&quot;xman&quot;: &quot;PTXRUN20&quot;
+</code></pre>
+
+<h3 id="abend_in">abend_in</h3>
+<p>Indicates which module in the collection engine to force abends to occur.</p>
+<p>Valid values are:</p>
+<p><strong>For PDT:</strong> DII or DIU</p>
+<p><strong>For PSA:</strong> coming soon</p>
+<pre><code class="json">&quot;abend_in&quot;: &quot;DII&quot;
+&quot;abend_in&quot;: &quot;DIU&quot;
+</code></pre>
+
+<h3 id="wait_time_after_coll_init">wait_time_after_coll_init</h3>
+<p>Indicates in minutes how long to wait after a product collection has been started.  </p>
+<pre><code class="json">&quot;wait_time_after_coll_init&quot;: 10
+</code></pre>
+
+<h3 id="wait_time_after_abend_restart">wait_time_after_abend_restart</h3>
+<p>Indicates in minutes how long to wait after the abend restart functionality has completed before another forced abend restart is attempted.</p>
+<pre><code class="json">&quot;wait_time_after_abend_restart&quot;: 60
+</code></pre>
+
+<h3 id="number_of_abend_restarts">number_of_abend_restarts</h3>
+<p>Indicates how many times abend restart functionality should be driven in a single test.</p>
+<pre><code class="json">&quot;number_of_abend_restarts&quot;: 4
+</code></pre>
+
+<h3 id="rtpj_file">rtpj_file</h3>
+<p>The name of an RTPJ JSON file.</p>
+<pre><code class="json">&quot;rtpj_file&quot;: &quot;Select_Count_Test.JSON&quot;
+</code></pre>
+
+<h3 id="rtpj_library">rtpj_library</h3>
+<p>Indicates the library where the <a href="#rtpj_file">rtpj_file</a> should be located.</p>
+<pre><code class="json">&quot;rtpj_library&quot;: &quot;C:\Users\spean03\Desktop\JSON\PDT1497&quot;
+</code></pre>
+
+<h3 id="rtpj_sync">rtpj_sync</h3>
+<p>Indicates whether the calling of RTPJ to execute the <a href="#rtpj_file">rtpj_file</a> is done as a synchronous or asynchronous process.</p>
+<p>Valid values are <strong>true</strong> or <strong>false</strong>. Defaults to <strong>true</strong></p>
+<pre><code class="json">&quot;rtpj_sync&quot;: &quot;true&quot;
+&quot;rtpj_sync&quot;: &quot;false&quot;
+</code></pre>
+
+<h3 id="rtpj_log_level">rtpj_log_level</h3>
+<p>Can be used to override the RTPJ frameworks <strong>"LOG"</strong> level used when executing the <a href="#rtpj_file">rtpj_file</a>. Defaults to <strong>DEFAULT</strong> which
+indicates the behavior is based on value of the <a href="#rtp_syn">rtpj_sync</a> parameter.</p>
+<p>If <strong>rtpj_sync</strong> is set to <strong>true</strong> then the RTPJ default log level is used, which is <strong>INFO</strong>. If <strong>rtpj_sync</strong> is set to <strong>false</strong> then
+the RTPJ log level is set to <strong>ERROR</strong>.</p>
+<p>Valid values are the same as listed for the <a href="../../rtpj/running-tests/#log">LOG</a></p>
+<pre><code class="json">&quot;rtpj_log_level&quot;: &quot;ERROR&quot;
+&quot;rtpj_log_level&quot;: &quot;WARN&quot;
+</code></pre>
+
+<h3 id="wait_to_complete">wait_to_complete</h3>
+<p>Use of the parameter can be different for each type of test. Refer to the documentation for the specific test as to its meaning and use.</p>
+<pre><code class="json">&quot;wait_to_complete&quot;: &quot;true&quot;
+&quot;wait_to_complete&quot;: &quot;False&quot;
+</code></pre>
+
+<h3 id="text_type">text_type</h3>
+<p>Can be used to indicate dynamic or static SQL. Specific usage can be different for each type of test, refer to the documentation for the specific test.</p>
+<pre><code class="json">&quot;text_type&quot;: &quot;static&quot;
+&quot;text_type&quot;: &quot;dynamic&quot;
+</code></pre>
+
+<h3 id="text-list">text list</h3>
+<p>A list composed of key/value pairs where the key is any string and the value an SQL text string.</p>
+<pre><code class="json">&quot;text1&quot;: &quot;SELECT * FROM SYSIBM.SYSDUMMY1&quot;
+</code></pre></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '../..';</script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&larr;</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&rarr;</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </body>
+</html>

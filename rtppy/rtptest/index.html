@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>RTP Test Suite App - Real Time Performance Test Suite</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../..">Real Time Performance Test Suite</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="../..">Introduction</a>
+                    </li>
+                    <li >
+                        <a href="../../getting-started/">Getting Started</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTPJ <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../rtpj/build-instructions/">Build Instructions</a>
+</li>
+                            
+<li >
+    <a href="../../rtpj/running-tests/">Running Tests</a>
+</li>
+                            
+<li >
+    <a href="../../rtpj/test-tracker/">Tracking Results</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Creating Tests</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../rtpj/writing-tests/">Writing Tests</a>
+</li>
+            
+<li >
+    <a href="../../rtpj/json/single-file-tests/">JSON - Single File Tests</a>
+</li>
+            
+<li >
+    <a href="../../rtpj/json/test-suites/">JSON - Test Suites</a>
+</li>
+    </ul>
+  </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTPPY <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../introduction/">Introduction</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Running Tests</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../executing-tests/">Executing</a>
+</li>
+            
+<li >
+    <a href="../execute-jenkins/">Execute via Jenkins</a>
+</li>
+            
+<li >
+    <a href="../execute-intellij/">Execute via Intellij</a>
+</li>
+            
+<li >
+    <a href="../command-line-options/">Command Line Options</a>
+</li>
+            
+<li >
+    <a href="../json-parameters/">JSON Parameters</a>
+</li>
+            
+<li >
+    <a href="../creating-tests/">Creating Tests</a>
+</li>
+            
+<li >
+    <a href="../jenkins-output/">Viewing Output on Jenkins</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">Test Types</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../interval-compare/">Interval Compare</a>
+</li>
+            
+<li >
+    <a href="../aggregate-compare/">Aggregate Compare</a>
+</li>
+            
+<li >
+    <a href="../start-collection/">Start/Stop Collection</a>
+</li>
+            
+<li class="active">
+    <a href="./">RTP Test Suite App</a>
+</li>
+            
+<li >
+    <a href="../abend-restart/">Abend Restart</a>
+</li>
+            
+<li >
+    <a href="../rtpj-exec/">Distributed SQL</a>
+</li>
+            
+<li >
+    <a href="../lock-release/">Lock Release</a>
+</li>
+            
+<li >
+    <a href="../sql-text/">SQL Text</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                            
+<li >
+    <a href="../automation_architecture/">Architecture and Design</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../help/environment-variables/">Environment Variables</a>
+</li>
+                            
+<li >
+    <a href="../../help/using-git/">Using Git/GitHub</a>
+</li>
+                            
+<li >
+    <a href="../../help/create-issue/">Creating a GitHug Issue</a>
+</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="../start-collection/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../abend-restart/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#rtp-test-suite-app">RTP Test Suite App</a></li>
+            <li><a href="#jenkins-test-status">Jenkins Test Status</a></li>
+            <li><a href="#test-parameters">Test Parameters</a></li>
+        <li class="main "><a href="#json-examples">JSON Examples</a></li>
+            <li><a href="#create-objects">Create Objects</a></li>
+            <li><a href="#compile-program-a-rrsaf-program">Compile Program (a RRSAF program)</a></li>
+            <li><a href="#bind-all-programs-with-multi-planpackages">Bind All Programs with Multi Plan/Packages</a></li>
+            <li><a href="#bind-single-program-changing-collection-id-from-the-default-and-including-the-plan-binding">Bind Single Program (changing collection id from the default and including the plan binding)</a></li>
+            <li><a href="#execute-all-programs-via-multi-threading">Execute All Programs (via Multi Threading)</a></li>
+            <li><a href="#execute-all-programs-via-multiple-planpackages">Execute All Programs (via Multiple Plan/Packages)</a></li>
+            <li><a href="#execute-programs-a-single-rrsaf-program-with-other-parameters-defaults">Execute Program(s) (a single RRSAF Program with other parameters defaults)</a></li>
+            <li><a href="#execute-programs-a-list-of-rrsaf-program-with-other-parameters-defaults">Execute Program(s) (a list of RRSAF Program with other parameters defaults)</a></li>
+            <li><a href="#execute-programs-an-rrsaf-program-with-changing-other-parameters">Execute Program(s) (an RRSAF Program with changing other parameters)</a></li>
+            <li><a href="#free-all-pkgeplan-with-multi-planpackages">Free All PKGE/PLAN with Multi Plan/Packages</a></li>
+            <li><a href="#free-single-program">Free Single Program</a></li>
+            <li><a href="#cleanup">Cleanup</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="rtp-test-suite-app">RTP Test Suite App</h1>
+<p>The rtptest test type provides the ability to interact with the Real Time Performance Test Suite Application UI in order to 
+generate the JCL and optionally submit it.</p>
+<p>For more information about the RTP Test Suite capabilities and its parameters see the <a href="https://cawiki.ca.com/display/DB2QA/Real+Time+Performance+Testing+Tools">RTP Test Suite manual</a>.</p>
+<h3 id="jenkins-test-status">Jenkins Test Status</h3>
+<p>The table below lists the jenkins tests that are available and what the status of the last run of the test was. Click on
+the status icon to go straight to jenkins for the particular build project.</p>
+<table>
+<thead>
+<tr>
+<th>Jenkins Build Name</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="test-parameters">Test Parameters</h2>
+<p>The table below lists the required and optional parameters that are valid for this test. Follow the link by clicking on the
+parameter name in the JSON column. If the parameter has a command line override option it will be listed in the Command Line Override
+column. Additionally there are <a href="#json-examples">examples</a> at the bottom of this page.</p>
+<h4 id="required">Required</h4>
+<table>
+<thead>
+<tr>
+<th>JSON</th>
+<th>Command Line Override</th>
+<th>Special Usage or Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../json-parameters/#product_code">product_code</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#test_type">test_type</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#lpar">lpar</a></td>
+<td><a href="../command-line-options/#lpar">lpar</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#userid">userid</a></td>
+<td><a href="../command-line-options/#userid">userid</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#ssid">ssid</a></td>
+<td><a href="../command-line-options/#ssid">ssid</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#execute_method">execute_method</a></td>
+<td></td>
+<td>The following additional JSON parameters are <strong>required</strong>, unless otherwise indicated, when <strong>execute_method</strong> is:<br> <ul><li><strong>UI</strong>:</li><ul><li><strong>action</strong> <a href="../json-parameters/#action">[JSON]</a></li></ul><li><strong>dataset</strong></li><ul><li><strong>dataset_name</strong> <a href="../json-parameters/#dataset_name">[JSON]</a></li></ul></ul></td>
+</tr>
+</tbody>
+</table>
+<h4 id="optional">Optional</h4>
+<table>
+<thead>
+<tr>
+<th>JSON</th>
+<th>Command Line Override</th>
+<th>Special Usage or Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../json-parameters/#output_location">output_location</a></td>
+<td><a href="../command-line-options/#output_location">output_location</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#auto_submit">auto_submit</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#multithreading">multithreading</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#multiple_plan_packages">multiple_plan_packages</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#wait_to_complete">wait_to_complete</a></td>
+<td><a href="../command-line-options/#wait_to_complete">wait_to_complete</a></td>
+<td>Indicates whether the test should wait for the submitted RTPTEST batch job to complete or not. Valid values are <strong>True</strong> or <strong>False</strong></td>
+</tr>
+<tr>
+<td><a href="../json-parameters/#options">options</a></td>
+<td></td>
+<td>Identifies additional options to be used. See the <a href="#additional-options">Additional Options</a> section for details.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="additional-options">Additional Options</h4>
+<table>
+<thead>
+<tr>
+<th>JSON parameter</th>
+<th>Special Usage or Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>program</td>
+<td>Can specify either a single program or a list of programs separated by commas.<br> Example: PROGRAM1,PROGRAM2,PROGRAM3</td>
+</tr>
+<tr>
+<td>plan</td>
+<td></td>
+</tr>
+<tr>
+<td>collid</td>
+<td></td>
+</tr>
+<tr>
+<td>corrid</td>
+<td></td>
+</tr>
+<tr>
+<td>sqlid</td>
+<td></td>
+</tr>
+<tr>
+<td>workstation</td>
+<td></td>
+</tr>
+<tr>
+<td>repeat</td>
+<td></td>
+</tr>
+<tr>
+<td>seed</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="json-examples">JSON Examples</h1>
+<hr />
+<h4 id="create-objects">Create Objects</h4>
+<pre><code class="json">{
+  &quot;connection&quot;:
+  {
+    &quot;lpar&quot;: &quot;ca31&quot;,
+    &quot;userid&quot;: &quot;qartp02&quot;,
+    &quot;ssid&quot;: &quot;d11a&quot;,
+    &quot;ssid2&quot;: &quot;d11a&quot;
+  },
+  &quot;tests&quot;:
+  [
+    {
+      &quot;test_type&quot;: &quot;rtptest&quot;,
+      &quot;product_code&quot;: &quot;RTP&quot;,
+      &quot;execute_method&quot;: &quot;UI&quot;,
+      &quot;action&quot;: &quot;2&quot;
+    }
+  ]
+}
+</code></pre>
+
+<h4 id="compile-program-a-rrsaf-program">Compile Program (a RRSAF program)</h4>
+<pre><code class="json">{
+  &quot;connection&quot;:
+  {
+    &quot;lpar&quot;: &quot;ca31&quot;,
+    &quot;userid&quot;: &quot;qartp02&quot;,
+    &quot;ssid&quot;: &quot;d11a&quot;,
+    &quot;ssid2&quot;: &quot;d11a&quot;
+  },
+  &quot;tests&quot;:
+  [
+    {
+      &quot;test_type&quot;: &quot;rtptest&quot;,
+      &quot;product_code&quot;: &quot;RTP&quot;,
+      &quot;execute_method&quot;: &quot;UI&quot;,
+      &quot;action&quot;: &quot;3&quot;,
+      &quot;options&quot;: 
+      {
+        &quot;program&quot;: &quot;reg161br&quot;,
+        &quot;connection_type&quot;: &quot;R&quot;
+      }
+    }
+  ]
+}
+</code></pre>
+
+<h4 id="bind-all-programs-with-multi-planpackages">Bind All Programs with Multi Plan/Packages</h4>
+<pre><code class="json">{
+  &quot;connection&quot;:
+  {
+    &quot;lpar&quot;: &quot;ca31&quot;,
+    &quot;userid&quot;: &quot;qartp02&quot;,
+    &quot;ssid&quot;: &quot;d11a&quot;,
+    &quot;ssid2&quot;: &quot;d11a&quot;
+  },
+  &quot;tests&quot;:
+  [
+    {
+      &quot;test_type&quot;: &quot;rtptest&quot;,
+      &quot;product_code&quot;: &quot;RTP&quot;,
+      &quot;execute_method&quot;: &quot;UI&quot;,
+      &quot;action&quot;: &quot;4&quot;,
+      &quot;multiple_plan_packages&quot;: &quot;Y&quot;
+    }
+  ]
+}
+</code></pre>
+
+<h4 id="bind-single-program-changing-collection-id-from-the-default-and-including-the-plan-binding">Bind Single Program (changing collection id from the default and including the plan binding)</h4>
+<pre><code class="json">{
+  &quot;connection&quot;:
+  {
+    &quot;lpar&quot;: &quot;ca31&quot;,
+    &quot;userid&quot;: &quot;qartp02&quot;,
+    &quot;ssid&quot;: &quot;d11a&quot;,
+    &quot;ssid2&quot;: &quot;d11a&quot;
+  },
+  &quot;tests&quot;:
+  [
+    {
+      &quot;test_type&quot;: &quot;rtptest&quot;,
+      &quot;product_code&quot;: &quot;RTP&quot;,
+      &quot;execute_method&quot;: &quot;UI&quot;,
+      &quot;action&quot;: &quot;5&quot;,
+      &quot;include_plan&quot;: &quot;Y&quot;,
+      &quot;options&quot;: 
+      {
+       &quot;collid&quot;: &quot;mycollidisbigger&quot;,
+       &quot;program&quot;: &quot;reg152dr&quot;
+      }
+    }
+  ]
+}
+</code></pre>
+
+<h4 id="execute-all-programs-via-multi-threading">Execute All Programs (via Multi Threading)</h4>
+<pre><code class="json">{
+  &quot;connection&quot;:
+  {
+    &quot;lpar&quot;: &quot;ca31&quot;,
+    &quot;userid&quot;: &quot;qartp02&quot;,
+    &quot;ssid&quot;: &quot;d11a&quot;,
+    &quot;ssid2&quot;: &quot;d11a&quot;
+  },
+  &quot;tests&quot;:
+  [
+    {
+      &quot;test_type&quot;: &quot;rtptest&quot;,
+      &quot;product_code&quot;: &quot;RTP&quot;,
+      &quot;execute_method&quot;: &quot;UI&quot;,
+      &quot;action&quot;: &quot;6&quot;,
+      &quot;multithreading&quot;: &quot;Y&quot;
+    }
+  ]
+}
+</code></pre>
+
+<h4 id="execute-all-programs-via-multiple-planpackages">Execute All Programs (via Multiple Plan/Packages)</h4>
+<pre><code class="json">{
+  &quot;connection&quot;:
+  {
+    &quot;lpar&quot;: &quot;ca31&quot;,
+    &quot;userid&quot;: &quot;qartp02&quot;,
+    &quot;ssid&quot;: &quot;d11a&quot;,
+    &quot;ssid2&quot;: &quot;d11a&quot;
+  },
+  &quot;tests&quot;:
+  [
+    {
+      &quot;test_type&quot;: &quot;rtptest&quot;,
+      &quot;product_code&quot;: &quot;RTP&quot;,
+      &quot;execute_method&quot;: &quot;UI&quot;,
+      &quot;action&quot;: &quot;6&quot;,
+      &quot;multiple_plan_packages&quot;: &quot;Y&quot;
+    }
+  ]
+}
+</code></pre>
+
+<h4 id="execute-programs-a-single-rrsaf-program-with-other-parameters-defaults">Execute Program(s) (a single RRSAF Program with other parameters defaults)</h4>
+<pre><code class="json">{
+  &quot;connection&quot;:
+  {
+    &quot;lpar&quot;: &quot;ca31&quot;,
+    &quot;userid&quot;: &quot;qartp02&quot;,
+    &quot;ssid&quot;: &quot;d11a&quot;,
+    &quot;ssid2&quot;: &quot;d11a&quot;
+  },
+  &quot;tests&quot;:
+  [
+    {
+      &quot;test_type&quot;: &quot;rtptest&quot;,
+      &quot;product_code&quot;: &quot;RTP&quot;,
+      &quot;execute_method&quot;: &quot;UI&quot;,
+      &quot;action&quot;: &quot;7&quot;,
+      &quot;options&quot;: 
+      {
+        &quot;connection_type&quot;: &quot;R&quot;,
+        &quot;program&quot;: &quot;reg021sr&quot;
+      }
+    }
+  ]
+}
+</code></pre>
+
+<h4 id="execute-programs-a-list-of-rrsaf-program-with-other-parameters-defaults">Execute Program(s) (a list of RRSAF Program with other parameters defaults)</h4>
+<pre><code class="json">{
+  &quot;connection&quot;:
+  {
+    &quot;lpar&quot;: &quot;ca31&quot;,
+    &quot;userid&quot;: &quot;qartp02&quot;,
+    &quot;ssid&quot;: &quot;d11a&quot;,
+    &quot;ssid2&quot;: &quot;d11a&quot;
+  },
+  &quot;tests&quot;:
+  [
+    {
+      &quot;test_type&quot;: &quot;rtptest&quot;,
+      &quot;product_code&quot;: &quot;RTP&quot;,
+      &quot;execute_method&quot;: &quot;UI&quot;,
+      &quot;action&quot;: &quot;7&quot;,
+      &quot;options&quot;: 
+      {
+        &quot;connection_type&quot;: &quot;R&quot;,
+        &quot;program&quot;: &quot;reg161br,reg011dr,reg165br,reg133dr&quot;
+      }
+    }
+  ]
+}
+</code></pre>
+
+<h4 id="execute-programs-an-rrsaf-program-with-changing-other-parameters">Execute Program(s) (an RRSAF Program with changing other parameters)</h4>
+<pre><code class="json">{
+  &quot;connection&quot;:
+  {
+    &quot;lpar&quot;: &quot;ca31&quot;,
+    &quot;userid&quot;: &quot;qartp02&quot;,
+    &quot;ssid&quot;: &quot;d11a&quot;,
+    &quot;ssid2&quot;: &quot;d11a&quot;
+  },
+  &quot;tests&quot;:
+  [
+    {
+      &quot;test_type&quot;: &quot;rtptest&quot;,
+      &quot;product_code&quot;: &quot;RTP&quot;,
+      &quot;execute_method&quot;: &quot;UI&quot;,
+      &quot;action&quot;: &quot;7&quot;,
+      &quot;options&quot;: 
+      {
+        &quot;program&quot;: &quot;reg161br&quot;,
+        &quot;collid&quot;: &quot;mycollidisbigger&quot;,
+        &quot;corrid&quot;: &quot;mycorridisbigger&quot;,
+        &quot;workstation&quot;: &quot;myworkstation&quot;,
+        &quot;repeat&quot;: &quot;10&quot;,
+        &quot;sqlid&quot;: &quot;mysqlid&quot;,
+        &quot;plan&quot;: &quot;myplan&quot;,
+        &quot;seed&quot;: &quot;5&quot;
+      }
+    }
+  ]
+}
+</code></pre>
+
+<h4 id="free-all-pkgeplan-with-multi-planpackages">Free All PKGE/PLAN with Multi Plan/Packages</h4>
+<pre><code class="json">{
+  &quot;connection&quot;:
+  {
+    &quot;lpar&quot;: &quot;ca31&quot;,
+    &quot;userid&quot;: &quot;qartp02&quot;,
+    &quot;ssid&quot;: &quot;d11a&quot;,
+    &quot;ssid2&quot;: &quot;d11a&quot;
+  },
+  &quot;tests&quot;:
+  [
+    {
+      &quot;test_type&quot;: &quot;rtptest&quot;,
+      &quot;product_code&quot;: &quot;RTP&quot;,
+      &quot;execute_method&quot;: &quot;UI&quot;,
+      &quot;action&quot;: &quot;8&quot;,
+      &quot;multiple_plan_packages&quot;: &quot;Y&quot;
+    }
+  ]
+}
+</code></pre>
+
+<h4 id="free-single-program">Free Single Program</h4>
+<pre><code class="json">{
+  &quot;connection&quot;:
+  {
+    &quot;lpar&quot;: &quot;ca31&quot;,
+    &quot;userid&quot;: &quot;qartp02&quot;,
+    &quot;ssid&quot;: &quot;d11a&quot;,
+    &quot;ssid2&quot;: &quot;d11a&quot;
+  },
+  &quot;tests&quot;:
+  [
+    {
+      &quot;test_type&quot;: &quot;rtptest&quot;,
+      &quot;product_code&quot;: &quot;RTP&quot;,
+      &quot;execute_method&quot;: &quot;UI&quot;,
+      &quot;action&quot;: &quot;9&quot;,
+      &quot;options&quot;: 
+      {
+       &quot;program&quot;: &quot;reg165br&quot;
+      }
+    }
+  ]
+}
+</code></pre>
+
+<h4 id="cleanup">Cleanup</h4>
+<pre><code class="json">{
+  &quot;connection&quot;:
+  {
+    &quot;lpar&quot;: &quot;ca31&quot;,
+    &quot;userid&quot;: &quot;qartp02&quot;,
+    &quot;ssid&quot;: &quot;d11a&quot;,
+    &quot;ssid2&quot;: &quot;d11a&quot;
+  },
+  &quot;tests&quot;:
+  [
+    {
+      &quot;test_type&quot;: &quot;rtptest&quot;,
+      &quot;product_code&quot;: &quot;RTP&quot;,
+      &quot;execute_method&quot;: &quot;UI&quot;,
+      &quot;action&quot;: &quot;10&quot;
+    }
+  ]
+}
+</code></pre></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '../..';</script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&larr;</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&rarr;</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </body>
+</html>

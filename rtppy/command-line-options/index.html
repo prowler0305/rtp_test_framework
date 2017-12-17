@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Command Line Options - Real Time Performance Test Suite</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../..">Real Time Performance Test Suite</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="../..">Introduction</a>
+                    </li>
+                    <li >
+                        <a href="../../getting-started/">Getting Started</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTPJ <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../rtpj/build-instructions/">Build Instructions</a>
+</li>
+                            
+<li >
+    <a href="../../rtpj/running-tests/">Running Tests</a>
+</li>
+                            
+<li >
+    <a href="../../rtpj/test-tracker/">Tracking Results</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Creating Tests</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../rtpj/writing-tests/">Writing Tests</a>
+</li>
+            
+<li >
+    <a href="../../rtpj/json/single-file-tests/">JSON - Single File Tests</a>
+</li>
+            
+<li >
+    <a href="../../rtpj/json/test-suites/">JSON - Test Suites</a>
+</li>
+    </ul>
+  </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTPPY <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../introduction/">Introduction</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Running Tests</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../executing-tests/">Executing</a>
+</li>
+            
+<li >
+    <a href="../execute-jenkins/">Execute via Jenkins</a>
+</li>
+            
+<li >
+    <a href="../execute-intellij/">Execute via Intellij</a>
+</li>
+            
+<li class="active">
+    <a href="./">Command Line Options</a>
+</li>
+            
+<li >
+    <a href="../json-parameters/">JSON Parameters</a>
+</li>
+            
+<li >
+    <a href="../creating-tests/">Creating Tests</a>
+</li>
+            
+<li >
+    <a href="../jenkins-output/">Viewing Output on Jenkins</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">Test Types</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../interval-compare/">Interval Compare</a>
+</li>
+            
+<li >
+    <a href="../aggregate-compare/">Aggregate Compare</a>
+</li>
+            
+<li >
+    <a href="../start-collection/">Start/Stop Collection</a>
+</li>
+            
+<li >
+    <a href="../rtptest/">RTP Test Suite App</a>
+</li>
+            
+<li >
+    <a href="../abend-restart/">Abend Restart</a>
+</li>
+            
+<li >
+    <a href="../rtpj-exec/">Distributed SQL</a>
+</li>
+            
+<li >
+    <a href="../lock-release/">Lock Release</a>
+</li>
+            
+<li >
+    <a href="../sql-text/">SQL Text</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                            
+<li >
+    <a href="../automation_architecture/">Architecture and Design</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../help/environment-variables/">Environment Variables</a>
+</li>
+                            
+<li >
+    <a href="../../help/using-git/">Using Git/GitHub</a>
+</li>
+                            
+<li >
+    <a href="../../help/create-issue/">Creating a GitHug Issue</a>
+</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="../execute-intellij/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../json-parameters/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#command-line-options">Command Line Options</a></li>
+            <li><a href="#lpar">lpar</a></li>
+            <li><a href="#userid">userid</a></li>
+            <li><a href="#ssid">ssid</a></li>
+            <li><a href="#ssid2">ssid2</a></li>
+            <li><a href="#file">file</a></li>
+            <li><a href="#print">print</a></li>
+            <li><a href="#baseline_vcat">baseline_vcat</a></li>
+            <li><a href="#baseline_datastore">baseline_datastore</a></li>
+            <li><a href="#current_vcat">current_vcat</a></li>
+            <li><a href="#current_datastore">current_datastore</a></li>
+            <li><a href="#baseline_interval_datecurrent_interval_date">baseline_interval_date/current_interval_date</a></li>
+            <li><a href="#baseline_interval_timecurrent_interval_time">baseline_interval_time/current_interval_time</a></li>
+            <li><a href="#baseline_interval_date_2current_interval_date_2">baseline_interval_date_2/current_interval_date_2</a></li>
+            <li><a href="#baseline_interval_time_2current_interval_time_2">baseline_interval_time_2/current_interval_time_2</a></li>
+            <li><a href="#view_by">view_by</a></li>
+            <li><a href="#view_type">view_type</a></li>
+            <li><a href="#view_option">view_option</a></li>
+            <li><a href="#environment">environment</a></li>
+            <li><a href="#range_pct">range_pct</a></li>
+            <li><a href="#plan">plan</a></li>
+            <li><a href="#program">program</a></li>
+            <li><a href="#dbname">dbname</a></li>
+            <li><a href="#key_option">key_option</a></li>
+            <li><a href="#key_value">key_value</a></li>
+            <li><a href="#column">column</a></li>
+            <li><a href="#collid">collid</a></li>
+            <li><a href="#line_command">line_command</a></li>
+            <li><a href="#wait_to_complete">wait_to_complete</a></li>
+            <li><a href="#xman">xman</a></li>
+            <li><a href="#abend_in">abend_in</a></li>
+            <li><a href="#num_ar">num_ar</a></li>
+            <li><a href="#rtpj_file">rtpj_file</a></li>
+            <li><a href="#rtpj_library">rtpj_library</a></li>
+            <li><a href="#rtpj_sync">rtpj_sync</a></li>
+            <li><a href="#rtpj_log_level">rtpj_log_level</a></li>
+            <li><a href="#output_location">output_location</a></li>
+            <li><a href="#high_level">high_level</a></li>
+            <li><a href="#collection_profile">collection_profile</a></li>
+            <li><a href="#itime">itime</a></li>
+            <li><a href="#t_limit">t_limit</a></li>
+            <li><a href="#samp">samp</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="command-line-options">Command Line Options</h1>
+<hr />
+<p>Options described below have a short and long version, prefixed with either <code>-</code> (<em>short option</em>) or <code>--</code> (<em>long option</em>) and can
+override the parameters specified in the JSON input file and/or the frameworks default values.</p>
+<p>See the specific <a href="../creating-tests/#test-structure">test documentation</a> for the command line options that apply.</p>
+<h2 id="lpar">lpar</h2>
+<p>The LPAR in which to connect to.</p>
+<p>Example:</p>
+<p>Short</p>
+<pre><code class="python">-lp=ca31
+</code></pre>
+
+<p>Long</p>
+<pre><code class="python">--lpar=ca31
+</code></pre>
+
+<h2 id="userid">userid</h2>
+<p>The ID to use to log onto the LPAR.</p>
+<p>Example:</p>
+<p>Short</p>
+<pre><code class="python">-usr=spean03
+</code></pre>
+
+<p>Long</p>
+<pre><code class="python">--userid=speana3
+</code></pre>
+
+<h2 id="ssid">ssid</h2>
+<p>The primary SSID to be used for test execution.</p>
+<p>Example:</p>
+<p>Short</p>
+<pre><code class="python">-ss=d12a
+</code></pre>
+
+<p>Long</p>
+<pre><code class="python">--ssid=d12a
+</code></pre>
+
+<h2 id="ssid2">ssid2</h2>
+<p>A second ssid to be used during test execution.</p>
+<p>Example:</p>
+<p>Short</p>
+<pre><code class="python">-ss2=d11a
+</code></pre>
+
+<p>Long</p>
+<pre><code class="python">--ssid2=d11a
+</code></pre>
+
+<h2 id="file">file</h2>
+<p>Specifies the name of the input file, in JSON format, that contains the test(s) to execute along with the parameters needed.
+The <code>file</code> option can reference just a file name in which the indicated file will be searched for out of the default
+test library, <code>/rtppy/python_test_library</code>. Or a complete path can be specified, which is useful to reference a JSON file located
+on your local machine for individual executions, debugging, or future test development.</p>
+<p>Example:</p>
+<p>Short</p>
+<pre><code class="python">-f=view_by_tests.json
+-f=C:\Users\spean03\Desktop\mytestparms.json
+</code></pre>
+
+<p>Long</p>
+<pre><code class="python">--file=view_by_tests.json
+--file=C:\Users\spean03\Desktop\mytestparms.json
+</code></pre>
+
+<h2 id="print">print</h2>
+<p>The print option provides the functionality to print out to the console all the test descriptions (if coded in the JSON file) or the raw contents of the JSON file itself pointed to by the <code>--file</code> parameter. To print just the test descriptions just provide the option without a value. To print the raw contents provide the value "raw" with the option.</p>
+<p>Examples:</p>
+<p><strong>print just descriptions</strong></p>
+<pre><code class="python">-p --file=pdt_interval_compare_all_standard_activity_view_by_tests.json
+</code></pre>
+
+<p><strong>(print raw contents)</strong></p>
+<pre><code class="python">-p=raw --file=pdt_interval_compare_all_standard_activity_view_by_tests.json
+</code></pre>
+
+<h2 id="baseline_vcat">baseline_vcat</h2>
+<p>Overrides the VCAT name to be used to identify the baseline datastore to use.</p>
+<p>Example:</p>
+<p>Short</p>
+<pre><code class="python">-bv=PDTDBA.R19
+</code></pre>
+
+<p>Long</p>
+<pre><code class="python">--baseline_vcat=PDTDBA.R19
+</code></pre>
+
+<h2 id="baseline_datastore">baseline_datastore</h2>
+<p>Overrides the datastore that should be considered to contain the baseline execution metrics.</p>
+<p>Example:</p>
+<p>Short</p>
+<pre><code class="python">-bld=dtvnext
+</code></pre>
+
+<p>Long</p>
+<pre><code class="python">--baseline_datastore=dtvnext
+</code></pre>
+
+<h2 id="current_vcat">current_vcat</h2>
+<p>Overrides the VCAT name to be used to identify the current datastore to use.</p>
+<p>Example:</p>
+<p>Short</p>
+<pre><code class="python">-cv=PDTDBA.R19
+</code></pre>
+
+<p>Long</p>
+<pre><code class="python">--current_vcat=PDTDBA.R19
+</code></pre>
+
+<h2 id="current_datastore">current_datastore</h2>
+<p>Overrides the datastore that should be considered to contain the current execution metrics to compare against the baseline.</p>
+<p>Example:</p>
+<p>Short</p>
+<pre><code class="python">-cud=mycurrent
+</code></pre>
+
+<p>Long</p>
+<pre><code class="python">--current_datastore=mycurrent
+</code></pre>
+
+<h2 id="baseline_interval_datecurrent_interval_date">baseline_interval_date/current_interval_date</h2>
+<p>Overrides the interval date in the datastore that should be selected in combination with the corresponding interval time parameter.</p>
+<h4 id="format">Format</h4>
+<p>The interval date can be supplied as it appears on the products "Datastore Interval Summary Display" or a value string
+of "1" can be used to indicate the most recent interval should be selected.</p>
+<p>Using <strong>16/05/13</strong>:</p>
+<h5 id="short">Short</h5>
+<pre><code class="python">-bld='16/05/13'
+-cid='16/05/13'
+</code></pre>
+
+<p><strong>OR</strong></p>
+<pre><code class="python">-bid='1'
+-cid='1'
+</code></pre>
+
+<h5 id="long">Long</h5>
+<pre><code class="python">--baseline_interval_date='16/05/13'
+--current_interval_date='16/05/13'
+</code></pre>
+
+<p><strong>OR</strong></p>
+<pre><code class="python">--baseline_interval_date='1'
+--current_interval_date='1'
+</code></pre>
+
+<h2 id="baseline_interval_timecurrent_interval_time">baseline_interval_time/current_interval_time</h2>
+<p>Further identifies and overrides the interval time in the datastore that should be selected in combination with the interval date parameter. Unless the interval date parameter indicates the most recent interval should be selected, in which the interval time parameter is ignored.</p>
+<h4 id="format_1">Format</h4>
+<p>The interval time should be supplied as it appears on the products "Datastore Interval Summary Display".</p>
+<p>Using <strong>02:00:00</strong>:</p>
+<h5 id="short_1">Short</h5>
+<pre><code class="python">-bit='02:00:00'
+-cit='02:00:00'
+</code></pre>
+
+<h5 id="long_1">Long</h5>
+<pre><code class="python">--baseline_interval_time='02:00:00'
+--current_interval_time='02:00:00'
+</code></pre>
+
+<h2 id="baseline_interval_date_2current_interval_date_2">baseline_interval_date_2/current_interval_date_2</h2>
+<p>Overrides the second interval date in the datastore that should be selected in combination with the corresponding interval_time_2 parameter.</p>
+<h4 id="format_2">Format</h4>
+<h5 id="short_2">Short</h5>
+<pre><code class="python">-bld2='16/05/13'
+-cid2='16/05/13'
+</code></pre>
+
+<p><strong>OR</strong></p>
+<pre><code class="python">-bid2='1'
+-cid2='1'
+</code></pre>
+
+<h5 id="long_2">Long</h5>
+<pre><code class="python">--baseline_interval_date_2='16/05/13'
+--current_interval_date_2='16/05/13'
+</code></pre>
+
+<p><strong>OR</strong></p>
+<pre><code class="python">--baseline_interval_date_2='1'
+--current_interval_date_2='1'
+</code></pre>
+
+<h2 id="baseline_interval_time_2current_interval_time_2">baseline_interval_time_2/current_interval_time_2</h2>
+<p>Overrides the second interval time in the datastore that should be selected in combination with the corresponding interval_date_2 parameter.</p>
+<h4 id="format_3">Format</h4>
+<h5 id="short_3">Short</h5>
+<pre><code class="python">-bit2='02:00:00'
+-cit2='02:00:00'
+</code></pre>
+
+<h5 id="long_3">Long</h5>
+<pre><code class="python">--baseline_interval_time_2='02:00:00'
+--current_interval_time_2='02:00:00'
+</code></pre>
+
+<h2 id="view_by">view_by</h2>
+<p>Override what Summary Display panel to navigate to.</p>
+<p>Example:</p>
+<p>Short</p>
+<pre><code class="python">-vb=S
+</code></pre>
+
+<p>Long</p>
+<pre><code class="python">--view_by=P
+</code></pre>
+
+<h2 id="view_type">view_type</h2>
+<p>Overrides what type of data displays to navigate to. (i.e. Standard Activity, Exceptions, Errors, etc...)</p>
+<p>Example:</p>
+<p>Short</p>
+<pre><code class="python">-vt=X
+</code></pre>
+
+<p>Long</p>
+<pre><code class="python">--view_type=E
+</code></pre>
+
+<h2 id="view_option">view_option</h2>
+<p>Override what additional Summary Display panel to navigate to within certain displays in Subsystem Analyzer</p>
+<p>Example:</p>
+<p>Short</p>
+<pre><code class="python">-vo=C
+</code></pre>
+
+<p>Long</p>
+<pre><code class="python">--view_option=C
+</code></pre>
+
+<h2 id="environment">environment</h2>
+<p>Overrides the release environment of the products to use. This parameter overrides both the JSON input file and/or the frameworks
+default of <strong>R19</strong></p>
+<p>Short</p>
+<pre><code class="python">-env=R19
+</code></pre>
+
+<p>Long</p>
+<pre><code class="python">--environment=R19
+</code></pre>
+
+<h4 id="entering-via-dball">Entering via DB.ALL</h4>
+<p>To enter into the products using the "Extended General Selection Menu", i.e. DB.ALL using an overriding parmlib and/or suffix.
+Simply specify the overriding parmlib and optional a suffix in <strong>()</strong>.</p>
+<p>Example:</p>
+<pre><code class="python">--environment=SPEAN03.R19.PARMLIB(99)
+</code></pre>
+
+<h2 id="range_pct">range_pct</h2>
+<p>Overrides the allowable plus or minus range percentage the comparison can be between. This parameter overrides the JSON parameter
+specified and the tests default value.</p>
+<p>Short</p>
+<pre><code class="python">-rp=15
+</code></pre>
+
+<p>Long</p>
+<pre><code class="python">--range_pct=15
+</code></pre>
+
+<h2 id="plan">plan</h2>
+<p>Overrides the value that can be used to identify a row on a Planname Display or the keyword "ALL" which can indicate to some tests that all the Plans should be selected.</p>
+<p>Short</p>
+<pre><code class="python">-pln=rtpplnmn
+</code></pre>
+
+<p>Long</p>
+<pre><code class="python">--plan=rtpplnmn
+</code></pre>
+
+<h2 id="program">program</h2>
+<p>Overrides the value that can be used to identify a row on a Program Display or the keyword "ALL" which can indicate to some tests that all the Programs should be selected.</p>
+<p>Short</p>
+<pre><code class="python">-pgm=rtpplnmn
+</code></pre>
+
+<p>Long</p>
+<pre><code class="python">--program=rtpplnmn
+</code></pre>
+
+<h2 id="dbname">dbname</h2>
+<p>Overrides the value that can be used to identify a row on the Database Activity Display or the keyword "ALL" which indicates that all the Databases should be selected.</p>
+<p>Short</p>
+<pre><code class="python">-db=SEGMDB
+</code></pre>
+
+<p>Long</p>
+<pre><code class="python">--dbname=SEGMDB
+</code></pre>
+
+<h2 id="key_option">key_option</h2>
+<p>Overrides the single character that is to be used in the "Key" field on the standard activity "Key Summary Display"</p>
+<p>Short</p>
+<pre><code class="python">-ko=R
+</code></pre>
+
+<p>Long</p>
+<pre><code class="python">--key_option=R
+</code></pre>
+
+<h2 id="key_value">key_value</h2>
+<p>Overrides the value used to identify the row in the "Key" column on the standard activity Key Summary Display.</p>
+<p>Short</p>
+<pre><code class="python">-kv='TSO BATCH'
+</code></pre>
+
+<p>Long</p>
+<pre><code class="python">--key_value='QARTP01'
+</code></pre>
+
+<h2 id="column">column</h2>
+<p>Overrides the specific column name used by a test. The use of the column name parameter can be different for each type of test.
+Refer to the documentation for the specific test as to its meaning and use.</p>
+<p>Long</p>
+<pre><code class="python">--column='INDB2_TIME'
+</code></pre>
+
+<h2 id="collid">collid</h2>
+<p>Overrides the value used to identify a row on a display that contains the "COLLID" column</p>
+<p>Long</p>
+<pre><code class="python">--collid='RTPCOLUMN'
+</code></pre>
+
+<h2 id="line_command">line_command</h2>
+<p>Overrides the single character line command option to be used on a display row.</p>
+<p>Short</p>
+<pre><code class="python">-lc='D'
+</code></pre>
+
+<p>Long</p>
+<pre><code class="python">--line_command='D'
+</code></pre>
+
+<h2 id="wait_to_complete">wait_to_complete</h2>
+<p>Overrides the wait_to_complete parameter in the JSON file. Use of the parameter can be different for each type of test. Refer to the documentation for the specific test as to its meaning and use.</p>
+<p>Short</p>
+<pre><code class="python">-wtc=False
+</code></pre>
+
+<p>Long</p>
+<pre><code class="python">--wait_to_complete=True
+</code></pre>
+
+<h2 id="xman">xman</h2>
+<p>Overrides the Xmanager name.</p>
+<p>Long</p>
+<pre><code class="python">--xman='PTXDEV19'
+</code></pre>
+
+<h2 id="abend_in">abend_in</h2>
+<p>Overrides the value used in the JSON parameter for indicating which module in the collection engine to force abends to occur.</p>
+<p>Valid values are:</p>
+<p><strong>For PDT:</strong> DII or DIU</p>
+<p><strong>For PSA:</strong> coming soon</p>
+<p>Long</p>
+<pre><code class="python">--abend_in='DII'
+</code></pre>
+
+<h2 id="num_ar">num_ar</h2>
+<p>Overrides the value used in the JSON parameter of how many times abend restart functionality should be driven in a single test.</p>
+<p>Long</p>
+<pre><code class="python">--num_ar=3
+</code></pre>
+
+<h2 id="rtpj_file">rtpj_file</h2>
+<p>Overrides the name of the RTPJ JSON to be used.</p>
+<p>Long</p>
+<pre><code class="python">--rtpj_file=Select_Count_Test.JSON
+</code></pre>
+
+<h2 id="rtpj_library">rtpj_library</h2>
+<p>Overrides the library location used in the JSON file.</p>
+<p>Long</p>
+<pre><code class="python">--rtpj_library=C:\Users\spean03\Desktop\JSON\PDT1497
+</code></pre>
+
+<h2 id="rtpj_sync">rtpj_sync</h2>
+<p>Overrides the <a href="../json-parameters/#rtpj_sync">rtpj_sync</a> parameter in the JSON file.</p>
+<p>Long</p>
+<pre><code class="python">--rtpj_sync=true
+</code></pre>
+
+<h2 id="rtpj_log_level">rtpj_log_level</h2>
+<p>Overrides the <a href="../json-parameters/#rtpj_log_level">rtpj_log_level</a> parameter in the JSON file.</p>
+<p>Long</p>
+<pre><code class="python">--rtpj_log_level=ERROR
+</code></pre>
+
+<h2 id="output_location">output_location</h2>
+<p>Overrides the specified directory location for the output of the test to be written to.</p>
+<p><strong>Executing via Locally -</strong> the directory can be any valid path on your local machine and the directory and file will be
+ created for you automatically.</p>
+<p><strong>Executing via Jenkins -</strong> This parameter should not be altered.</p>
+<p>Long</p>
+<pre><code class="python">--output_location=C:\Users\spean03\Desktop\output
+</code></pre>
+
+<h2 id="high_level">high_level</h2>
+<p>Overrides the high_level JSON parameter in the options object for starting a product collection.</p>
+<p>Long</p>
+<pre><code class="python">--high_level=PDTDBA.R19
+</code></pre>
+
+<h2 id="collection_profile">collection_profile</h2>
+<p>Overrides the coll_profile JSON parameter in the options object for starting a Detector collection.</p>
+<p>Long</p>
+<pre><code class="python">--collection_profile=COLLALL
+</code></pre>
+
+<h2 id="itime">itime</h2>
+<p>Overrides the itime JSON parameter in the options object for starting a product collection.</p>
+<p>Long</p>
+<pre><code class="python">--itime=24:00
+</code></pre>
+
+<h2 id="t_limit">t_limit</h2>
+<p>Overrides the t_limit JSON parameter in the options object for starting a product collection.</p>
+<p>Long</p>
+<pre><code class="python">--t_limit=01:00
+</code></pre>
+
+<h2 id="samp">samp</h2>
+<p>Overrides the samp JSON parameter in the options object for starting a Subsystem Analyzer collection.</p>
+<p>Long</p>
+<pre><code class="python">--samp=3
+</code></pre></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '../..';</script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&larr;</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&rarr;</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </body>
+</html>

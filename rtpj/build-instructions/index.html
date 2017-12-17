@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Build Instructions - Real Time Performance Test Suite</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../..">Real Time Performance Test Suite</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="../..">Introduction</a>
+                    </li>
+                    <li >
+                        <a href="../../getting-started/">Getting Started</a>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTPJ <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li class="active">
+    <a href="./">Build Instructions</a>
+</li>
+                            
+<li >
+    <a href="../running-tests/">Running Tests</a>
+</li>
+                            
+<li >
+    <a href="../test-tracker/">Tracking Results</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Creating Tests</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../writing-tests/">Writing Tests</a>
+</li>
+            
+<li >
+    <a href="../json/single-file-tests/">JSON - Single File Tests</a>
+</li>
+            
+<li >
+    <a href="../json/test-suites/">JSON - Test Suites</a>
+</li>
+    </ul>
+  </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTPPY <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../rtppy/introduction/">Introduction</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Running Tests</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../rtppy/executing-tests/">Executing</a>
+</li>
+            
+<li >
+    <a href="../../rtppy/execute-jenkins/">Execute via Jenkins</a>
+</li>
+            
+<li >
+    <a href="../../rtppy/execute-intellij/">Execute via Intellij</a>
+</li>
+            
+<li >
+    <a href="../../rtppy/command-line-options/">Command Line Options</a>
+</li>
+            
+<li >
+    <a href="../../rtppy/json-parameters/">JSON Parameters</a>
+</li>
+            
+<li >
+    <a href="../../rtppy/creating-tests/">Creating Tests</a>
+</li>
+            
+<li >
+    <a href="../../rtppy/jenkins-output/">Viewing Output on Jenkins</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">Test Types</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../rtppy/interval-compare/">Interval Compare</a>
+</li>
+            
+<li >
+    <a href="../../rtppy/aggregate-compare/">Aggregate Compare</a>
+</li>
+            
+<li >
+    <a href="../../rtppy/start-collection/">Start/Stop Collection</a>
+</li>
+            
+<li >
+    <a href="../../rtppy/rtptest/">RTP Test Suite App</a>
+</li>
+            
+<li >
+    <a href="../../rtppy/abend-restart/">Abend Restart</a>
+</li>
+            
+<li >
+    <a href="../../rtppy/rtpj-exec/">Distributed SQL</a>
+</li>
+            
+<li >
+    <a href="../../rtppy/lock-release/">Lock Release</a>
+</li>
+            
+<li >
+    <a href="../../rtppy/sql-text/">SQL Text</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                            
+<li >
+    <a href="../../rtppy/automation_architecture/">Architecture and Design</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../help/environment-variables/">Environment Variables</a>
+</li>
+                            
+<li >
+    <a href="../../help/using-git/">Using Git/GitHub</a>
+</li>
+                            
+<li >
+    <a href="../../help/create-issue/">Creating a GitHug Issue</a>
+</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="../../getting-started/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../running-tests/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#build-instructions">Build Instructions</a></li>
+            <li><a href="#step-1-db2-for-zos-jdbc-drivers">Step 1: DB2 for z/OS JDBC Drivers</a></li>
+            <li><a href="#step-2-set-os-environment-variables">Step 2: Set OS environment variables</a></li>
+            <li><a href="#step-3-set-intellij-environment-variables">Step 3: Set Intellij environment variables</a></li>
+            <li><a href="#step-4-build-the-jar-file">Step 4: Build the Jar file</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="build-instructions">Build Instructions</h1>
+<h4 id="step-1-db2-for-zos-jdbc-drivers">Step 1: DB2 for z/OS JDBC Drivers</h4>
+<p>In order to build the <strong>rtpj-1.0-SNAPSHOT.jar</strong>, the following DB2 JDBC drivers must be present on the target
+system.  If you do not have these drivers they are available with the free version of IBM Data Studio.</p>
+<pre><code>db2jcc_license_cisuz.jar
+db2jcc4.jar
+</code></pre>
+<p>The drivers are also hosted on CA11 in the following USS directory:
+/u/users/db2mf20/jdbc</p>
+<p>Once you have downloaded or located the .jar files, copy both files to a new folder or directory.  The exact location
+does not matter only that they are the only two files located there. Take note of the chosen location as an environment
+variable will be created using that path in the next step.</p>
+<h4 id="step-2-set-os-environment-variables">Step 2: Set OS environment variables</h4>
+<p>Set the following environment variables.  See <a href="../../help/environment-variables/">How to set Environment Variables</a> for
+additional help.</p>
+<p>1.) JDBC_DRIVERS=<code>[path to the above JDBC driver .jar files]</code></p>
+<p><strong><em>Important!: The directory of the <strong>JDBC_DRIVERS cannot</strong> have the type-2 <code>db2jcc.jar</code> file present in the directory or rtpj will fail to run properly.</em></strong></p>
+<p>2.) RTP_HOME=<code>[path to the RTP project directory]</code></p>
+<p>3.) MAVEN_HOME=<code>[path to the maven directory]</code>  Intellij includes a copy of Maven, the path should be similar to:</p>
+<pre><code>C:\Program Files (x86)\JetBrains\IntelliJ IDEA 2016.1\plugins\maven\lib\maven3
+</code></pre>
+<p>4.) Modify the System <code>PATH=</code> variable to include the path to the Maven \bin directory.  This should be similar to:</p>
+<pre><code>C:\Program Files (x86)\JetBrains\IntelliJ IDEA 2016.1\plugins\maven\lib\maven3\bin
+</code></pre>
+<p>5.) JAVA_HOME= <code>[path to the jdk 1.7/1.8]</code> <strong><em>i.e. (C:\Program Files\Java\jdk1.8.0_74)</em></strong></p>
+<p>6.) Validate the Maven and Java settings by issuing the following commands from OS command prompt:</p>
+<p>Test Java Version: <code>java -version</code>
+The output should be similar to:</p>
+<pre><code>java version "1.8.0_91"
+Java(TM) SE Runtime Environment (build 1.8.0_91-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 25.91-b14, mixed mode)
+</code></pre>
+<p>Test Maven Version: <code>mvn -version</code>
+The output should be similar to:</p>
+<pre><code>Apache Maven 3.0.4 (r1232337; 2012-01-17 02:44:56-0600)
+Maven home: C:\Maven\apache-maven-3.0.4\bin\..
+Java version: 1.7.0_03, vendor: Oracle Corporation
+Java home: C:\Program Files\Java\jdk1.7.0_03\jre
+Default locale: en_US, platform encoding: Cp1252
+OS name: "windows 7", version: "6.1", arch: "amd64", family: "windows"
+</code></pre>
+<h4 id="step-3-set-intellij-environment-variables">Step 3: Set Intellij environment variables</h4>
+<p>1.) Go to File -&gt; Settings.</p>
+<p>2.) In the search window type: Path Variables.</p>
+<p>3.) Click the green "+" on the far right to add a new Path Variable to Intellij.</p>
+<p>4.) Add a new variable named JDBC_DRIVERS, and set the value to the path of the DB2 for z/OS JDBC drivers.</p>
+<p><img alt="Step 1" src="../../images/intellij-setup/path_variables.PNG" /></p>
+<h4 id="step-4-build-the-jar-file">Step 4: Build the Jar file</h4>
+<p>1.) Navigate to the <strong>/RTP/rtpj</strong> project directory.</p>
+<p>2.) Execute the maven command from the OS command prompt:</p>
+<pre><code>mvn clean package
+</code></pre>
+<p>3.) After a successful build, the jar file will be located here: <code>/RTP/rtpj/target/rtpj-1.0-SNAPSHOT.jar</code></p>
+<p>See <a href="../running-tests/">Running Tests</a> for steps on executing tests.</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '../..';</script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&larr;</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&rarr;</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </body>
+</html>
