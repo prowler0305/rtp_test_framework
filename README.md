@@ -1,7 +1,7 @@
 # Test Automation Framework Project
 This repository contains the project source for the Python based test automation framework (rtppy) that I designed and implemented and serves as an example of my knowledge and skills as a software engineer.
 
-You can view documentation that explains the high level architecture [here](https://prowler0305.github.io/andrew-spear-personal/rtppy/automation_architecture/)
+You can view documentation that explains the high level architecture [here](https://prowler0305.github.io/rtp_test_framework/rtppy/automation_architecture/)
 
 The code is located in the rtppy directory and from there is organized as follows.
 
